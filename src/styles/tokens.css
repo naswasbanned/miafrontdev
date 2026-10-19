@@ -1,0 +1,161 @@
+/* =========================================================
+   Panduan SPMB Ramah — Design Tokens
+   Sumber tunggal semua nilai visual. Komponen hanya boleh
+   memakai var(--*) dari file ini.
+   Catatan: media query tidak bisa memakai var(); breakpoint
+   didokumentasikan di sini dan di DESIGN-GUIDE.md:
+     --bp-tablet: 600px   --bp-desktop: 1024px   --bp-wide: 1440px
+   ========================================================= */
+
+:root {
+  /* ---------- Color: brand ---------- */
+  --color-primary: #1f4e8c;          /* aksi utama, link, fokus */
+  --color-primary-hover: #1a4479;
+  --color-primary-active: #173b6b;   /* pressed */
+  --color-primary-deep: #00376f;     /* heading aksen, teks di atas tint */
+  --color-primary-tint: #e8eff8;     /* hover lembut, latar terpilih */
+  --color-primary-subtle: #d6e3ff;   /* latar ikon, highlight */
+  --color-on-primary: #ffffff;
+
+  --color-secondary: #3f5f91;        /* aksen pendukung, ikon info sekunder */
+  --color-secondary-subtle: #a5c5fd;
+  --color-on-secondary: #ffffff;
+
+  /* ---------- Color: neutral ---------- */
+  --color-canvas: #fafaf7;           /* latar halaman (ivory) */
+  --color-surface: #ffffff;          /* kartu, form, modul */
+  --color-surface-muted: #f4f4f1;
+  --color-surface-sunken: #eeeeeb;   /* footer, area sekunder */
+  --color-surface-inverse: #2f312f;
+  --color-on-inverse: #f1f1ee;
+
+  --color-text: #1c1c1e;             /* 16.27:1 di canvas */
+  --color-text-secondary: #52525b;   /* 7.39:1 di canvas */
+  --color-text-on-tint: #00376f;
+
+  --color-border-subtle: #d4d4d8;    /* pembatas kartu/struktur (dekoratif) */
+  --color-border-control: #8a8a93;   /* batas input/kontrol, 3.42:1 (WCAG 1.4.11) */
+  --color-border-strong: #737781;
+
+  /* ---------- Color: semantic / status ---------- */
+  /* Aman = success */
+  --color-success-text: #18703a;     /* 5.41:1 di bg; moodboard #1B7F3B = 4.46 (gagal AA) */
+  --color-success-bg: #e6f4ea;
+  /* Bersaing = warning */
+  --color-warning-text: #b45309;     /* 4.51:1 */
+  --color-warning-bg: #fef3c7;
+  /* Berisiko = danger / error */
+  --color-danger-text: #b91c1c;      /* 5.51:1 */
+  --color-danger-bg: #fde8e8;
+  /* Info */
+  --color-info-text: #1d4ed8;        /* 5.81:1 */
+  --color-info-bg: #e8effd;
+
+  --color-overlay: rgba(28, 28, 30, 0.4);
+
+  /* ---------- Typography ---------- */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --text-caption: 0.9375rem;         /* 15px — batas bawah mutlak */
+  --text-body-md: 1rem;              /* 16px */
+  --text-body-lg: 1.125rem;          /* 18px — default baca */
+  --text-heading-sm: 1.25rem;        /* 20px */
+  --text-heading-md: 1.5rem;         /* 24px */
+  --text-heading-lg-mobile: 1.625rem;/* 26px */
+  --text-heading-lg: 2rem;           /* 32px */
+
+  --leading: 1.5;                    /* semua gaya teks */
+
+  --weight-regular: 400;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  --tracking-normal: 0;
+  --tracking-tight: -0.01em;         /* hanya heading-lg */
+
+  --measure: 65ch;                   /* panjang baris prosa maks */
+
+  /* ---------- Spacing (base 4px) ---------- */
+  --space-1: 0.25rem;  /* 4  */
+  --space-2: 0.5rem;   /* 8  — xs */
+  --space-3: 0.75rem;  /* 12 — sm, jarak antar aksi bertumpuk */
+  --space-4: 1rem;     /* 16 — md */
+  --space-5: 1.25rem;  /* 20 */
+  --space-6: 1.5rem;   /* 24 — lg */
+  --space-8: 2rem;     /* 32 — xl */
+  --space-10: 2.5rem;  /* 40 */
+  --space-12: 3rem;    /* 48 */
+  --space-16: 4rem;    /* 64 */
+  --space-20: 5rem;    /* 80 */
+
+  /* ---------- Layout ---------- */
+  --container-max: 75rem;            /* 1200px */
+  --container-reading: 40rem;        /* 640px — wizard/form */
+  --page-margin: 1rem;               /* mobile */
+  --page-margin-tablet: 1.5rem;
+  --page-margin-desktop: 2.5rem;
+  --gutter: 1rem;
+  --gutter-desktop: 1.5rem;
+  --section-space: 3rem;
+  --section-space-desktop: 5rem;
+
+  /* ---------- Sizing ---------- */
+  --tap-min: 3rem;                   /* 48px target sentuh minimum */
+  --button-height: 3.5rem;           /* 56px */
+  --button-height-sm: 3rem;          /* 48px */
+  --input-height: 3.25rem;           /* 52px */
+  --choice-min-height: 3.5rem;       /* 56px */
+  --navbar-height: 4rem;             /* 64px */
+  --bottom-nav-height: 4rem;
+  --icon-sm: 1.25rem;                /* 20px */
+  --icon-md: 1.5rem;                 /* 24px */
+  --icon-lg: 2rem;                   /* 32px */
+  --icon-stroke: 2;
+  --progress-height: 0.375rem;       /* 6px */
+  --dialog-max: 35rem;               /* 560px */
+  --tooltip-max: 18rem;
+  --toast-max: 26rem;
+  --table-min: 36rem;
+  --sidebar-width: 16rem;
+  --toggle-width: 3.25rem;
+  --toggle-height: 2rem;
+
+  /* ---------- Shape ---------- */
+  --radius-sm: 0.25rem;   /* 4  */
+  --radius-md: 0.5rem;    /* 8  */
+  --radius-lg: 0.75rem;   /* 12 — dasar: kartu, field, tombol */
+  --radius-xl: 1rem;      /* 16 */
+  --radius-2xl: 1.5rem;   /* 24 — bottom sheet */
+  --radius-full: 9999px;  /* badge, chip */
+
+  --border-thin: 1px;
+  --border-medium: 1.5px;
+  --border-thick: 2px;
+
+  /* ---------- Elevation ---------- */
+  --shadow-none: none;
+  --shadow-sm: 0 2px 8px rgba(28, 28, 30, 0.06);   /* sheet, sticky footer, toast */
+  --shadow-overlay: 0 8px 32px rgba(28, 28, 30, 0.12); /* dialog */
+
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --focus-ring-color: var(--color-primary);
+
+  /* ---------- Motion (dipakai mulai fase 5) ---------- */
+  --duration-instant: 0ms;
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 300ms;
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ---------- Z-index ---------- */
+  --z-base: 0;
+  --z-sticky: 100;
+  --z-nav: 200;
+  --z-overlay: 300;
+  --z-dialog: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+}

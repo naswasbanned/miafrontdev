@@ -1,0 +1,62 @@
+/* Badge — pill status (selalu ikon + teks) & tag netral. Tanpa huruf kapital semua. */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: var(--space-8);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading);
+  white-space: nowrap;
+}
+
+.badge__icon {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+}
+
+.badge--aman {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.badge--bersaing {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.badge--berisiko {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+
+.badge--info {
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+}
+
+.badge--neutral {
+  background: var(--color-surface);
+  border: var(--border-thin) solid var(--color-border-control);
+  color: var(--color-text);
+}
+
+.badge--brand {
+  background: var(--color-primary-tint);
+  color: var(--color-primary-deep);
+}
+
+/* Ukuran besar untuk ringkasan hasil */
+.badge--lg {
+  min-height: var(--space-10);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-body-md);
+}
+
+.badge--lg .badge__icon {
+  width: var(--icon-md);
+  height: var(--icon-md);
+}

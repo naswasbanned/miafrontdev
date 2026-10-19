@@ -1,0 +1,84 @@
+/* School strategy card — nama, badge status kanan atas, metadata, alasan, CTA sekunder */
+
+.school-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: var(--border-thin) solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.school-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.school-card__name {
+  font-size: var(--text-heading-sm);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading);
+}
+
+.school-card__type {
+  display: block;
+  color: var(--color-text-secondary);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-regular);
+}
+
+.school-card__badge {
+  flex-shrink: 0;
+}
+
+.school-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  padding: 0;
+  list-style: none;
+  color: var(--color-text-secondary);
+  font-size: var(--text-body-md);
+}
+
+.school-card__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.school-card__reason {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  font-size: var(--text-body-md);
+}
+
+.school-card__facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.school-card__fact-label {
+  color: var(--color-text-secondary);
+  font-size: var(--text-caption);
+}
+
+.school-card__fact-value {
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
+}
+
+.school-card__action {
+  margin-top: var(--space-1);
+}
+
+@media (min-width: 600px) {
+  .school-card {
+    padding: var(--space-6);
+  }
+}

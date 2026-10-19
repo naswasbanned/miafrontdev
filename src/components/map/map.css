@@ -1,0 +1,140 @@
+/* Map — placeholder peta statis (baru di fase 3). Peta asli dipasang saat implementasi.
+   Posisi lewat custom property: --x --y (pin/zona), --w --h (zona/jalan). */
+
+.map {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: var(--border-thin) solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface-muted);
+  background-image:
+    linear-gradient(var(--color-border-subtle) var(--border-thin), transparent var(--border-thin)),
+    linear-gradient(90deg, var(--color-border-subtle) var(--border-thin), transparent var(--border-thin));
+  background-size: var(--space-12) var(--space-12);
+}
+
+.map--square {
+  aspect-ratio: 1;
+}
+
+.map__road {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--w);
+  height: var(--h);
+  border: var(--border-thin) solid var(--color-border-subtle);
+  background: var(--color-surface);
+}
+
+/* Pin sekolah: ikon status + warna, target sentuh 48px. Teks ada di legenda dan daftar. */
+.map__pin {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  padding: 0;
+  transform: translate(-50%, -100%);
+  border: var(--border-thick) solid currentColor;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+}
+
+.map__pin--aman {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.map__pin--bersaing {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.map__pin--berisiko {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+
+.map__pin:hover {
+  background: var(--color-surface);
+}
+
+.map__home {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  transform: translate(-50%, -100%);
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+}
+
+/* Zona wilayah (koroplet): nama + nilai selalu tertulis */
+.map__zone {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-1);
+  width: var(--w);
+  height: var(--h);
+  padding: var(--space-2);
+  overflow: hidden;
+  border: var(--border-thick) solid currentColor;
+  border-radius: var(--radius-md);
+  font-size: var(--text-caption);
+  line-height: var(--leading);
+}
+
+.map__zone strong {
+  font-weight: var(--weight-semibold);
+}
+
+.map__zone--cukup {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.map__zone--terbatas {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.map__zone--kurang {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+
+.map__zone--blank {
+  border-style: dashed;
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 1024px) {
+  .map--square {
+    aspect-ratio: 16 / 10;
+  }
+}

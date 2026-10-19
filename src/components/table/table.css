@@ -1,0 +1,60 @@
+/* Table — baru di fase 3. Dibungkus .table-wrap agar bisa digeser di HP tanpa melebarkan halaman. */
+
+.table-wrap {
+  overflow-x: auto;
+  border: var(--border-thin) solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.table {
+  width: 100%;
+  min-width: var(--table-min);
+  border-collapse: collapse;
+  font-size: var(--text-body-md);
+}
+
+.table th,
+.table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-thin) solid var(--color-border-subtle);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table thead th {
+  background: var(--color-surface-muted);
+  font-size: var(--text-caption);
+  font-weight: var(--weight-semibold);
+  white-space: nowrap;
+}
+
+.table tbody th {
+  font-weight: var(--weight-semibold);
+}
+
+.table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.table tbody tr:hover {
+  background: var(--color-primary-tint);
+}
+
+.table__num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.table__actions {
+  white-space: nowrap;
+  text-align: right;
+}
+
+.table--compact {
+  min-width: 0;
+}
+
+.table__muted {
+  color: var(--color-text-secondary);
+}

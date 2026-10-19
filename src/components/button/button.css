@@ -1,0 +1,144 @@
+/* Button — primary / secondary / ghost, ukuran default (56px) & sm (48px) */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--button-height);
+  min-width: var(--tap-min);
+  padding: var(--space-3) var(--space-6);
+  border: var(--border-medium) solid transparent;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Primary */
+.button--primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.button--primary:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+
+.button--primary:active {
+  background: var(--color-primary-active);
+  border-color: var(--color-primary-active);
+}
+
+/* Secondary */
+.button--secondary {
+  background: var(--color-surface);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.button--secondary:hover {
+  background: var(--color-primary-tint);
+}
+
+.button--secondary:active {
+  background: var(--color-primary-subtle);
+  border-color: var(--color-primary-active);
+  color: var(--color-primary-active);
+}
+
+/* Ghost */
+.button--ghost {
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.button--ghost:hover {
+  background: var(--color-primary-tint);
+}
+
+.button--ghost:active {
+  background: var(--color-primary-subtle);
+  color: var(--color-primary-active);
+}
+
+/* Ukuran */
+.button--sm {
+  min-height: var(--button-height-sm);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-body-md);
+}
+
+.button--block {
+  display: flex;
+  width: 100%;
+}
+
+/* Hanya ikon — wajib aria-label */
+.button--icon {
+  width: var(--tap-min);
+  min-height: var(--tap-min);
+  padding: 0;
+}
+
+.button__icon {
+  width: var(--icon-md);
+  height: var(--icon-md);
+}
+
+/* Disabled */
+.button:disabled,
+.button[aria-disabled="true"] {
+  background: var(--color-surface-sunken);
+  border-color: var(--color-border-subtle);
+  color: var(--color-text-secondary);
+  cursor: not-allowed;
+}
+
+.button--ghost:disabled,
+.button--ghost[aria-disabled="true"] {
+  background: transparent;
+  border-color: transparent;
+}
+
+/* Loading — teks tetap terlihat, tanpa animasi (gerak diusulkan di fase 5) */
+.button--loading {
+  cursor: progress;
+}
+
+.button__spinner {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  border: var(--border-thick) solid currentColor;
+  border-right-color: transparent;
+  border-radius: var(--radius-full);
+}
+
+/* Grup tombol bertumpuk: jarak minimal 12px */
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+@media (min-width: 600px) {
+  .button-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

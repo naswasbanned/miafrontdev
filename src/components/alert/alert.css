@@ -1,0 +1,56 @@
+/* Alert — callout inline. Varian: info, success (aman), warning (bersaing), danger (berisiko). */
+
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: var(--border-thin) solid currentColor;
+  border-left-width: var(--space-1);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-body-md);
+}
+
+.alert__icon {
+  flex-shrink: 0;
+}
+
+.alert__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.alert__title {
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-semibold);
+}
+
+.alert__text {
+  color: var(--color-text);
+}
+
+.alert__action {
+  margin-top: var(--space-2);
+}
+
+.alert--info {
+  background: var(--color-info-bg);
+  color: var(--color-info-text);
+}
+
+.alert--success {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.alert--warning {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.alert--danger {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}

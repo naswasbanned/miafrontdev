@@ -1,0 +1,31 @@
+// Urutan CSS sama dengan baseline (tokens, base, komponen, halaman). Urutan penting: beberapa
+// aturan komponen berbagi spesifisitas yang sama dan bergantung pada urutan ini.
+import "./tokens.css";
+import "./base.css";
+import "../components/button/button.css";
+import "../components/badge/badge.css";
+import "../components/link/link.css";
+import "../components/navbar/navbar.css";
+import "../components/bottom-nav/bottom-nav.css";
+import "../components/footer/footer.css";
+import "../components/hero/hero.css";
+import "../components/section-heading/section-heading.css";
+import "../components/card/card.css";
+import "../components/school-card/school-card.css";
+import "../components/stats/stats.css";
+import "../components/stepper/stepper.css";
+import "../components/field/field.css";
+import "../components/choice/choice.css";
+import "../components/toggle/toggle.css";
+import "../components/dialog/dialog.css";
+import "../components/accordion/accordion.css";
+import "../components/tabs/tabs.css";
+import "../components/alert/alert.css";
+import "../components/toast/toast.css";
+import "../components/breadcrumb/breadcrumb.css";
+import "../components/pagination/pagination.css";
+import "../components/map/map.css";
+import "../components/table/table.css";
+import "../components/sidebar/sidebar.css";
+import "../components/upload/upload.css";
+import "./pages.css";
