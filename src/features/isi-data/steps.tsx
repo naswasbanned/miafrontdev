@@ -34,7 +34,7 @@ export const STEPS: Step[] = [
   },
   {
     title: "Kondisi keluarga",
-    desc: "Informasi ini menentukan apakah anak bisa memakai Jalur Afirmasi.",
+    desc: "Informasi ini menentukan apakah anak bisa memakai Jalur keluarga kurang mampu (Afirmasi).",
     Body: KondisiKeluarga,
     Dialogs: KondisiKeluargaDialogs,
   },

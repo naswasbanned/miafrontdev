@@ -3,8 +3,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  padding: var(--space-4);
+  gap: var(--space-4);
+  padding: var(--space-5);
   border: var(--border-thin) solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
@@ -25,14 +25,24 @@
 .card__title {
   font-size: var(--text-heading-sm);
   font-weight: var(--weight-semibold);
-  line-height: var(--leading);
+  line-height: var(--leading-heading);
 }
 
 .card__text {
-  color: var(--color-text-secondary);
-  font-size: var(--text-body-md);
+  max-width: none; /* kotak kartu sudah menentukan lebar baca */
+  color: var(--color-text);
+  font-size: var(--text-body-lg);
 }
 
+/* Himbauan "cocok bila" di footer kartu jalur: lebih kecil, biru gelap, dipisah garis tipis. */
+.card__cocok {
+  max-width: none;
+  padding-top: var(--space-4);
+  border-top: var(--border-thin) solid var(--color-border-subtle);
+  color: var(--color-primary-deep);
+  font-size: var(--text-body-md);
+  font-weight: var(--weight-semibold);
+}
 .card__meta {
   display: flex;
   flex-wrap: wrap;
@@ -43,8 +53,8 @@
 }
 
 .card__footer {
-  margin-top: auto;
-  padding-top: var(--space-2);
+  margin-top: auto; /* footer sejajar di dasar kartu walau isi beda panjang */
+  padding-top: var(--space-4);
 }
 
 /* Media placeholder (blok warna + SVG sederhana) */
@@ -53,7 +63,7 @@
   align-items: center;
   justify-content: center;
   aspect-ratio: 16 / 9;
-  margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-4)) 0;
+  margin: calc(-1 * var(--space-5)) calc(-1 * var(--space-5)) 0;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   background: var(--color-primary-tint);
   color: var(--color-secondary);
@@ -113,16 +123,16 @@
 /* Grid kartu */
 .card-grid {
   display: grid;
-  gap: var(--gutter);
+  gap: var(--space-6);
 }
 
 @media (min-width: 600px) {
   .card {
-    padding: var(--space-6);
+    padding: var(--space-8);
   }
 
   .card__media {
-    margin: calc(-1 * var(--space-6)) calc(-1 * var(--space-6)) 0;
+    margin: calc(-1 * var(--space-8)) calc(-1 * var(--space-8)) 0;
   }
 
   .card-grid {
@@ -132,7 +142,7 @@
 
 @media (min-width: 1024px) {
   .card-grid {
-    gap: var(--gutter-desktop);
+    gap: var(--space-8);
   }
 
   .card-grid--3 {

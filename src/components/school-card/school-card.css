@@ -20,7 +20,7 @@
 .school-card__name {
   font-size: var(--text-heading-sm);
   font-weight: var(--weight-semibold);
-  line-height: var(--leading);
+  line-height: var(--leading-heading);
 }
 
 .school-card__type {

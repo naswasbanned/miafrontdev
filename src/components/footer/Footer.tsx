@@ -29,30 +29,24 @@ const COLUMNS = [
   },
 ];
 
+/** Footer seimbang: merek di tengah, tiga kolom tautan merata, catatan resmi, lalu baris hak cipta. */
 export function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer__grid">
-          <div>
-            <span className="footer__brand">
-              <span className="footer__logo" aria-hidden="true">
-                <Icon name="logo" />
-              </span>
-              Panduan SPMB
+        <div className="footer__top">
+          <span className="footer__brand">
+            <span className="footer__logo" aria-hidden="true">
+              <Icon name="logo" />
             </span>
-            <p className="footer__about">
-              Membantu orang tua memahami SPMB SMA/SMK Negeri dengan bahasa yang
-              mudah dan data yang jujur.
-            </p>
-            <p className="footer__notice">
-              <Icon name="info" className="icon icon--sm" />
-              <span>
-                Bukan aplikasi resmi pendaftaran. Pendaftaran tetap lewat situs
-                SPMB resmi dan hasil di sini hanya perkiraan.
-              </span>
-            </p>
-          </div>
+            Panduan SPMB
+          </span>
+          <p className="footer__about">
+            Membantu orang tua memahami SPMB SMA/SMK Negeri dengan bahasa yang
+            mudah dan data yang jujur.
+          </p>
+        </div>
+        <div className="footer__grid">
           {COLUMNS.map((c) => (
             <nav key={c.id} aria-labelledby={c.id}>
               <h2 className="footer__heading" id={c.id}>
@@ -70,6 +64,13 @@ export function Footer() {
             </nav>
           ))}
         </div>
+        <p className="footer__notice">
+          <Icon name="info" className="icon icon--sm" />
+          <span>
+            Bukan aplikasi resmi pendaftaran. Pendaftaran tetap lewat situs SPMB
+            resmi dan hasil di sini hanya perkiraan.
+          </span>
+        </p>
         <div className="footer__bottom">
           <span>© 2026 Panduan SPMB</span>
           <span>Data contoh untuk prototipe desain</span>

@@ -25,8 +25,8 @@ export default function PanduanPage() {
     <Container>
       <Breadcrumb items={[["Beranda", "/"], ["Panduan SPMB"]]} />
       <PageHeader
-        title="Panduan SPMB"
-        desc="Penjelasan jalur dan istilah dengan bahasa sehari-hari."
+        title="Panduan SPMB (dulu PPDB)"
+        desc="SPMB adalah pendaftaran sekolah negeri. Di sini jalur dan istilahnya dijelaskan dengan bahasa sehari-hari."
       />
       <Section id="jalur">
         <SectionHeading
@@ -41,11 +41,8 @@ export default function PanduanPage() {
               icon={j.icon}
               text={j.desc}
               id={j.id}
-            >
-              <p className="card__text">
-                <strong>{j.cocok}</strong>
-              </p>
-            </Card>
+              footer={<p className="card__cocok">{j.cocok}</p>}
+            />
           ))}
         </div>
       </Section>
@@ -81,8 +78,9 @@ export default function PanduanPage() {
               aturan tahun berjalan.
             </li>
             <li>
-              <strong>Hitung skor anak.</strong> Jarak untuk domisili, nilai
-              untuk prestasi, kriteria keluarga untuk afirmasi.
+              <strong>Hitung skor anak.</strong> Jarak rumah untuk jalur dekat
+              rumah, nilai untuk jalur nilai dan prestasi, kriteria keluarga
+              untuk jalur keluarga kurang mampu.
             </li>
             <li>
               <strong>Bandingkan dengan tahun lalu.</strong> Kami lihat posisi

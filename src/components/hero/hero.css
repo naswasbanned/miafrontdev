@@ -1,7 +1,13 @@
 /* Hero — satu kolom di mobile, dua kolom >= 1024px. Visual = pratinjau hasil (bukan foto stok). */
 
 .hero {
-  padding-block: var(--space-10) var(--space-12);
+  display: flex;
+  align-items: center;
+  min-height: 100vh; /* hero memenuhi satu layar: satu pesan, tanpa teks lain terlihat */
+  padding-block: var(--space-10);
+}
+.hero > .container {
+  width: 100%;
 }
 
 .hero__grid {
@@ -111,6 +117,10 @@
 }
 
 @media (min-width: 1024px) {
+  .hero__title {
+    font-size: var(--text-display);
+  }
+
   .hero {
     padding-block: var(--space-20);
   }

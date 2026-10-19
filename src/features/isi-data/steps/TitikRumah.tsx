@@ -111,7 +111,7 @@ export function TitikRumah() {
         placeholder="Contoh: Mekar Baru"
       />
       <Alert kind="info" title="Bila berbeda dengan titik rumah">
-        Jalur domisili bisa terpengaruh. Kami tetap menampilkan hasil dan
+        Jalur dekat rumah (Domisili) bisa terpengaruh. Kami tetap menampilkan hasil dan
         menjelaskan dampaknya, lalu menyarankan jalur lain bila perlu.
       </Alert>
       <ChoiceGroup legend="Persetujuan lokasi" errorName="setuju-lokasi">

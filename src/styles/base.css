@@ -73,22 +73,23 @@ h1,
 .text-heading-lg {
   font-size: var(--text-heading-lg-mobile);
   font-weight: var(--weight-bold);
-  line-height: var(--leading);
+  line-height: var(--leading-heading);
   letter-spacing: var(--tracking-tight);
 }
 
 h2,
 .text-heading-md {
   font-size: var(--text-heading-md);
-  font-weight: var(--weight-semibold);
-  line-height: var(--leading);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-tight);
 }
 
 h3,
 .text-heading-sm {
   font-size: var(--text-heading-sm);
   font-weight: var(--weight-semibold);
-  line-height: var(--leading);
+  line-height: var(--leading-heading);
 }
 
 h4,

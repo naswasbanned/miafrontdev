@@ -23,7 +23,7 @@
   color: var(--color-primary-deep);
   font-size: var(--text-heading-lg-mobile);
   font-weight: var(--weight-bold);
-  line-height: var(--leading);
+  line-height: var(--leading-heading);
   letter-spacing: var(--tracking-tight);
 }
 

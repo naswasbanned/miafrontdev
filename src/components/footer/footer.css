@@ -1,22 +1,25 @@
-/* Footer */
+/* Footer — seimbang di tengah: merek, tiga kolom tautan, catatan resmi, hak cipta */
 
 .footer {
   background: var(--color-surface-sunken);
   border-top: var(--border-thin) solid var(--color-border-subtle);
   color: var(--color-text);
   padding-block: var(--space-12) var(--space-8);
+  text-align: center;
 }
 
-.footer__grid {
-  display: grid;
-  gap: var(--space-8);
+.footer__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
 }
 
 .footer__brand {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  font-size: var(--text-body-lg);
+  font-size: var(--text-heading-sm);
   font-weight: var(--weight-bold);
 }
 
@@ -32,31 +35,27 @@
 }
 
 .footer__about {
-  margin-top: var(--space-3);
   color: var(--color-text-secondary);
   font-size: var(--text-body-md);
 }
 
-.footer__notice {
-  display: flex;
-  gap: var(--space-2);
-  margin-top: var(--space-4);
-  padding: var(--space-3) var(--space-4);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
-  border: var(--border-thin) solid var(--color-border-subtle);
-  font-size: var(--text-caption);
-  max-width: var(--measure);
+.footer__grid {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-10);
+  padding-top: var(--space-8);
+  border-top: var(--border-thin) solid var(--color-border-subtle);
 }
 
 .footer__heading {
-  font-size: var(--text-body-md);
-  font-weight: var(--weight-semibold);
   margin-bottom: var(--space-2);
+  font-size: var(--text-body-lg);
+  font-weight: var(--weight-bold);
 }
 
 .footer__list {
   display: grid;
+  justify-items: center;
   padding: 0;
   list-style: none;
 }
@@ -64,6 +63,7 @@
 .footer__link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: var(--tap-min);
   color: var(--color-text);
   font-size: var(--text-body-md);
@@ -77,11 +77,26 @@
   text-decoration-color: currentColor;
 }
 
+.footer__notice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  width: fit-content;
+  max-width: 100%;
+  margin: var(--space-8) auto 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: var(--border-thin) solid var(--color-border-subtle);
+  font-size: var(--text-caption);
+  text-align: left;
+}
+
 .footer__bottom {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
-  margin-top: var(--space-10);
+  margin-top: var(--space-8);
   padding-top: var(--space-6);
   border-top: var(--border-thin) solid var(--color-border-subtle);
   color: var(--color-text-secondary);
@@ -90,25 +105,11 @@
 
 @media (min-width: 600px) {
   .footer__grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .footer__grid > :first-child {
-    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .footer__bottom {
     flex-direction: row;
     justify-content: space-between;
-  }
-}
-
-@media (min-width: 1024px) {
-  .footer__grid {
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-  }
-
-  .footer__grid > :first-child {
-    grid-column: auto;
   }
 }

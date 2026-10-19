@@ -33,8 +33,8 @@ export default function AnakSayaPage() {
             meta={
               <>
                 <Badge kind="brand">Data lengkap</Badge>
-                <Badge kind="neutral">Domisili</Badge>
-                <Badge kind="neutral">Prestasi</Badge>
+                <Badge kind="neutral">Jalur dekat rumah (Domisili)</Badge>
+                <Badge kind="neutral">Jalur nilai dan prestasi (Prestasi)</Badge>
               </>
             }
             footer={
@@ -51,7 +51,7 @@ export default function AnakSayaPage() {
             }
           >
             <p className="card__text">
-              Jalur yang memenuhi syarat: Domisili dan Prestasi.
+              Jalur yang memenuhi syarat: Jalur dekat rumah (Domisili) dan Jalur nilai dan prestasi (Prestasi).
             </p>
           </Card>
           <Card

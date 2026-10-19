@@ -3,7 +3,7 @@ import { Choice, ChoiceGroup, Dialog, HelpLink } from "@/components";
 const BANTUAN = [
   ["kip", "KIP (Kartu Indonesia Pintar)"],
   ["pkh", "PKH (Program Keluarga Harapan)"],
-  ["dtks", "Terdaftar di DTKS"],
+  ["dtks", "Terdaftar di DTKS (Data Terpadu Kesejahteraan Sosial)"],
   ["lain", "Bantuan lainnya"],
 ];
 
@@ -11,7 +11,7 @@ export function KondisiKeluarga() {
   return (
     <>
       <ChoiceGroup
-        legend="Apakah keluarga termasuk kurang mampu (KETM)?"
+        legend="Apakah keluarga termasuk kurang mampu (KETM, Keluarga Ekonomi Tidak Mampu)?"
         hint={<HelpLink opens="dlg-ketm">Apa ini?</HelpLink>}
         errorName="ketm"
       >
@@ -54,14 +54,14 @@ export function KondisiKeluarga() {
       </ChoiceGroup>
       <ChoiceGroup
         legend="Kondisi anak"
-        hint={<HelpLink opens="dlg-afirmasi">Apa itu Afirmasi?</HelpLink>}
+        hint={<HelpLink opens="dlg-afirmasi">Apa itu Jalur keluarga kurang mampu (Afirmasi)?</HelpLink>}
       >
         <Choice
           type="checkbox"
           name="disabilitas"
           value="ya"
           title="Anak penyandang disabilitas"
-          desc="Kami cek syarat Jalur Afirmasi untuk disabilitas."
+          desc="Kami cek syarat Jalur keluarga kurang mampu (Afirmasi) untuk disabilitas."
         />
       </ChoiceGroup>
       <ChoiceGroup
@@ -93,7 +93,7 @@ export function KondisiKeluargaDialogs() {
         </p>
         <p>Bila belum yakin, tanyakan ke kantor kelurahan.</p>
       </Dialog>
-      <Dialog id="dlg-afirmasi" title="Apa itu Jalur Afirmasi?">
+      <Dialog id="dlg-afirmasi" title="Apa itu Jalur keluarga kurang mampu (Afirmasi)?">
         <p>
           Jalur khusus untuk siswa dari keluarga kurang mampu dan siswa
           penyandang disabilitas. Kuotanya terpisah dari jalur lain, jadi

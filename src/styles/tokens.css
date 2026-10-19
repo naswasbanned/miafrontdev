@@ -60,12 +60,14 @@
   --text-caption: 0.9375rem;         /* 15px — batas bawah mutlak */
   --text-body-md: 1rem;              /* 16px */
   --text-body-lg: 1.125rem;          /* 18px — default baca */
-  --text-heading-sm: 1.25rem;        /* 20px */
-  --text-heading-md: 1.5rem;         /* 24px */
-  --text-heading-lg-mobile: 1.625rem;/* 26px */
-  --text-heading-lg: 2rem;           /* 32px */
+  --text-heading-sm: 1.375rem;       /* 22px */
+  --text-heading-md: 1.75rem;        /* 28px */
+  --text-heading-lg-mobile: 2rem;    /* 32px */
+  --text-heading-lg: 2.5rem;         /* 40px */
+  --text-display: 3rem;              /* 48px — judul hero desktop */
 
-  --leading: 1.5;                    /* semua gaya teks */
+  --leading: 1.5;                    /* teks isi */
+  --leading-heading: 1.25;           /* heading: rapat agar menonjol dari teks isi */
 
   --weight-regular: 400;
   --weight-semibold: 600;
@@ -97,8 +99,8 @@
   --page-margin-desktop: 2.5rem;
   --gutter: 1rem;
   --gutter-desktop: 1.5rem;
-  --section-space: 3rem;
-  --section-space-desktop: 5rem;
+  --section-space: max(5rem, 14vh);  /* satu segmen = satu fokus; jarak mengikuti tinggi layar */
+  --section-space-desktop: max(7rem, 10vh);
 
   /* ---------- Sizing ---------- */
   --tap-min: 3rem;                   /* 48px target sentuh minimum */

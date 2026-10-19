@@ -33,7 +33,7 @@ export default function PetaSekolahPage() {
       <Container>
         <PageHeader
           title="Peta dan daftar sekolah"
-          desc="Hasil untuk Dimas Pratama · jalur Domisili dan Prestasi."
+          desc="Hasil untuk Dimas Pratama · Jalur dekat rumah (Domisili) dan Jalur nilai dan prestasi (Prestasi)."
           actions={
             <Button variant="secondary" sm href="/isi-data/1">
               Ubah Data
@@ -65,7 +65,7 @@ export default function PetaSekolahPage() {
               <Select
                 id="f-jalur"
                 label="Jalur"
-                options={["Semua jalur", "Domisili", "Prestasi"]}
+                options={["Semua jalur", "Jalur dekat rumah (Domisili)", "Jalur nilai dan prestasi (Prestasi)"]}
               />
               <Select
                 id="f-jarak"
@@ -80,7 +80,7 @@ export default function PetaSekolahPage() {
               <Select
                 id="f-label"
                 label="Label"
-                options={["Semua label", "Aman", "Bersaing", "Berisiko"]}
+                options={["Semua label", "Peluang Besar", "Memungkinkan", "Peluang Kecil"]}
               />
             </Toolbar>
             {SCHOOLS.map((school) => (
@@ -89,7 +89,7 @@ export default function PetaSekolahPage() {
           </div>
         </div>
       </Container>
-      <Dialog id="dlg-label" title="Apa arti Aman, Bersaing, dan Berisiko?">
+      <Dialog id="dlg-label" title="Apa arti Peluang Besar, Memungkinkan, dan Peluang Kecil?">
         <p>
           <Badge kind="aman" /> Peluang besar berdasarkan data tahun lalu. Tetap
           daftar tepat waktu.

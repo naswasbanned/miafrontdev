@@ -15,6 +15,10 @@
   flex-shrink: 0;
 }
 
+.alert__body p {
+  max-width: none; /* teks mengisi seluruh kotak, tidak terpotong di tengah */
+}
+
 .alert__body {
   display: flex;
   flex-direction: column;

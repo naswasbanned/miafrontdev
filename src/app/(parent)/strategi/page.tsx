@@ -58,7 +58,7 @@ export default function StrategiPage() {
           items={[
             [
               "Kenapa kombinasi ini?",
-              "Satu pilihan ambisius memberi kesempatan ke sekolah yang diinginkan. Dua pilihan Aman menjaga agar Dimas tetap punya sekolah negeri bila pilihan pertama tidak berhasil.",
+              "Satu pilihan ambisius memberi kesempatan ke sekolah yang diinginkan. Dua pilihan berpeluang besar menjaga agar Dimas tetap punya sekolah negeri bila pilihan pertama tidak berhasil.",
             ],
           ]}
           openFirst
@@ -75,7 +75,7 @@ export default function StrategiPage() {
             head={["Jalur", "Peluang terbaik dan catatan"]}
             rows={[
               [
-                <>Domisili</>,
+                <>Jalur dekat rumah (Domisili)</>,
                 <>
                   <Badge kind="aman" /> 80–92%
                   <br />
@@ -86,7 +86,7 @@ export default function StrategiPage() {
                 </>,
               ],
               [
-                <>Prestasi</>,
+                <>Jalur nilai dan prestasi (Prestasi)</>,
                 <>
                   <Badge kind="bersaing" /> 45–60%
                   <br />

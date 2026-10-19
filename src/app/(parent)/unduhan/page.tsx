@@ -36,14 +36,14 @@ export default function UnduhanPage() {
             <h3 className="card__title">Ringkasan Strategi SPMB 2027/2028</h3>
             <p className="card__text">
               Dimas Pratama · Kel. Mekar Baru, Kec. Harapan Jaya · Jalur:
-              Domisili, Prestasi
+              Jalur dekat rumah (Domisili), Jalur nilai dan prestasi (Prestasi)
             </p>
             <Table
               caption="Urutan pilihan sekolah"
               head={["Urutan", "Sekolah", "Label"]}
               rows={strategySchools().map(({ school }, i) => [
                 String(i + 1),
-                `${shortName(school)} (${school.jalur.replace("Jalur ", "")})`,
+                `${shortName(school)} (${school.jalur})`,
                 <Badge key={school.id} kind={school.kind} />,
               ])}
               rowHead={false}
@@ -85,7 +85,7 @@ export default function UnduhanPage() {
           <div>
             <h2 className="text-heading-md">Checklist dokumen</h2>
             <p className="text-secondary">
-              Disesuaikan dengan jalur Domisili dan Prestasi. Centang yang sudah
+              Disesuaikan dengan Jalur dekat rumah (Domisili) dan Jalur nilai dan prestasi (Prestasi). Centang yang sudah
               siap.
             </p>
           </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
+  Alert,
   Button,
   ButtonGroup,
   Choice,
@@ -23,6 +24,29 @@ export function MasukFlow() {
         step === "kode" ? "#langkah-kode input" : "#langkah-hp input",
       )
       ?.focus();
+  }, [step]);
+
+  // Android Chrome: isi kode otomatis dari SMS, tanpa salin-tempel.
+  // shortcut: butuh SMS berformat "@domain #kode" dari backend; iOS sudah terisi lewat saran keyboard.
+  useEffect(() => {
+    if (step !== "kode" || !("OTPCredential" in window)) return;
+    const abort = new AbortController();
+    navigator.credentials
+      .get({
+        otp: { transport: ["sms"] },
+        signal: abort.signal,
+      } as CredentialRequestOptions)
+      .then((c) => {
+        const input = document.querySelector<HTMLInputElement>(
+          "#langkah-kode input",
+        );
+        const code = (c as unknown as { code?: string } | null)?.code;
+        if (!input || !code) return;
+        input.value = code;
+        input.form?.requestSubmit();
+      })
+      .catch(() => {});
+    return () => abort.abort();
   }, [step]);
 
   return (
@@ -68,9 +92,10 @@ export function MasukFlow() {
         hidden={step !== "kode"}
       >
         <h2 className="card__title">Masukkan kode</h2>
-        <p className="card__text">
-          Kode 6 angka sudah dikirim ke nomor Bapak/Ibu.
-        </p>
+        <Alert kind="info" title="Cek pesan WhatsApp atau SMS di HP Bapak/Ibu">
+          Kode 6 angka sudah dikirim. Salin kode itu, lalu tempel di kolom di
+          bawah.
+        </Alert>
         <Form next="/anak-saya">
           <Field
             id="kode"

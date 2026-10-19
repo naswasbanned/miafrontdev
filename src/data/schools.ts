@@ -46,19 +46,19 @@ const routes = (
   prestasi: [string, Kind],
 ): RouteChance[] => [
   {
-    jalur: "Domisili",
+    jalur: "Jalur dekat rumah (Domisili)",
     eligible: true,
     peluang: domisili[0],
     kind: domisili[1],
   },
   {
-    jalur: "Prestasi",
+    jalur: "Jalur nilai dan prestasi (Prestasi)",
     eligible: true,
     peluang: prestasi[0],
     kind: prestasi[1],
   },
-  { jalur: "Afirmasi", eligible: false },
-  { jalur: "Mutasi", eligible: false },
+  { jalur: "Jalur keluarga kurang mampu (Afirmasi)", eligible: false },
+  { jalur: "Jalur orang tua pindah tugas (Mutasi)", eligible: false },
 ];
 
 export const SCHOOLS: School[] = [
@@ -67,7 +67,7 @@ export const SCHOOLS: School[] = [
     name: "SMA Negeri 5 Sukamaju",
     kec: "Kec. Harapan Jaya",
     kind: "aman",
-    jalur: "Jalur Domisili",
+    jalur: "Jalur dekat rumah (Domisili)",
     range: "80–92%",
     facts: [
       ["Jarak rumah", "1,2 km"],
@@ -93,7 +93,7 @@ export const SCHOOLS: School[] = [
     name: "SMA Negeri 9 Sukamaju",
     kec: "Kec. Mekar Sari",
     kind: "aman",
-    jalur: "Jalur Domisili",
+    jalur: "Jalur dekat rumah (Domisili)",
     range: "75–88%",
     facts: [
       ["Jarak rumah", "2,0 km"],
@@ -119,7 +119,7 @@ export const SCHOOLS: School[] = [
     name: "SMA Negeri 2 Sukamaju",
     kec: "Kec. Sukamaju Utara",
     kind: "bersaing",
-    jalur: "Jalur Prestasi",
+    jalur: "Jalur nilai dan prestasi (Prestasi)",
     range: "45–60%",
     facts: [
       ["Nilai rata-rata Dimas", "86,4"],
@@ -145,7 +145,7 @@ export const SCHOOLS: School[] = [
     name: "SMA Negeri 1 Sukamaju",
     kec: "Kec. Sukamaju Utara",
     kind: "berisiko",
-    jalur: "Jalur Prestasi",
+    jalur: "Jalur nilai dan prestasi (Prestasi)",
     range: "15–30%",
     facts: [
       ["Nilai rata-rata Dimas", "86,4"],
@@ -171,7 +171,7 @@ export const SCHOOLS: School[] = [
     name: "SMA Negeri 7 Sukamaju",
     kec: "Kec. Tirta Indah",
     kind: "berisiko",
-    jalur: "Jalur Domisili",
+    jalur: "Jalur dekat rumah (Domisili)",
     range: "10–25%",
     facts: [
       ["Jarak rumah", "4,5 km"],
@@ -239,7 +239,7 @@ export const PRIVATE_SCHOOLS: PrivateSchool[] = [
     jarak: "2,9 km",
     spp: "± Rp 450.000",
     pangkal: "± Rp 3.000.000",
-    beasiswa: "Ada keringanan untuk KETM.",
+    beasiswa: "Ada keringanan untuk keluarga kurang mampu (KETM).",
   },
   {
     id: "cendekia-utama",

@@ -45,7 +45,7 @@ export default function KebijakanRingkasanPage() {
           ["Pengguna aktif", "12.480", "Data contoh, simulasi orang tua"],
           ["Total simulasi", "31.902", "Data contoh"],
           [
-            "Anak dengan minimal 1 pilihan Aman",
+            "Anak dengan minimal 1 pilihan Peluang Besar",
             "71%",
             "Dari simulasi yang selesai",
           ],

@@ -11,7 +11,7 @@ export const JALUR: Jalur[] = [
   {
     id: "domisili",
     icon: "map-pin",
-    title: "Domisili",
+    title: "Jalur dekat rumah (Domisili)",
     desc: "Berdasarkan dekatnya rumah dengan sekolah. Jarak dihitung dari titik rumah dan alamat di Kartu Keluarga.",
     cocok:
       "Cocok bila rumah dekat sekolah yang dituju dan nilai anak biasa saja.",
@@ -24,20 +24,20 @@ export const JALUR: Jalur[] = [
   {
     id: "afirmasi",
     icon: "shield",
-    title: "Afirmasi",
-    desc: "Untuk keluarga kurang mampu (KETM) atau penyandang disabilitas. Kuotanya terpisah dari jalur lain.",
+    title: "Jalur keluarga kurang mampu (Afirmasi)",
+    desc: "Untuk keluarga kurang mampu (disebut KETM, Keluarga Ekonomi Tidak Mampu) atau penyandang disabilitas. Kuotanya terpisah dari jalur lain.",
     cocok:
-      "Cocok bila keluarga menerima bantuan sosial seperti KIP, PKH, atau terdaftar di DTKS.",
+      "Cocok bila keluarga menerima bantuan sosial seperti KIP (Kartu Indonesia Pintar), PKH (Program Keluarga Harapan), atau terdaftar di DTKS (Data Terpadu Kesejahteraan Sosial).",
     docs: [
       "Kartu Keluarga dan akta kelahiran",
-      "Bukti bantuan: KIP, PKH, atau terdaftar di DTKS",
+      "Bukti bantuan: KIP (Kartu Indonesia Pintar), PKH (Program Keluarga Harapan), atau terdaftar di DTKS (Data Terpadu Kesejahteraan Sosial)",
       "Surat keterangan disabilitas bila ada",
     ],
   },
   {
     id: "prestasi",
     icon: "award",
-    title: "Prestasi",
+    title: "Jalur nilai dan prestasi (Prestasi)",
     desc: "Berdasarkan nilai rapor atau prestasi lomba tingkat kecamatan sampai nasional.",
     cocok: "Cocok bila nilai rapor tinggi atau anak punya juara lomba.",
     docs: [
@@ -49,7 +49,7 @@ export const JALUR: Jalur[] = [
   {
     id: "mutasi",
     icon: "briefcase",
-    title: "Mutasi",
+    title: "Jalur orang tua pindah tugas (Mutasi)",
     desc: "Untuk anak yang orang tuanya pindah tugas, atau anak guru di sekolah tujuan.",
     cocok:
       "Cocok bila ada surat penugasan atau surat keterangan dari instansi.",

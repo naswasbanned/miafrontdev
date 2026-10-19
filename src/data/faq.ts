@@ -6,6 +6,10 @@ export const FAQ_GROUPS: FaqGroup[] = [
     title: "Umum",
     items: [
       [
+        "Apa itu SPMB?",
+        "SPMB (Sistem Penerimaan Murid Baru) adalah nama resmi pendaftaran sekolah negeri. Dulu namanya PPDB. Artinya sama: pendaftaran anak masuk sekolah.",
+      ],
+      [
         "Apakah hasil di sini resmi?",
         "Tidak. Hasilnya perkiraan berdasarkan data tahun-tahun sebelumnya. Keputusan resmi hanya dari panitia SPMB. Pendaftaran tetap lewat situs SPMB resmi.",
       ],
@@ -40,8 +44,8 @@ export const FAQ_GROUPS: FaqGroup[] = [
     title: "Membaca hasil",
     items: [
       [
-        "Apa arti Aman, Bersaing, dan Berisiko?",
-        "Aman: peluang besar berdasarkan data tahun lalu. Bersaing: peluang seimbang, tergantung jumlah pendaftar tahun ini. Berisiko: peluang kecil, sebaiknya bukan satu-satunya pilihan.",
+        "Apa arti Peluang Besar, Memungkinkan, dan Peluang Kecil?",
+        "Peluang Besar: peluang besar berdasarkan data tahun lalu. Memungkinkan: peluang seimbang, tergantung jumlah pendaftar tahun ini. Peluang Kecil: peluang masih kecil, sebaiknya bukan satu-satunya pilihan.",
       ],
       [
         "Mengapa hasilnya berupa rentang, bukan angka pasti?",
@@ -49,7 +53,7 @@ export const FAQ_GROUPS: FaqGroup[] = [
       ],
       [
         "Bagaimana bila alamat di KK berbeda dengan rumah?",
-        "Kami tetap menampilkan hasil, menjelaskan dampaknya pada jalur domisili, lalu menyarankan jalur lain bila perlu.",
+        "Kami tetap menampilkan hasil, menjelaskan dampaknya pada jalur dekat rumah (Domisili), lalu menyarankan jalur lain bila perlu.",
       ],
       [
         "Bagaimana bila data tahun lalu kurang?",

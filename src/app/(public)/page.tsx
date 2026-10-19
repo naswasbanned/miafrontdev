@@ -34,14 +34,14 @@ export default function IndexPage() {
         <div className="container hero__grid">
           <div>
             <span className="badge badge--brand hero__eyebrow">
-              SPMB SMA/SMK Negeri 2027/2028
+              Pendaftaran SMA/SMK Negeri 2027/2028 (SPMB, dulu PPDB)
             </span>
             <h1 className="hero__title" id="judul">
               Cari tahu peluang anak Bapak/Ibu masuk SMA/SMK Negeri
             </h1>
             <p className="hero__lead">
-              Isi data anak, lihat sekolah mana yang aman, bersaing, atau
-              berisiko, lalu dapatkan strategi pilihan sekolah. Semua dijelaskan
+              Isi data anak, lihat sekolah mana yang peluangnya besar,
+              memungkinkan, atau kecil, lalu dapatkan strategi pilihan sekolah. Semua dijelaskan
               dengan bahasa sehari-hari.
             </p>
             <div className="button-group hero__actions">
@@ -67,7 +67,7 @@ export default function IndexPage() {
           <div className="hero__visual" aria-hidden="true">
             <div className="hero__preview">
               <p className="hero__preview-title">
-                Contoh hasil untuk Jalur Domisili
+                Contoh hasil untuk Jalur dekat rumah (Domisili)
               </p>
               {PREVIEW.map((s) => (
                 <div key={s.id} className="hero__preview-row">
@@ -101,7 +101,7 @@ export default function IndexPage() {
             <Card
               title="Lihat peluang"
               num={2}
-              text="Setiap sekolah diberi label Aman, Bersaing, atau Berisiko beserta alasannya."
+              text="Setiap sekolah diberi label Peluang Besar, Memungkinkan, atau Peluang Kecil beserta alasannya."
             />
             <Card
               title="Dapat strategi"
@@ -135,7 +135,7 @@ export default function IndexPage() {
         </Section>
         <Section>
           <Alert kind="info" title="Bukan aplikasi resmi pendaftaran">
-            Pendaftaran tetap dilakukan lewat situs SPMB resmi dinas pendidikan.
+            Pendaftaran tetap dilakukan lewat situs SPMB (PPDB) resmi dinas pendidikan.
             Aplikasi ini hanya membantu Bapak/Ibu memahami peluang dan menyusun
             strategi.
           </Alert>
