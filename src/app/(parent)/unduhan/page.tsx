@@ -33,7 +33,7 @@ export default function UnduhanPage() {
             </p>
           </div>
           <div className="paper">
-            <h3 className="card__title">Ringkasan Strategi SPMB 2027/2028</h3>
+            <h3 className="card__title">Ringkasan Strategi PPDB 2027/2028</h3>
             <p className="card__text">
               Dimas Pratama · Kel. Mekar Baru, Kec. Harapan Jaya · Jalur:
               Jalur dekat rumah (Domisili), Jalur nilai dan prestasi (Prestasi)
@@ -70,7 +70,7 @@ export default function UnduhanPage() {
             <Button
               variant="secondary"
               block
-              href="https://wa.me/?text=Ringkasan%20strategi%20SPMB"
+              href="https://wa.me/?text=Ringkasan%20strategi%20PPDB"
               iconLeft="share"
               newTab
             >

@@ -39,10 +39,10 @@ export function Footer() {
             <span className="footer__logo" aria-hidden="true">
               <Icon name="logo" />
             </span>
-            Panduan SPMB
+            SIPESEK
           </span>
           <p className="footer__about">
-            Membantu orang tua memahami SPMB SMA/SMK Negeri dengan bahasa yang
+            SIPESEK (Sistem Pendaftaran Sekolah) membantu orang tua memahami PPDB SMA/SMK Negeri dengan bahasa yang
             mudah dan data yang jujur.
           </p>
         </div>
@@ -67,12 +67,12 @@ export function Footer() {
         <p className="footer__notice">
           <Icon name="info" className="icon icon--sm" />
           <span>
-            Bukan aplikasi resmi pendaftaran. Pendaftaran tetap lewat situs SPMB
+            Bukan aplikasi resmi pendaftaran. Pendaftaran tetap lewat situs PPDB
             resmi dan hasil di sini hanya perkiraan.
           </span>
         </p>
         <div className="footer__bottom">
-          <span>© 2026 Panduan SPMB</span>
+          <span>© 2026 SIPESEK</span>
           <span>Data contoh untuk prototipe desain</span>
         </div>
       </div>

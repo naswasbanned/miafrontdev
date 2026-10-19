@@ -13,7 +13,7 @@ export function Brand({ href }: { href: string }) {
       <span className="navbar__logo" aria-hidden="true">
         <Icon name="logo" />
       </span>
-      <span>Panduan SPMB</span>
+      <span>SIPESEK</span>
     </Link>
   );
 }

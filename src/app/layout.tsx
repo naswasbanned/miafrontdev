@@ -5,7 +5,7 @@ import { Sprite } from "@/components/icon/Sprite";
 import { ToastProvider, ToastRegion } from "@/components/toast/Toast";
 
 export const metadata: Metadata = {
-  title: { template: "%s — Panduan SPMB", default: "Panduan SPMB" },
+  title: { template: "%s — SIPESEK", default: "SIPESEK — Sistem Pendaftaran Sekolah" },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

@@ -6,12 +6,8 @@ export const FAQ_GROUPS: FaqGroup[] = [
     title: "Umum",
     items: [
       [
-        "Apa itu SPMB?",
-        "SPMB (Sistem Penerimaan Murid Baru) adalah nama resmi pendaftaran sekolah negeri. Dulu namanya PPDB. Artinya sama: pendaftaran anak masuk sekolah.",
-      ],
-      [
         "Apakah hasil di sini resmi?",
-        "Tidak. Hasilnya perkiraan berdasarkan data tahun-tahun sebelumnya. Keputusan resmi hanya dari panitia SPMB. Pendaftaran tetap lewat situs SPMB resmi.",
+        "Tidak. Hasilnya perkiraan berdasarkan data tahun-tahun sebelumnya. Keputusan resmi hanya dari panitia PPDB. Pendaftaran tetap lewat situs PPDB resmi.",
       ],
       [
         "Apakah Bapak/Ibu perlu membayar?",

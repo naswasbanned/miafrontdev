@@ -15,18 +15,18 @@ import {
 import { JALUR } from "@/data/jalur";
 
 export const metadata: Metadata = {
-  title: "Panduan SPMB",
+  title: "Panduan PPDB",
   description:
-    "Penjelasan jalur SPMB, dokumen, cara peluang dihitung, dan privasi data.",
+    "Penjelasan jalur PPDB, dokumen, cara peluang dihitung, dan privasi data.",
 };
 
 export default function PanduanPage() {
   return (
     <Container>
-      <Breadcrumb items={[["Beranda", "/"], ["Panduan SPMB"]]} />
+      <Breadcrumb items={[["Beranda", "/"], ["Panduan PPDB"]]} />
       <PageHeader
-        title="Panduan SPMB (dulu PPDB)"
-        desc="SPMB adalah pendaftaran sekolah negeri. Di sini jalur dan istilahnya dijelaskan dengan bahasa sehari-hari."
+        title="Panduan PPDB"
+        desc="PPDB adalah pendaftaran sekolah negeri. Di sini jalur dan istilahnya dijelaskan dengan bahasa sehari-hari."
       />
       <Section id="jalur">
         <SectionHeading
@@ -119,7 +119,7 @@ export default function PanduanPage() {
           </div>
           <Alert kind="warning" title="Perkiraan, bukan jaminan">
             Hasil ini adalah perkiraan berdasarkan data tahun-tahun sebelumnya
-            dan bukan jaminan diterima. Keputusan akhir ada pada panitia SPMB.
+            dan bukan jaminan diterima. Keputusan akhir ada pada panitia PPDB.
           </Alert>
         </div>
       </Section>

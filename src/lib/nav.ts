@@ -7,7 +7,7 @@ export const NAV = {
     home: "/",
     items: [
       ["/", "Beranda"],
-      ["/panduan", "Panduan SPMB"],
+      ["/panduan", "Panduan PPDB"],
       ["/tanya-jawab", "Tanya Jawab"],
     ] as NavItem[],
     cta: { variant: "primary", label: "Mulai Cek Peluang", href: "/masuk" },
@@ -48,7 +48,7 @@ export const ADMIN = {
   role: "Admin",
   home: "/admin-aturan",
   items: [
-    ["/admin-aturan", "Aturan SPMB", "clipboard"],
+    ["/admin-aturan", "Aturan PPDB", "clipboard"],
     ["/admin-sekolah", "Data Sekolah", "school"],
     ["/admin-impor", "Impor Data Seleksi", "upload"],
     ["/admin-model", "Model Peluang", "settings"],

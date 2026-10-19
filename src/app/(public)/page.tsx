@@ -34,15 +34,15 @@ export default function IndexPage() {
         <div className="container hero__grid">
           <div>
             <span className="badge badge--brand hero__eyebrow">
-              Pendaftaran SMA/SMK Negeri 2027/2028 (SPMB, dulu PPDB)
+              PPDB SMA/SMK Negeri 2027/2028
             </span>
             <h1 className="hero__title" id="judul">
               Cari tahu peluang anak Bapak/Ibu masuk SMA/SMK Negeri
             </h1>
             <p className="hero__lead">
               Isi data anak, lihat sekolah mana yang peluangnya besar,
-              memungkinkan, atau kecil, lalu dapatkan strategi pilihan sekolah. Semua dijelaskan
-              dengan bahasa sehari-hari.
+              memungkinkan, atau kecil, lalu dapatkan opsi terbaik yang sesuai. Semua dijelaskan
+              dengan rinci.
             </p>
             <div className="button-group hero__actions">
               <Button variant="primary" href="/masuk" icon="arrow-right">
@@ -135,7 +135,7 @@ export default function IndexPage() {
         </Section>
         <Section>
           <Alert kind="info" title="Bukan aplikasi resmi pendaftaran">
-            Pendaftaran tetap dilakukan lewat situs SPMB (PPDB) resmi dinas pendidikan.
+            Pendaftaran tetap dilakukan lewat situs PPDB resmi dinas pendidikan.
             Aplikasi ini hanya membantu Bapak/Ibu memahami peluang dan menyusun
             strategi.
           </Alert>

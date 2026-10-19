@@ -1,5 +1,5 @@
 /* =========================================================
-   Panduan SPMB Ramah — Design Tokens
+   SIPESEK — Design Tokens
    Sumber tunggal semua nilai visual. Komponen hanya boleh
    memakai var(--*) dari file ini.
    Catatan: media query tidak bisa memakai var(); breakpoint
