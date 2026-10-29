@@ -1,15 +1,19 @@
-/* Accordion / FAQ — native <details>/<summary>, tanpa JS */
+/* Accordion / FAQ — Hairline rows, tanpa box kaku, sesuai FigCraft moodboard */
 
 .accordion {
   display: flex;
   flex-direction: column;
-  border: var(--border-thin) solid var(--color-border-subtle);
-  border-radius: var(--radius-lg);
-  background: var(--color-surface);
+  background: transparent;
+  border: none;
 }
 
-.accordion__item + .accordion__item {
-  border-top: var(--border-thin) solid var(--color-border-subtle);
+.accordion__item {
+  border-bottom: 1px solid var(--color-border-subtle, #f0eeea);
+  transition: all 0.2s ease;
+}
+
+.accordion__item:first-child {
+  border-top: 1px solid var(--color-border-subtle, #f0eeea);
 }
 
 .accordion__summary {
@@ -17,68 +21,65 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
-  min-height: var(--button-height);
-  padding: var(--space-4);
-  color: var(--color-text);
-  font-size: var(--text-body-lg);
-  font-weight: var(--weight-semibold);
+  min-height: 64px;
+  padding: 20px 0;
+  color: var(--color-ink, #040613);
+  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-size: 19px;
+  font-weight: 600;
   list-style: none;
   cursor: pointer;
+  transition: color 0.2s ease;
 }
 
 .accordion__summary::-webkit-details-marker {
   display: none;
 }
 
-.accordion__item:first-child .accordion__summary {
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-}
-
-.accordion__item:last-child:not([open]) .accordion__summary {
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-}
-
-.accordion__item:only-child:not([open]) .accordion__summary {
-  border-radius: var(--radius-lg);
-}
-
 .accordion__summary:hover {
-  background: var(--color-primary-tint);
-  color: var(--color-primary);
+  color: var(--color-primary, #ed5a1c);
 }
 
 .accordion__summary:focus-visible {
-  outline-offset: calc(-1 * var(--focus-ring-width));
+  outline: 2px solid var(--color-primary, #ed5a1c);
+  outline-offset: 4px;
+  border-radius: 8px;
 }
 
 .accordion__icon {
-  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: var(--color-surface-muted, #efede9);
+  color: var(--color-ink, #040613);
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.accordion__summary:hover .accordion__icon {
+  background: var(--color-primary-tint, #fdece4);
+  color: var(--color-primary, #ed5a1c);
 }
 
 .accordion__item[open] .accordion__icon {
+  background: var(--color-primary-tint, #fdece4);
+  color: var(--color-primary, #ed5a1c);
   transform: rotate(180deg);
-}
-
-.accordion__panel p {
-  max-width: none; /* jawaban mengisi lebar kotak */
 }
 
 .accordion__panel {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  padding: var(--space-4);
-  border-top: var(--border-thin) solid var(--color-border-subtle);
-  color: var(--color-text);
-  font-size: var(--text-body-lg);
+  padding: 0 0 24px 0;
+  color: var(--color-ink-soft, #3e4042);
+  font-size: 15px;
+  line-height: 1.6;
 }
 
-@media (min-width: 600px) {
-  .accordion__summary {
-    padding-inline: var(--space-6);
-  }
-
-  .accordion__panel {
-    padding: var(--space-4) var(--space-6) var(--space-6);
-  }
+.accordion__panel p {
+  max-width: none;
 }

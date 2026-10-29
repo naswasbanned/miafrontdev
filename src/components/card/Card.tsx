@@ -12,6 +12,7 @@ type Props = {
   href?: string;
   id?: string;
   featured?: boolean;
+  className?: string;
   meta?: ReactNode;
   footer?: ReactNode;
   children?: ReactNode;
@@ -25,13 +26,14 @@ export function Card({
   href,
   id,
   featured,
+  className = "",
   meta,
   footer,
   children,
 }: Props) {
   return (
     <article
-      className={`card${href ? " card--interactive" : ""}${featured ? " card--featured" : ""}`}
+      className={`card${href ? " card--interactive" : ""}${featured ? " card--featured" : ""} ${className}`}
       id={id}
     >
       {icon && (

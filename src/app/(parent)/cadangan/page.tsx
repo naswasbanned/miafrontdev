@@ -12,35 +12,36 @@ import {
 import { PRIVATE_SCHOOLS } from "@/data/schools";
 
 export const metadata: Metadata = {
-  title: "Sekolah Swasta Cadangan",
-  description: "Sekolah Swasta Cadangan",
+  title: "Sekolah Swasta Cadangan · SiPesek",
+  description: "Rekomendasi sekolah swasta terakreditasi sebagai jaring pengaman keluarga tanpa bias komersial.",
 };
 
 export default function CadanganPage() {
   return (
     <Container>
-      <Breadcrumb items={[["Strategi", "/strategi"], ["Sekolah cadangan"]]} />
+      <Breadcrumb items={[["Strategi", "/strategi"], ["Sekolah Cadangan"]]} />
       <PageHeader
-        title="Sekolah swasta cadangan"
-        desc="Pilihan bila belum diterima di sekolah negeri. Ditampilkan netral, tanpa iklan."
+        title="Sekolah Swasta Cadangan"
+        desc="Pilihan cadangan berkualitas bila kuota sekolah negeri tidak mencukupi. Ditampilkan secara objektif dan netral tanpa iklan berbayar."
       />
       <div className="stack stack--lg">
-        <Alert kind="warning" title="Pendaftaran swasta biasanya lebih awal">
-          Banyak sekolah swasta membuka pendaftaran sebelum sekolah negeri. Cek
-          jadwalnya di tiap sekolah.
+        <Alert kind="warning" title="Pendaftaran sekolah swasta umumnya dibuka lebih awal">
+          Sebagian besar SMA/SMK swasta favorit memulai gelombang penerimaan sebelum jadwal PPDB sekolah negeri dimulai. Disarankan untuk memantau jadwal dan syarat uang muka tiap sekolah cadangan sejak dini.
         </Alert>
+
         <Toolbar>
           <Select
             id="f-biaya"
-            label="Biaya maksimal per bulan"
+            label="Biaya SPP Maksimal / Bulan"
             options={["Semua biaya", "Rp 300.000", "Rp 500.000", "Rp 800.000"]}
           />
           <Select
             id="f-jarak2"
-            label="Jarak"
+            label="Radius Jarak dari Rumah"
             options={["Semua jarak", "Sampai 3 km", "Sampai 6 km"]}
           />
         </Toolbar>
+
         <div className="card-grid card-grid--3">
           {PRIVATE_SCHOOLS.map((p) => (
             <SchoolCard
@@ -54,12 +55,13 @@ export default function CadanganPage() {
                 ["SPP per bulan", p.spp],
                 ["Uang pangkal", p.pangkal],
               ]}
-              reason={`Akreditasi ${p.akreditasi}. ${p.beasiswa} · jarak ${p.jarak}`}
+              reason={`Akreditasi ${p.akreditasi} · ${p.beasiswa} · Jarak ${p.jarak} dari rumah`}
             >
               <Button
                 variant="secondary"
+                block
                 toast={{
-                  message: `${p.name} disimpan sebagai cadangan.`,
+                  message: `${p.name} berhasil disimpan sebagai daftar cadangan.`,
                   variant: "success",
                 }}
               >
@@ -68,11 +70,22 @@ export default function CadanganPage() {
             </SchoolCard>
           ))}
         </div>
-        <p className="text-caption text-secondary">
-          Biaya adalah perkiraan. Terakhir diperbarui 2 Oktober 2026. Tanyakan
-          biaya terbaru langsung ke sekolah.
-        </p>
+
+        <div
+          style={{
+            padding: "16px 20px",
+            borderRadius: "16px",
+            background: "var(--color-surface-muted, #efede9)",
+            border: "1px solid var(--color-border-subtle, #f0eeea)",
+            color: "var(--color-ink-soft, #3e4042)",
+            fontSize: "13px",
+            lineHeight: "1.5",
+          }}
+        >
+          ℹ️ Biaya SPP dan uang pangkal di atas adalah perkiraan berdasarkan data survei per 2 Oktober 2026. Skema beasiswa, potongan biaya gelombang awal, dan fasilitas resmi dapat dikonfirmasi langsung ke tata usaha sekolah terkait.
+        </div>
       </div>
     </Container>
   );
 }
+

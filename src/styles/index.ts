@@ -9,6 +9,7 @@ import "../components/navbar/navbar.css";
 import "../components/bottom-nav/bottom-nav.css";
 import "../components/footer/footer.css";
 import "../components/hero/hero.css";
+import "../components/landing/landing.css";
 import "../components/section-heading/section-heading.css";
 import "../components/card/card.css";
 import "../components/school-card/school-card.css";

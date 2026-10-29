@@ -11,148 +11,195 @@ import {
   PageHeader,
   Section,
   CtaBand,
+  Icon,
 } from "@/components";
 import { JALUR } from "@/data/jalur";
 
 export const metadata: Metadata = {
   title: "Panduan PPDB",
   description:
-    "Penjelasan jalur PPDB, dokumen, cara peluang dihitung, dan privasi data.",
+    "Penjelasan 4 jalur seleksi PPDB, berkas dokumen yang dibutuhkan, cara kalkulasi peluang, dan perlindungan privasi data.",
+};
+
+const TOY_COLOR_MAP: Record<string, { colorClass: string; kuota: string; tag: string }> = {
+  domisili: { colorClass: "card--sky", kuota: "Kuota ±50%", tag: "Paling Umum" },
+  afirmasi: { colorClass: "card--lime", kuota: "Kuota ±15%", tag: "KETM & Disabilitas" },
+  prestasi: { colorClass: "card--sun", kuota: "Kuota ±30%", tag: "Rapor & Sertifikat" },
+  mutasi: { colorClass: "card--lavender", kuota: "Kuota ±5%", tag: "Pindah Tugas" },
 };
 
 export default function PanduanPage() {
   return (
     <Container>
       <Breadcrumb items={[["Beranda", "/"], ["Panduan PPDB"]]} />
+      
       <PageHeader
-        title="Panduan PPDB"
-        desc="PPDB adalah pendaftaran sekolah negeri. Di sini jalur dan istilahnya dijelaskan dengan bahasa sehari-hari."
+        title="Panduan Lengkap PPDB"
+        desc="Pahami setiap jalur pendaftaran, persyaratan berkas resmi, dan cara SIPESEK mengalkulasi peluang kelulusan anak Anda dengan tenang."
       />
+
+      {/* 4 Jalur Cards in Toy Colors */}
       <Section id="jalur">
         <SectionHeading
-          title="Empat jalur pendaftaran"
-          desc="Setiap anak hanya memakai satu jalur pada satu pendaftaran. Persentase kuota dan syarat berbeda tiap daerah dan tiap tahun, jadi selalu cocokkan dengan petunjuk teknis resmi."
+          title="Empat Jalur Pendaftaran Resmi"
+          desc="Setiap calon siswa memilih satu jalur utama saat pendaftaran dibuka. Kenali ketentuan dan persentase kuotanya untuk menentukan opsi paling aman."
         />
         <div className="card-grid">
-          {JALUR.map((j) => (
-            <Card
-              key={j.id}
-              title={j.title}
-              icon={j.icon}
-              text={j.desc}
-              id={j.id}
-              footer={<p className="card__cocok">{j.cocok}</p>}
-            />
-          ))}
+          {JALUR.map((j) => {
+            const extra = TOY_COLOR_MAP[j.id] || { colorClass: "", kuota: "", tag: "" };
+            return (
+              <Card
+                key={j.id}
+                title={j.title}
+                icon={j.icon}
+                text={j.desc}
+                id={j.id}
+                className={extra.colorClass}
+                meta={
+                  <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", width: "100%" }}>
+                    <Badge kind="neutral">{extra.kuota}</Badge>
+                    <Badge kind="neutral">{extra.tag}</Badge>
+                  </div>
+                }
+                footer={<p className="card__cocok">{j.cocok}</p>}
+              />
+            );
+          })}
         </div>
       </Section>
-      <Section>
+
+      {/* Dokumen Tab */}
+      <Section id="dokumen">
         <SectionHeading
-          title="Dokumen yang perlu disiapkan"
-          desc="Daftar akhir menyesuaikan jalur yang dipilih. Di halaman Unduhan, daftar ini bisa dicentang."
+          title="Dokumen yang Perlu Disiapkan"
+          desc="Daftar berkas penting sesuai jalur yang dipilih. Siapkan fotokopi dan scan digital sedini mungkin."
         />
-        <Tabs
-          label="Dokumen per jalur"
-          tabs={JALUR.map((j) => ({
-            id: j.id,
-            label: j.title,
-            content: (
-              <ul className="list">
-                {j.docs.map((d) => (
-                  <li key={d}>{d}</li>
-                ))}
-              </ul>
-            ),
-          }))}
-        />
+        <div className="card">
+          <Tabs
+            label="Dokumen per jalur"
+            tabs={JALUR.map((j) => ({
+              id: j.id,
+              label: j.title.split("(")[1]?.replace(")", "") || j.title,
+              content: (
+                <ul className="list">
+                  {j.docs.map((d) => (
+                    <li key={d} style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
+                      <span style={{ color: "var(--color-primary, #ed5a1c)", marginTop: "2px", fontWeight: "700" }}>✓</span>
+                      <span>{d}</span>
+                    </li>
+                  ))}
+                </ul>
+              ),
+            }))}
+          />
+        </div>
       </Section>
+
+      {/* Cara Peluang Dihitung */}
       <Section id="cara-hitung">
         <SectionHeading
-          title="Bagaimana peluang dihitung?"
-          desc="Dalam lima langkah. Semuanya memakai data seleksi tahun-tahun sebelumnya."
+          title="Bagaimana Peluang Dihitung?"
+          desc="SIPESEK mengolah data historis seleksi tahun lalu secara transparan melalui lima tahapan ilmiah."
         />
         <div className="stack stack--lg">
-          <ol className="list">
-            <li>
-              <strong>Cek jalur.</strong> Kami cek syarat tiap jalur dengan
-              aturan tahun berjalan.
-            </li>
-            <li>
-              <strong>Hitung skor anak.</strong> Jarak rumah untuk jalur dekat
-              rumah, nilai untuk jalur nilai dan prestasi, kriteria keluarga
-              untuk jalur keluarga kurang mampu.
-            </li>
-            <li>
-              <strong>Bandingkan dengan tahun lalu.</strong> Kami lihat posisi
-              anak terhadap anak-anak yang diterima sebelumnya.
-            </li>
-            <li>
-              <strong>Sesuaikan.</strong> Perubahan kuota, tren pendaftar, dan
-              jumlah data ikut diperhitungkan.
-            </li>
-            <li>
-              <strong>Beri label dan alasan.</strong> Hasilnya rentang peluang
-              dengan penjelasan satu sampai dua kalimat.
-            </li>
-          </ol>
           <div className="card-grid card-grid--3">
-            <div className="card">
-              <Badge kind="aman" lg />
+            <div className="card" style={{ background: "#ffffff" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <span style={{ width: "36px", height: "36px", borderRadius: "999px", background: "var(--color-primary-tint)", color: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700" }}>1</span>
+                <h4 style={{ margin: 0, fontFamily: "var(--font-heading)" }}>Verifikasi Kelayakan</h4>
+              </div>
               <p className="card__text">
-                Peluang besar berdasarkan data tahun lalu. Tetap daftar tepat
-                waktu.
+                Mencocokkan profil anak (jarak, nilai rapor, atau status bantuan) dengan kriteria teknis setiap jalur.
               </p>
             </div>
-            <div className="card">
-              <Badge kind="bersaing" lg />
+
+            <div className="card" style={{ background: "#ffffff" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <span style={{ width: "36px", height: "36px", borderRadius: "999px", background: "var(--color-primary-tint)", color: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700" }}>2</span>
+                <h4 style={{ margin: 0, fontFamily: "var(--font-heading)" }}>Simulasi Peringkat</h4>
+              </div>
               <p className="card__text">
-                Peluang seimbang. Hasil tergantung jumlah pendaftar tahun ini.
+                Membandingkan data anak dengan batas nilai cut-off dan radius jarak terjauh yang diterima tahun lalu.
               </p>
             </div>
-            <div className="card">
-              <Badge kind="berisiko" lg />
+
+            <div className="card" style={{ background: "#ffffff" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <span style={{ width: "36px", height: "36px", borderRadius: "999px", background: "var(--color-primary-tint)", color: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700" }}>3</span>
+                <h4 style={{ margin: 0, fontFamily: "var(--font-heading)" }}>Kompilasi Rekomendasi</h4>
+              </div>
               <p className="card__text">
-                Peluang masih kecil. Jadikan pilihan tambahan, bukan
-                satu-satunya.
+                Menyajikan estimasi status (Peluang Besar, Bersaing, Berisiko) dengan penjelasan alasan konkret.
               </p>
             </div>
           </div>
-          <Alert kind="warning" title="Perkiraan, bukan jaminan">
-            Hasil ini adalah perkiraan berdasarkan data tahun-tahun sebelumnya
-            dan bukan jaminan diterima. Keputusan akhir ada pada panitia PPDB.
+
+          <div className="card-grid card-grid--3">
+            <div className="card" style={{ borderLeft: "4px solid var(--color-success-text)" }}>
+              <Badge kind="aman" lg />
+              <p className="card__text" style={{ marginTop: "12px" }}>
+                Peluang tinggi di atas ambang aman historis. Sangat direkomendasikan sebagai Pilihan Utama.
+              </p>
+            </div>
+            <div className="card" style={{ borderLeft: "4px solid var(--color-warning-text)" }}>
+              <Badge kind="bersaing" lg />
+              <p className="card__text" style={{ marginTop: "12px" }}>
+                Peluang seimbang. Posisi anak berada di dekat kuota tengah. Cocok untuk Pilihan Cadangan.
+              </p>
+            </div>
+            <div className="card" style={{ borderLeft: "4px solid var(--color-danger-text)" }}>
+              <Badge kind="berisiko" lg />
+              <p className="card__text" style={{ marginTop: "12px" }}>
+                Peluang kecil atau di luar radius aman. Perlu opsi alternatif atau sekolah swasta berkualitas.
+              </p>
+            </div>
+          </div>
+
+          <Alert kind="warning" title="Estimasi Ilmiah, Bukan Jaminan Resmi">
+            Kalkulasi ini dirancang sebagai panduan strategi bagi keluarga. Hasil seleksi sesungguhnya bergantung pada sebaran kompetisi pendaftar di portal resmi SPMB Dinas Pendidikan tahun berjalan.
           </Alert>
         </div>
       </Section>
+
+      {/* Privasi & Keamanan Data */}
       <Section id="privasi">
         <SectionHeading
-          title="Data Bapak/Ibu dan privasi"
-          desc="Data anak dan keluarga kami perlakukan sebagai data sensitif."
+          title="Keamanan & Privasi Data Keluarga"
+          desc="Kami memprioritaskan privasi Anda dengan komitmen zero-selling dan enkripsi menyeluruh."
         />
-        <div className="card">
-          <ul className="list">
-            <li>
-              Kami hanya meminta data yang perlu untuk menghitung peluang. Tidak
-              ada NIK atau NISN.
-            </li>
-            <li>
-              Lokasi rumah disimpan terenkripsi. Dinas hanya melihat data
-              gabungan per kecamatan, tidak pernah titik per keluarga.
-            </li>
-            <li>
-              Bapak/Ibu bisa mengunduh atau menghapus semua data kapan saja dari
-              halaman Anak Saya.
-            </li>
-            <li>Tidak ada iklan dan data tidak dijual.</li>
-          </ul>
+        <div className="card" style={{ background: "#ffffff" }}>
+          <div className="card-grid" style={{ gap: "24px" }}>
+            <div style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
+              <span style={{ width: "40px", height: "40px", borderRadius: "12px", background: "var(--color-primary-tint)", color: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <Icon name="shield" />
+              </span>
+              <div>
+                <strong style={{ display: "block", marginBottom: "4px", color: "var(--color-ink)" }}>Tanpa NIK & Berkas Sensitif</strong>
+                <p className="card__text">Cukup masukkan nama panggilan, alamat umum, dan rata-rata rapor tanpa perlu mengunggah dokumen KTP/KK asli.</p>
+              </div>
+            </div>
+
+            <div style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
+              <span style={{ width: "40px", height: "40px", borderRadius: "12px", background: "var(--color-primary-tint)", color: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <Icon name="check" />
+              </span>
+              <div>
+                <strong style={{ display: "block", marginBottom: "4px", color: "var(--color-ink)" }}>Bebas Iklan & Tidak Dijual</strong>
+                <p className="card__text">Layanan SIPESEK murni didedikasikan untuk membantu masa depan pendidikan anak Indonesia secara objektif.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
+
+      {/* CTA Band */}
       <Section>
         <CtaBand
-          title="Sudah paham jalurnya?"
-          text="Mulai cek peluang anak Bapak/Ibu sekarang."
+          title="Sudah Memahami Jalur yang Tepat?"
+          text="Mulai kalkulasi peluang anak Anda di SMA/SMK Negeri impian sekarang juga. Hanya butuh waktu 8 menit."
         >
           <Button variant="primary" href="/masuk" icon="arrow-right">
-            Mulai Cek Peluang
+            Mulai Cek Peluang Gratis
           </Button>
         </CtaBand>
       </Section>

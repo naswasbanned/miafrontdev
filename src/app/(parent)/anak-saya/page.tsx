@@ -11,11 +11,12 @@ import {
   PageHeader,
   Section,
   CtaBand,
+  Icon,
 } from "@/components";
 
 export const metadata: Metadata = {
-  title: "Anak Saya",
-  description: "Anak Saya",
+  title: "Profil Anak Saya",
+  description: "Kelola data profil anak, pantau kelengkapan berkas, dan lihat kalkulasi strategi SPMB.",
 };
 
 export default function AnakSayaPage() {
@@ -23,128 +24,140 @@ export default function AnakSayaPage() {
     <>
       <Container>
         <PageHeader
-          title="Anak Saya"
-          desc="Pilih anak untuk melihat atau melengkapi datanya. Hasil tiap anak tidak tercampur."
+          title="Profil Anak Saya"
+          desc="Kelola profil anak untuk memantau kelayakan jalur dan kalkulasi peluang sekolah. Data setiap anak tersimpan terpisah dan aman."
         />
+        
         <div className="card-grid">
+          {/* Anak 1: Dimas Pratama */}
           <Card
             title="Dimas Pratama"
-            text="SMP Negeri 3 Sukamaju · tujuan SMA"
+            text="SMP Negeri 3 Sukamaju · Target: SMA Negeri"
             meta={
-              <>
-                <Badge kind="brand">Data lengkap</Badge>
-                <Badge kind="neutral">Jalur dekat rumah (Domisili)</Badge>
-                <Badge kind="neutral">Jalur nilai dan prestasi (Prestasi)</Badge>
-              </>
+              <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", marginTop: "4px" }}>
+                <Badge kind="brand">✓ Data Lengkap</Badge>
+                <Badge kind="aman">Peluang Besar</Badge>
+                <Badge kind="neutral">Zonasi: 1.2 km</Badge>
+              </div>
             }
             footer={
-              <>
-                <ButtonGroup>
-                  <Button variant="primary" block href="/peta-sekolah">
-                    Lihat Peluang
-                  </Button>
-                  <Button variant="secondary" block href="/isi-data/1">
-                    Ubah Data
-                  </Button>
-                </ButtonGroup>
-              </>
+              <ButtonGroup>
+                <Button variant="primary" block href="/strategi">
+                  Lihat Rekomendasi Strategi
+                </Button>
+                <Button variant="secondary" block href="/peta-sekolah">
+                  Peta Zonasi Sekolah
+                </Button>
+              </ButtonGroup>
             }
           >
-            <p className="card__text">
-              Jalur yang memenuhi syarat: Jalur dekat rumah (Domisili) dan Jalur nilai dan prestasi (Prestasi).
-            </p>
+            <div style={{ padding: "14px", borderRadius: "14px", background: "var(--color-surface-muted)", marginTop: "12px", border: "1px solid var(--color-border-subtle)" }}>
+              <span style={{ fontSize: "13px", color: "var(--color-ink-muted)", display: "block", marginBottom: "4px" }}>Jalur Memenuhi Syarat:</span>
+              <strong style={{ fontSize: "14px", color: "var(--color-ink)" }}>Jalur Domisili (Zonasi) & Jalur Prestasi Nilai</strong>
+            </div>
           </Card>
+
+          {/* Anak 2: Nadia Pratama */}
           <Card
             title="Nadia Pratama"
-            text="SMP Negeri 3 Sukamaju · tujuan belum diisi"
+            text="SMP Negeri 3 Sukamaju · Langkah 2 dari 5"
             meta={
-              <>
-                <Badge kind="neutral">Belum selesai</Badge>
-              </>
+              <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", marginTop: "4px" }}>
+                <Badge kind="bersaing">Progres 40%</Badge>
+                <Badge kind="neutral">Belum Selesai</Badge>
+              </div>
             }
             footer={
-              <>
-                <ButtonGroup>
-                  <Button variant="primary" block href="/isi-data/2">
-                    Lanjutkan Mengisi
-                  </Button>
-                </ButtonGroup>
-              </>
+              <ButtonGroup>
+                <Button variant="primary" block href="/isi-data/2">
+                  Lanjutkan Pengisian (Langkah 2)
+                </Button>
+                <Button variant="secondary" block href="/isi-data/1">
+                  Ubah Data Awal
+                </Button>
+              </ButtonGroup>
             }
           >
-            <Stepper step={2} total={5} />
+            <div style={{ marginTop: "12px" }}>
+              <span style={{ fontSize: "13px", color: "var(--color-ink-muted)", display: "block", marginBottom: "8px" }}>Tahapan Wizard:</span>
+              <Stepper step={2} total={5} />
+            </div>
           </Card>
         </div>
-        <div className="stack" style={{ marginTop: "var(--space-6)" }}>
+
+        <div style={{ marginTop: "24px" }}>
           <Button variant="secondary" block href="/isi-data/1" iconLeft="plus">
-            Tambah Anak
+            + Tambah Profil Anak Lainnya
           </Button>
         </div>
+
         <Section>
           <SectionHeading
-            title="Data dan akun Bapak/Ibu"
-            desc="Bapak/Ibu berhak mengunduh atau menghapus semua data kapan saja."
+            title="Hak & Privasi Akun Keluarga"
+            desc="Anda memegang kendali penuh atas data yang telah dimasukkan."
           />
-          <div className="card">
+          <div className="card" style={{ background: "#ffffff" }}>
+            <p style={{ marginBottom: "16px", color: "var(--color-ink-soft)", fontSize: "15px" }}>
+              Semua kalkulasi peluang disimpan secara privat. Anda berhak mengunduh cadangan arsip atau menghapus seluruh riwayat pendaftaran kapan saja.
+            </p>
             <ButtonGroup>
               <Button
                 variant="secondary"
                 iconLeft="download"
                 toast={{
-                  message: "Data sedang disiapkan untuk diunduh.",
+                  message: "Arsip data profil keluarga sedang diproses untuk diunduh.",
                   variant: "info",
                 }}
               >
-                Unduh Data Saya
+                Unduh Cadangan Data
               </Button>
               <Button variant="ghost" iconLeft="trash" opens="dlg-hapus">
-                Hapus Akun dan Semua Data
+                Hapus Seluruh Data Profil
               </Button>
             </ButtonGroup>
           </div>
         </Section>
+
         <Section>
           <CtaBand
-            title="Butuh bantuan mengisi?"
-            text="Tanyakan lewat WhatsApp. Kami bantu langkah demi langkah."
+            title="Butuh Panduan Saat Mengisi Data?"
+            text="Tim konselor sekolah kami siap memandu cara membaca rapor dan menghitung titik koordinat KK melalui WhatsApp."
           >
             <Button
-              variant="secondary"
+              variant="primary"
               href="https://wa.me/"
               iconLeft="message"
               newTab
             >
-              Chat lewat WhatsApp
-              <span className="visually-hidden"> (membuka tab baru)</span>
+              Konsultasi Gratis via WhatsApp
             </Button>
           </CtaBand>
         </Section>
       </Container>
+
       <Dialog
         id="dlg-hapus"
-        title="Hapus akun dan semua data?"
+        title="Konfirmasi Penghapusan Seluruh Data?"
         footer={
           <>
             <Button variant="secondary" closes>
-              Batal
+              Batalkan
             </Button>
             <Button
               variant="primary"
               closes
               toast={{
-                message: "Akun dan semua data sudah dihapus.",
+                message: "Seluruh data profil anak telah berhasil dihapus dari sistem.",
                 variant: "info",
               }}
             >
-              Ya, hapus semua data
+              Ya, Hapus Permanen
             </Button>
           </>
         }
       >
         <p>
-          Semua data Dimas dan Nadia, termasuk hasil peluang dan strategi, akan
-          dihapus dari aplikasi ini. Bapak/Ibu perlu mengisi ulang dari awal
-          bila ingin memakainya lagi.
+          Tindakan ini akan menghapus permanen profil Dimas Pratama dan Nadia Pratama beserta hasil prediksi zonasi dan simulasi strategi yang sudah tersimpan.
         </p>
       </Dialog>
     </>

@@ -1,44 +1,51 @@
-/* Tabs — daftar tab bisa di-scroll horizontal di mobile */
+/* Tabs — Pill tab list dengan scrolling horizontal */
 
 .tabs__list {
   display: flex;
-  gap: var(--space-1);
+  gap: 8px;
+  padding: 6px;
   overflow-x: auto;
-  border-bottom: var(--border-thin) solid var(--color-border-subtle);
-  scrollbar-width: thin;
+  background: var(--color-surface-muted, #efede9);
+  border-radius: var(--radius-pill, 999px);
+  scrollbar-width: none;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.tabs__list::-webkit-scrollbar {
+  display: none;
 }
 
 .tabs__tab {
   flex-shrink: 0;
-  min-height: var(--tap-min);
-  padding: var(--space-3) var(--space-4);
+  min-height: 40px;
+  padding: 8px 20px;
   border: 0;
-  border-bottom: var(--border-thick) solid transparent;
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  border-radius: var(--radius-pill, 999px);
   background: transparent;
-  color: var(--color-text-secondary);
-  font-size: var(--text-body-md);
-  font-weight: var(--weight-semibold);
+  color: var(--color-ink-soft, #3e4042);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
   white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tabs__tab:hover {
-  background: var(--color-primary-tint);
-  color: var(--color-primary);
-}
-
-.tabs__tab:focus-visible {
-  outline-offset: calc(-1 * var(--focus-ring-width));
+  color: var(--color-primary, #ed5a1c);
 }
 
 .tabs__tab[aria-selected="true"] {
-  border-bottom-color: var(--color-primary);
-  color: var(--color-primary);
+  background: var(--color-primary, #ed5a1c);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(237, 90, 28, 0.25);
 }
 
 .tabs__tab:disabled {
-  color: var(--color-border-control);
+  color: var(--color-ink-muted, #8f9192);
   background: transparent;
+  cursor: not-allowed;
 }
 
 .tabs__panel {
@@ -47,5 +54,5 @@
 
 .tabs__panel:focus-visible {
   outline-offset: var(--focus-ring-offset);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-card, 24px);
 }

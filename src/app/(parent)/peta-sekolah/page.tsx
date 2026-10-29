@@ -17,8 +17,8 @@ import { SCHOOLS } from "@/data/schools";
 import { SchoolResultCard } from "@/features/sekolah/SchoolResultCard";
 
 export const metadata: Metadata = {
-  title: "Peta dan Daftar Sekolah",
-  description: "Peta dan Daftar Sekolah",
+  title: "Peta dan Daftar Sekolah · SiPesek",
+  description: "Eksplorasi peta zonasi dan peluang masuk SMA/SMK negeri di sekitar tempat tinggal.",
 };
 
 export default function PetaSekolahPage() {
@@ -28,40 +28,58 @@ export default function PetaSekolahPage() {
     kind: s.kind,
     name: s.name,
   }));
+
   return (
     <>
       <Container>
         <PageHeader
-          title="Peta dan daftar sekolah"
-          desc="Hasil untuk Dimas Pratama · Jalur dekat rumah (Domisili) dan Jalur nilai dan prestasi (Prestasi)."
+          title="Peta dan Daftar Sekolah"
+          desc="Hasil simulasi zonasi untuk Dimas Pratama · Jalur dekat rumah (Domisili) dan Jalur nilai rapor & prestasi (Prestasi)."
           actions={
-            <Button variant="secondary" sm href="/isi-data/1">
-              Ubah Data
-            </Button>
+            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+              <Button variant="primary" sm href="/strategi" icon="arrow-right">
+                Lihat Rekomendasi Strategi
+              </Button>
+              <Button variant="secondary" sm href="/isi-data/1">
+                Ubah Data
+              </Button>
+            </div>
           }
         />
+
         <div className="stack">
-          <Alert kind="warning" title="Aturan resmi tahun ini belum terbit">
-            Hasil memakai aturan tahun lalu dan akan diperbarui setelah aturan
-            terbit.
+          <Alert kind="warning" title="Aturan resmi PPDB tahun ini belum terbit">
+            Hasil simulasi memakai acuan daya tampung tahun lalu dan akan otomatis diperbarui begitu petunjuk teknis dinas pendidikan resmi disahkan.
           </Alert>
           <Disclaimer />
         </div>
+
         <div className="split" style={{ marginTop: "var(--space-6)" }}>
+          {/* Map Column */}
           <div className="split__map">
             <MapSchools
               pins={pins}
               home={[50, 62]}
               label="Peta sekolah sekitar rumah Dimas"
             />
-            <MapLegend />
-            <p>
-              <HelpLink opens="dlg-label">Apa arti label ini?</HelpLink>
-            </p>
+            <div style={{ marginTop: "16px", padding: "16px 20px", background: "var(--color-surface, #ffffff)", borderRadius: "18px", border: "1px solid var(--color-border-subtle, #f0eeea)" }}>
+              <MapLegend />
+              <div style={{ marginTop: "12px", paddingTop: "12px", borderTop: "1px solid var(--color-border-subtle, #f0eeea)" }}>
+                <HelpLink opens="dlg-label">Apa arti label Peluang Besar, Memungkinkan, & Berisiko?</HelpLink>
+              </div>
+            </div>
           </div>
+
+          {/* School Results Column */}
           <div className="stack">
-            <h2 className="text-heading-md">{`${SCHOOLS.length} sekolah ditemukan`}</h2>
-            <Toolbar>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <h2 className="text-heading-md">{`${SCHOOLS.length} Sekolah Ditemukan`}</h2>
+              <span style={{ fontSize: "13px", color: "var(--color-ink-muted, #8f9192)" }}>
+                Radius hingga 5 km
+              </span>
+            </div>
+
+            <Toolbar wide>
               <Select
                 id="f-jalur"
                 label="Jalur"
@@ -69,7 +87,7 @@ export default function PetaSekolahPage() {
               />
               <Select
                 id="f-jarak"
-                label="Jarak"
+                label="Jarak Maksimal"
                 options={["Semua jarak", "Sampai 2 km", "Sampai 5 km"]}
               />
               <Select
@@ -79,30 +97,41 @@ export default function PetaSekolahPage() {
               />
               <Select
                 id="f-label"
-                label="Label"
+                label="Tingkat Peluang"
                 options={["Semua label", "Peluang Besar", "Memungkinkan", "Peluang Kecil"]}
               />
             </Toolbar>
+
             {SCHOOLS.map((school) => (
               <SchoolResultCard key={school.id} school={school} />
             ))}
           </div>
         </div>
       </Container>
-      <Dialog id="dlg-label" title="Apa arti Peluang Besar, Memungkinkan, dan Peluang Kecil?">
-        <p>
-          <Badge kind="aman" /> Peluang besar berdasarkan data tahun lalu. Tetap
-          daftar tepat waktu.
-        </p>
-        <p>
-          <Badge kind="bersaing" /> Peluang seimbang. Hasilnya tergantung jumlah
-          pendaftar tahun ini.
-        </p>
-        <p>
-          <Badge kind="berisiko" /> Peluang masih kecil. Jadikan pilihan
-          tambahan, bukan satu-satunya.
-        </p>
+
+      <Dialog id="dlg-label" title="Arti Status Peluang di SiPesek">
+        <div className="stack" style={{ gap: "16px" }}>
+          <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+            <Badge kind="aman" />
+            <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.5" }}>
+              <strong>Peluang Besar (Aman):</strong> Berdasarkan data kuota dan batas jarak/nilai tahun lalu, berkas anak berada dalam batas aman. Tetap lakukan pendaftaran tepat waktu di hari pertama.
+            </p>
+          </div>
+          <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+            <Badge kind="bersaing" />
+            <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.5" }}>
+              <strong>Memungkinkan (Bersaing):</strong> Peluang berimbang (45–60%). Hasilnya sangat bergantung pada fluktuasi pendaftar tahun berjalan. Bagus untuk satu pilihan ambisius.
+            </p>
+          </div>
+          <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+            <Badge kind="berisiko" />
+            <p style={{ margin: 0, fontSize: "14px", lineHeight: "1.5" }}>
+              <strong>Peluang Kecil (Berisiko):</strong> Kuota tahun lalu terlampaui pada jarak atau nilai di atas anak. Disarankan tidak menjadi satu-satunya pilihan sekolah.
+            </p>
+          </div>
+        </div>
       </Dialog>
     </>
   );
 }
+

@@ -1,25 +1,26 @@
-/* Button — primary / secondary / ghost, ukuran default (56px) & sm (48px) */
+/* Button — primary / secondary / ghost, ukuran default & sm dengan estetika FigCraft */
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
-  min-height: var(--button-height);
+  min-height: 48px;
   min-width: var(--tap-min);
-  padding: var(--space-3) var(--space-6);
-  border: var(--border-medium) solid transparent;
-  border-radius: var(--radius-lg);
+  padding: 12px 24px;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill, 999px);
   background: transparent;
   color: var(--color-primary);
   font-family: var(--font-sans);
-  font-size: var(--text-body-lg);
+  font-size: var(--text-body-md);
   font-weight: var(--weight-semibold);
   line-height: var(--leading);
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   user-select: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -28,60 +29,64 @@
   outline-offset: var(--focus-ring-offset);
 }
 
-/* Primary */
+/* Primary — Oranye ber-glow hangat sesuai moodboard */
 .button--primary {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: var(--color-on-primary);
+  background: linear-gradient(180deg, var(--color-brand-orange-bright, #f47a45) 0%, var(--color-primary, #ed5a1c) 100%);
+  border-color: var(--color-primary, #ed5a1c);
+  color: #ffffff;
+  box-shadow: 0 6px 14px rgba(237, 90, 28, 0.28);
 }
 
 .button--primary:hover {
-  background: var(--color-primary-hover);
-  border-color: var(--color-primary-hover);
+  background: var(--color-primary, #ed5a1c);
+  border-color: var(--color-primary, #ed5a1c);
+  box-shadow: 0 8px 20px rgba(237, 90, 28, 0.38);
+  transform: translateY(-1px);
 }
 
 .button--primary:active {
-  background: var(--color-primary-active);
-  border-color: var(--color-primary-active);
+  background: var(--color-primary-active, #bd3f0d);
+  border-color: var(--color-primary-active, #bd3f0d);
+  box-shadow: 0 2px 6px rgba(237, 90, 28, 0.25);
+  transform: translateY(0);
 }
 
-/* Secondary */
+/* Secondary — Outline Pill ramping */
 .button--secondary {
-  background: var(--color-surface);
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  background: var(--color-surface, #ffffff);
+  border-color: var(--color-primary, #ed5a1c);
+  color: var(--color-primary, #ed5a1c);
 }
 
 .button--secondary:hover {
-  background: var(--color-primary-tint);
+  background: var(--color-primary-tint, #fdece4);
+  transform: translateY(-1px);
 }
 
 .button--secondary:active {
-  background: var(--color-primary-subtle);
-  border-color: var(--color-primary-active);
-  color: var(--color-primary-active);
+  background: var(--color-primary-subtle, #f8d4c3);
+  transform: translateY(0);
 }
 
 /* Ghost */
 .button--ghost {
   background: transparent;
-  color: var(--color-primary);
+  color: var(--color-primary, #ed5a1c);
 }
 
 .button--ghost:hover {
-  background: var(--color-primary-tint);
+  background: var(--color-primary-tint, #fdece4);
 }
 
 .button--ghost:active {
-  background: var(--color-primary-subtle);
-  color: var(--color-primary-active);
+  background: var(--color-primary-subtle, #f8d4c3);
 }
 
 /* Ukuran */
 .button--sm {
-  min-height: var(--button-height-sm);
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--text-body-md);
+  min-height: 38px;
+  padding: 8px 18px;
+  font-size: var(--text-caption, 13px);
 }
 
 .button--block {
@@ -94,6 +99,7 @@
   width: var(--tap-min);
   min-height: var(--tap-min);
   padding: 0;
+  border-radius: var(--radius-full, 999px);
 }
 
 .button__icon {
@@ -107,6 +113,8 @@
   background: var(--color-surface-sunken);
   border-color: var(--color-border-subtle);
   color: var(--color-text-secondary);
+  box-shadow: none;
+  transform: none;
   cursor: not-allowed;
 }
 
@@ -116,7 +124,7 @@
   border-color: transparent;
 }
 
-/* Loading — teks tetap terlihat, tanpa animasi (gerak diusulkan di fase 5) */
+/* Loading */
 .button--loading {
   cursor: progress;
 }
@@ -140,5 +148,6 @@
   .button-group {
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
   }
 }

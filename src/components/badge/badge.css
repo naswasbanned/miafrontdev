@@ -1,62 +1,74 @@
-/* Badge — pill status (selalu ikon + teks) & tag netral. Tanpa huruf kapital semua. */
+/* Badge — pill status (selalu ikon/dot + teks) & tag netral. */
 
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-1);
-  min-height: var(--space-8);
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-full);
-  font-size: var(--text-caption);
-  font-weight: var(--weight-semibold);
-  line-height: var(--leading);
+  gap: 6px;
+  min-height: 28px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill, 999px);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
   white-space: nowrap;
+  letter-spacing: -0.01em;
 }
 
 .badge__icon {
-  width: var(--icon-sm);
-  height: var(--icon-sm);
+  width: 14px;
+  height: 14px;
 }
 
+/* Aman — Hijau lembut dengan dot */
 .badge--aman {
-  background: var(--color-success-bg);
-  color: var(--color-success-text);
+  background: var(--color-success-bg, #ecfdf5);
+  color: var(--color-success-text, #059669);
+  border: 1px solid rgba(5, 150, 105, 0.2);
 }
 
+/* Bersaing — Kuning / Oranye lembut */
 .badge--bersaing {
-  background: var(--color-warning-bg);
-  color: var(--color-warning-text);
+  background: var(--color-warning-bg, #fffbeb);
+  color: var(--color-warning-text, #d97706);
+  border: 1px solid rgba(217, 119, 6, 0.2);
 }
 
+/* Berisiko — Merah muda lembut */
 .badge--berisiko {
-  background: var(--color-danger-bg);
-  color: var(--color-danger-text);
+  background: var(--color-danger-bg, #fef2f2);
+  color: var(--color-danger-text, #dc2626);
+  border: 1px solid rgba(220, 38, 38, 0.2);
 }
 
+/* Info */
 .badge--info {
-  background: var(--color-info-bg);
-  color: var(--color-info-text);
+  background: var(--color-info-bg, #eff6ff);
+  color: var(--color-info-text, #1d4ed8);
+  border: 1px solid rgba(29, 78, 216, 0.2);
 }
 
+/* Neutral */
 .badge--neutral {
-  background: var(--color-surface);
-  border: var(--border-thin) solid var(--color-border-control);
-  color: var(--color-text);
+  background: var(--color-surface-muted, #efede9);
+  border: 1px solid var(--color-border-subtle, #f0eeea);
+  color: var(--color-ink, #040613);
 }
 
+/* Brand Orange */
 .badge--brand {
-  background: var(--color-primary-tint);
-  color: var(--color-primary-deep);
+  background: var(--color-primary-tint, #fdece4);
+  color: var(--color-primary, #ed5a1c);
+  border: 1px solid rgba(237, 90, 28, 0.2);
 }
 
 /* Ukuran besar untuk ringkasan hasil */
 .badge--lg {
-  min-height: var(--space-10);
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--text-body-md);
+  min-height: 36px;
+  padding: 6px 16px;
+  font-size: 15px;
 }
 
 .badge--lg .badge__icon {
-  width: var(--icon-md);
-  height: var(--icon-md);
+  width: 16px;
+  height: 16px;
 }
