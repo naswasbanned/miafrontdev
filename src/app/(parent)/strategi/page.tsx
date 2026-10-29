@@ -27,6 +27,7 @@ export default async function StrategiPage() {
   return (
     <Container>
       <PageHeader
+        art="strategy"
         title={`Strategi untuk ${first}`}
         desc="Urutan pilihan yang kami sarankan berdasarkan data resmi dan aturan terbaru. Bapak/Ibu bebas menyesuaikan urutan."
       />

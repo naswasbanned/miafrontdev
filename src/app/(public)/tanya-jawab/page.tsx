@@ -19,6 +19,7 @@ export default function TanyaJawabPage() {
     <Container>
       
       <PageHeader
+        art="faq"
         title="Tanya Jawab & Bantuan"
         desc="Temukan jawaban cepat seputar metodologi prediksi, keamanan data keluarga, dan panduan teknis pengisian."
       />

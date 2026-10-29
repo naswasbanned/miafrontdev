@@ -43,6 +43,7 @@ export default async function PetaSekolahPage({
     <>
       <Container>
         <PageHeader
+        art="map"
           title="Hasil Sekolah"
           desc={`Peluang ${name} di sekolah sekitar rumah · Jalur dekat rumah (Domisili) dan Jalur nilai rapor & prestasi (Prestasi).`}
           actions={

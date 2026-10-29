@@ -20,6 +20,7 @@ export default async function MasukPage({
       </div>
       
       <PageHeader
+        art="login"
         title="Masuk / Mulai Simulasi"
         desc="Cukup gunakan nomor WhatsApp/HP aktif. Anda tidak perlu repot membuat atau mengingat kata sandi baru."
       />

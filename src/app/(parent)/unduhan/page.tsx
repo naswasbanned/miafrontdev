@@ -24,6 +24,7 @@ export default async function UnduhanPage() {
   return (
     <Container>
       <PageHeader
+        art="docs"
         title={`Dokumen ${name.split(" ")[0]}`}
         desc="Ringkasan strategi sekolah siap cetak dan checklist berkas fisik untuk verifikasi ke panitia sekolah."
       />

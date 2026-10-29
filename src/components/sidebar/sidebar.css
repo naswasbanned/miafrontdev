@@ -78,3 +78,19 @@
     background: transparent;
   }
 }
+
+.sidebar__art {
+  display: none;
+  width: 100%;
+  max-width: 12rem;
+  height: auto;
+  margin: var(--space-8) auto 0;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .sidebar__art {
+    display: block;
+  }
+}

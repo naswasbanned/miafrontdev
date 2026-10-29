@@ -6,6 +6,7 @@ export default function NotFound() {
     <SiteChrome area="public">
       <Container>
         <PageHeader
+        art="lost"
           title="Halaman tidak ditemukan"
           desc="Alamat yang Bapak/Ibu buka tidak ada atau sudah dipindahkan."
         />

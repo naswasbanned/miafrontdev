@@ -49,7 +49,8 @@ export default async function IsiDataPage({ params, searchParams }: Props) {
           Lengkapi data anak sampai langkah terakhir dulu. Setelah itu {locked} langsung terbuka.
         </Alert>
       )}
-      <PageHeader title={step.title} desc={step.desc} />
+      <PageHeader
+        art="profile" title={step.title} desc={step.desc} />
 
       <div className="card wizard__card">
         <WizardForm step={n} next={next}>

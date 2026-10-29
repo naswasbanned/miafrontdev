@@ -434,3 +434,37 @@
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
+
+/* ---------- Ilustrasi header halaman ---------- */
+.page-header__art {
+  display: none;
+  width: 9.5rem;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (min-width: 600px) {
+  .page-header--art {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: var(--space-8);
+  }
+
+  .page-header--art .page-header__art {
+    display: block;
+    margin-block: calc(-1 * var(--space-4));
+  }
+
+  .page-header--art .page-header__actions {
+    margin-top: var(--space-4);
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-header__art {
+    width: 12.5rem;
+    margin-block: calc(-1 * var(--space-6));
+  }
+}

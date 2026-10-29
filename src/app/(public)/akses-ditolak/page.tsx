@@ -23,6 +23,7 @@ export default async function AksesDitolakPage({
   return (
     <Container reading>
       <PageHeader
+        art="lost"
         title="Halaman ini bukan untuk akun Bapak/Ibu"
         desc={
           session

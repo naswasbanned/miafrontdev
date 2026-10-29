@@ -29,6 +29,8 @@ export function Sidebar({ menu }: { menu: DashMenu }) {
           ))}
         </ul>
       </nav>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="sidebar__art" src="/art/art-dash.svg" alt="" aria-hidden="true" width={200} height={200} loading="lazy" />
     </aside>
   );
 }

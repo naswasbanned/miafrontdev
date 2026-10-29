@@ -32,6 +32,7 @@ export default function PanduanPage() {
     <Container>
       
       <PageHeader
+        art="guide"
         title="Panduan Jalur SPMB"
         desc="Pahami setiap jalur pendaftaran, persyaratan berkas resmi, dan cara SIPESEK mengalkulasi peluang kelulusan anak Anda dengan tenang."
       />

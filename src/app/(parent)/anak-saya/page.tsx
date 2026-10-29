@@ -80,6 +80,7 @@ export default async function AnakSayaPage() {
     <>
       <Container>
         <PageHeader
+        art="profile"
           title="Data Anak"
           desc="Pilih anak yang ingin dilihat. Data dan hasil tiap anak tersimpan terpisah."
         />

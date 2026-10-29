@@ -250,3 +250,23 @@ b {
     scroll-behavior: auto !important;
   }
 }
+
+/* ---------- Latar halaman (selain beranda): blob pastel + awan, di belakang semua isi ---------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url("/art/bg-ambient.svg") center / cover no-repeat;
+  pointer-events: none;
+}
+
+body:has(.landing-page)::before {
+  display: none;
+}
+
+@media print {
+  body::before {
+    display: none;
+  }
+}

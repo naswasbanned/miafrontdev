@@ -17,22 +17,41 @@ export function Container({
   );
 }
 
+/** art: nama ilustrasi di public/art (misal "guide" -> /art/art-guide.svg). Dekoratif, disembunyikan di HP. */
 export function PageHeader({
   title,
   desc,
   actions,
+  art,
 }: {
-  title: string;
+  title: ReactNode;
   desc?: string;
   actions?: ReactNode;
+  art?: string;
 }) {
+  const buttons = actions && <div className="page-header__actions">{actions}</div>;
   return (
-    <header className={`page-header${actions ? " page-header--split" : ""}`}>
+    <header
+      className={`page-header${art ? " page-header--art" : actions ? " page-header--split" : ""}`}
+    >
       <div>
         <h1>{title}</h1>
         {desc && <p className="page-header__desc">{desc}</p>}
+        {art && buttons}
       </div>
-      {actions && <div className="page-header__actions">{actions}</div>}
+      {!art && buttons}
+      {art && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          className="page-header__art"
+          src={`/art/art-${art}.svg`}
+          alt=""
+          aria-hidden="true"
+          width={200}
+          height={200}
+          loading="lazy"
+        />
+      )}
     </header>
   );
 }

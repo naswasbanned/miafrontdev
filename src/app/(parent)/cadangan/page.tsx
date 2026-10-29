@@ -21,6 +21,7 @@ export default function CadanganPage() {
     <Container>
       <Breadcrumb items={[["Strategi", "/strategi"], ["Sekolah Cadangan"]]} />
       <PageHeader
+        art="backup"
         title="Sekolah Swasta Cadangan"
         desc="Pilihan cadangan berkualitas bila kuota sekolah negeri tidak mencukupi. Ditampilkan secara objektif dan netral tanpa iklan berbayar."
       />
