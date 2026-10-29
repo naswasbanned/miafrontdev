@@ -101,6 +101,9 @@
     grid-column: auto;
   }
 
+}
+
+@media (min-width: 1280px) {
   .footer__link {
     white-space: nowrap;
   }
