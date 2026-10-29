@@ -4,8 +4,8 @@
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  border: 1px solid var(--color-border-subtle, #f0eeea);
-  border-radius: var(--radius-card, 24px);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-card);
   background-color: #f4f2ed;
   background-image:
     radial-gradient(#e5e1d8 1.5px, transparent 1.5px),
@@ -26,7 +26,7 @@
   width: var(--w);
   height: var(--h);
   border-radius: 6px;
-  background: #ffffff;
+  background: var(--color-surface);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
@@ -42,7 +42,7 @@
   height: 42px;
   padding: 0;
   transform: translate(-50%, -100%);
-  border: 2px solid #ffffff;
+  border: 2px solid var(--color-surface);
   border-radius: 999px;
   box-shadow: 0 4px 14px rgba(4, 6, 19, 0.16);
   cursor: pointer;
@@ -55,18 +55,18 @@
 }
 
 .map__pin--aman {
-  background: #059669;
-  color: #ffffff;
+  background: var(--color-success-text);
+  color: var(--color-on-primary);
 }
 
 .map__pin--bersaing {
-  background: #d97706;
-  color: #ffffff;
+  background: var(--color-warning-text);
+  color: var(--color-on-primary);
 }
 
 .map__pin--berisiko {
-  background: #dc2626;
-  color: #ffffff;
+  background: var(--color-danger-text);
+  color: var(--color-on-primary);
 }
 
 .map__home {
@@ -79,13 +79,13 @@
   padding: 6px 14px;
   transform: translate(-50%, -100%);
   border-radius: 999px;
-  background: var(--color-primary, #ed5a1c);
-  color: #ffffff;
-  font-family: var(--font-heading, "Outfit", sans-serif);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-family: var(--font-heading);
   font-size: 13px;
   font-weight: 600;
   box-shadow: 0 4px 14px rgba(237, 90, 28, 0.4);
-  border: 2px solid #ffffff;
+  border: 2px solid var(--color-surface);
   z-index: 2;
 }
 

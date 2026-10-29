@@ -26,7 +26,7 @@ export default function CadanganPage() {
       />
       <div className="stack stack--lg">
         <Alert kind="warning" title="Pendaftaran sekolah swasta umumnya dibuka lebih awal">
-          Sebagian besar SMA/SMK swasta favorit memulai gelombang penerimaan sebelum jadwal PPDB sekolah negeri dimulai. Disarankan untuk memantau jadwal dan syarat uang muka tiap sekolah cadangan sejak dini.
+          Sebagian besar SMA/SMK swasta favorit memulai gelombang penerimaan sebelum jadwal SPMB sekolah negeri dimulai. Disarankan untuk memantau jadwal dan syarat uang muka tiap sekolah cadangan sejak dini.
         </Alert>
 
         <Toolbar>
@@ -75,9 +75,9 @@ export default function CadanganPage() {
           style={{
             padding: "16px 20px",
             borderRadius: "16px",
-            background: "var(--color-surface-muted, #efede9)",
-            border: "1px solid var(--color-border-subtle, #f0eeea)",
-            color: "var(--color-ink-soft, #3e4042)",
+            background: "var(--color-surface-muted)",
+            border: "1px solid var(--color-border-subtle)",
+            color: "var(--color-ink-soft)",
             fontSize: "13px",
             lineHeight: "1.5",
           }}

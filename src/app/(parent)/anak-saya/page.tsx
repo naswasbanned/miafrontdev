@@ -1,163 +1,168 @@
 import type { Metadata } from "next";
 import {
-  Badge,
   Button,
   ButtonGroup,
-  Card,
-  SectionHeading,
-  Stepper,
-  Dialog,
   Container,
+  CtaBand,
+  Dialog,
+  Icon,
   PageHeader,
   Section,
-  CtaBand,
-  Icon,
+  SectionHeading,
 } from "@/components";
+import {
+  continueTarget,
+  isComplete,
+  STAGES,
+  stageStatus,
+  WIZARD_TOTAL,
+  type Child,
+} from "@/lib/accounts";
+import { HELP_URL } from "@/lib/nav";
+import { getSession } from "@/lib/session";
+import { addChild, selectChild } from "@/lib/session-actions";
 
 export const metadata: Metadata = {
-  title: "Profil Anak Saya",
-  description: "Kelola data profil anak, pantau kelengkapan berkas, dan lihat kalkulasi strategi SPMB.",
+  title: "Data Anak",
+  description: "Pilih anak, lihat sampai tahap mana datanya, lalu lanjutkan ke langkah berikutnya.",
 };
 
-export default function AnakSayaPage() {
+/** Kartu satu anak: 4 tahap sebagai progres + satu tombol ke tahap berikutnya. */
+function ChildCard({ child, active }: { child: Child; active: boolean }) {
+  const status = stageStatus(child);
+  const target = continueTarget(child);
+  const done = isComplete(child);
+  return (
+    <article className={`card child-card${active ? " child-card--active" : ""}`}>
+      <div className="child-card__top">
+        <h2 className="card__title">{child.name}</h2>
+        {active && <span className="badge badge--brand">Sedang dilihat</span>}
+      </div>
+      <p className="card__text">
+        {done
+          ? "Data lengkap. Hasil, strategi, dan dokumen sudah bisa dibuka."
+          : `Isi data: langkah ${Math.min(child.steps + 1, WIZARD_TOTAL)} dari ${WIZARD_TOTAL}. Hasil terbuka setelah data lengkap.`}
+      </p>
+      <ol className="journey" aria-label={`Tahap ${child.name}`}>
+        {STAGES.map((s) => (
+          <li key={s.key} className={`journey__step journey__step--${status[s.key]}`}>
+            <span className="journey__num" aria-hidden="true">
+              {status[s.key] === "selesai" ? (
+                <Icon name="check" className="icon icon--sm" />
+              ) : status[s.key] === "terkunci" ? (
+                <Icon name="lock" className="icon icon--sm" />
+              ) : (
+                s.n
+              )}
+            </span>
+            <span className="journey__label">
+              {s.label}
+              <span className="visually-hidden">{`: ${status[s.key]}`}</span>
+            </span>
+          </li>
+        ))}
+      </ol>
+      <form action={selectChild} className="card__footer">
+        <input type="hidden" name="anak" value={child.id} />
+        <input type="hidden" name="kembali" value={target.href} />
+        <Button variant="primary" block type="submit" icon="arrow-right">
+          {target.label}
+        </Button>
+      </form>
+    </article>
+  );
+}
+
+export default async function AnakSayaPage() {
+  const session = await getSession();
+  const kids = session?.children ?? [];
   return (
     <>
       <Container>
         <PageHeader
-          title="Profil Anak Saya"
-          desc="Kelola profil anak untuk memantau kelayakan jalur dan kalkulasi peluang sekolah. Data setiap anak tersimpan terpisah dan aman."
+          title="Data Anak"
+          desc="Pilih anak yang ingin dilihat. Data dan hasil tiap anak tersimpan terpisah."
         />
-        
-        <div className="card-grid">
-          {/* Anak 1: Dimas Pratama */}
-          <Card
-            title="Dimas Pratama"
-            text="SMP Negeri 3 Sukamaju · Target: SMA Negeri"
-            meta={
-              <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", marginTop: "4px" }}>
-                <Badge kind="brand">✓ Data Lengkap</Badge>
-                <Badge kind="aman">Peluang Besar</Badge>
-                <Badge kind="neutral">Zonasi: 1.2 km</Badge>
-              </div>
-            }
-            footer={
-              <ButtonGroup>
-                <Button variant="primary" block href="/strategi">
-                  Lihat Rekomendasi Strategi
-                </Button>
-                <Button variant="secondary" block href="/peta-sekolah">
-                  Peta Zonasi Sekolah
-                </Button>
-              </ButtonGroup>
-            }
-          >
-            <div style={{ padding: "14px", borderRadius: "14px", background: "var(--color-surface-muted)", marginTop: "12px", border: "1px solid var(--color-border-subtle)" }}>
-              <span style={{ fontSize: "13px", color: "var(--color-ink-muted)", display: "block", marginBottom: "4px" }}>Jalur Memenuhi Syarat:</span>
-              <strong style={{ fontSize: "14px", color: "var(--color-ink)" }}>Jalur Domisili (Zonasi) & Jalur Prestasi Nilai</strong>
-            </div>
-          </Card>
-
-          {/* Anak 2: Nadia Pratama */}
-          <Card
-            title="Nadia Pratama"
-            text="SMP Negeri 3 Sukamaju · Langkah 2 dari 5"
-            meta={
-              <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", marginTop: "4px" }}>
-                <Badge kind="bersaing">Progres 40%</Badge>
-                <Badge kind="neutral">Belum Selesai</Badge>
-              </div>
-            }
-            footer={
-              <ButtonGroup>
-                <Button variant="primary" block href="/isi-data/2">
-                  Lanjutkan Pengisian (Langkah 2)
-                </Button>
-                <Button variant="secondary" block href="/isi-data/1">
-                  Ubah Data Awal
-                </Button>
-              </ButtonGroup>
-            }
-          >
-            <div style={{ marginTop: "12px" }}>
-              <span style={{ fontSize: "13px", color: "var(--color-ink-muted)", display: "block", marginBottom: "8px" }}>Tahapan Wizard:</span>
-              <Stepper step={2} total={5} />
-            </div>
-          </Card>
-        </div>
-
-        <div style={{ marginTop: "24px" }}>
-          <Button variant="secondary" block href="/isi-data/1" iconLeft="plus">
-            + Tambah Profil Anak Lainnya
-          </Button>
-        </div>
-
+        {kids.length === 0 ? (
+          <div className="card empty-state">
+            <h2 className="card__title">Belum ada data anak</h2>
+            <p className="card__text">Mulai dengan mengisi data singkat anak. Sekitar 8 menit, dan isian tersimpan otomatis.</p>
+            <form action={addChild}>
+              <Button variant="primary" lg type="submit" icon="arrow-right">
+                Mulai isi data anak
+              </Button>
+            </form>
+          </div>
+        ) : (
+          <div className="card-grid">
+            {kids.map((c) => (
+              <ChildCard key={c.id} child={c} active={c.id === session?.child?.id} />
+            ))}
+          </div>
+        )}
+        {kids.length > 0 && (
+          <form action={addChild} className="child-add">
+            <Button variant="secondary" block type="submit" iconLeft="plus">
+              Tambah anak
+            </Button>
+          </form>
+        )}
         <Section>
           <SectionHeading
             title="Hak & Privasi Akun Keluarga"
-            desc="Anda memegang kendali penuh atas data yang telah dimasukkan."
+            desc="Bapak/Ibu memegang kendali penuh atas data yang telah dimasukkan."
           />
-          <div className="card" style={{ background: "#ffffff" }}>
-            <p style={{ marginBottom: "16px", color: "var(--color-ink-soft)", fontSize: "15px" }}>
-              Semua kalkulasi peluang disimpan secara privat. Anda berhak mengunduh cadangan arsip atau menghapus seluruh riwayat pendaftaran kapan saja.
+          <div className="card">
+            <p className="card__text">
+              Semua perhitungan peluang disimpan secara privat. Bapak/Ibu bisa mengunduh salinan data atau menghapus seluruh data kapan saja.
             </p>
             <ButtonGroup>
               <Button
                 variant="secondary"
                 iconLeft="download"
-                toast={{
-                  message: "Arsip data profil keluarga sedang diproses untuk diunduh.",
-                  variant: "info",
-                }}
+                toast={{ message: "Salinan data keluarga sedang disiapkan untuk diunduh.", variant: "info" }}
               >
-                Unduh Cadangan Data
+                Unduh Salinan Data
               </Button>
               <Button variant="ghost" iconLeft="trash" opens="dlg-hapus">
-                Hapus Seluruh Data Profil
+                Hapus Seluruh Data
               </Button>
             </ButtonGroup>
           </div>
         </Section>
-
         <Section>
           <CtaBand
-            title="Butuh Panduan Saat Mengisi Data?"
-            text="Tim konselor sekolah kami siap memandu cara membaca rapor dan menghitung titik koordinat KK melalui WhatsApp."
+            title="Butuh bantuan saat mengisi data?"
+            text="Tim pendamping siap membantu membaca rapor dan menandai titik rumah lewat WhatsApp."
           >
-            <Button
-              variant="primary"
-              href="https://wa.me/"
-              iconLeft="message"
-              newTab
-            >
-              Konsultasi Gratis via WhatsApp
+            <Button variant="inverse" href={HELP_URL} iconLeft="message" newTab>
+              Chat lewat WhatsApp
             </Button>
           </CtaBand>
         </Section>
       </Container>
-
       <Dialog
         id="dlg-hapus"
-        title="Konfirmasi Penghapusan Seluruh Data?"
+        title="Hapus seluruh data?"
         footer={
           <>
             <Button variant="secondary" closes>
-              Batalkan
+              Batal
             </Button>
             <Button
               variant="primary"
               closes
-              toast={{
-                message: "Seluruh data profil anak telah berhasil dihapus dari sistem.",
-                variant: "info",
-              }}
+              toast={{ message: "Seluruh data anak sudah dihapus.", variant: "info" }}
             >
-              Ya, Hapus Permanen
+              Ya, hapus permanen
             </Button>
           </>
         }
       >
         <p>
-          Tindakan ini akan menghapus permanen profil Dimas Pratama dan Nadia Pratama beserta hasil prediksi zonasi dan simulasi strategi yang sudah tersimpan.
+          {kids.length > 0
+            ? `Profil ${kids.map((k) => k.name).join(" dan ")} beserta hasil peluang dan strategi yang tersimpan akan terhapus permanen.`
+            : "Seluruh data akun akan terhapus permanen."}
         </p>
       </Dialog>
     </>

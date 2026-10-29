@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import {
   Button,
   Accordion,
-  Breadcrumb,
   Container,
   PageHeader,
   CtaBand,
@@ -18,7 +17,6 @@ export const metadata: Metadata = {
 export default function TanyaJawabPage() {
   return (
     <Container>
-      <Breadcrumb items={[["Beranda", "/"], ["Tanya Jawab"]]} />
       
       <PageHeader
         title="Tanya Jawab & Bantuan"
@@ -43,7 +41,7 @@ export default function TanyaJawabPage() {
         {FAQ_GROUPS.map((group, i) => {
           const sectionId = group.title.toLowerCase().replace(/\s+/g, "-");
           return (
-            <section key={group.title} id={sectionId} className="card" style={{ padding: "32px", background: "#ffffff" }}>
+            <section key={group.title} id={sectionId} className="card" style={{ padding: "32px", background: "var(--color-surface)" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "16px" }}>
                 <h2 style={{ fontFamily: "var(--font-heading)", fontSize: "22px", fontWeight: "700", color: "var(--color-ink)", margin: 0 }}>
                   {group.title}
@@ -57,7 +55,7 @@ export default function TanyaJawabPage() {
 
         <CtaBand
           title="Masih Ada Pertanyaan yang Belum Terjawab?"
-          text="Tim pendamping orang tua kami siap membantu menjawab kebingungan seputar PPDB dengan ramah dan sabar."
+          text="Tim pendamping orang tua kami siap membantu menjawab kebingungan seputar SPMB dengan ramah dan sabar."
         >
           <Button
             variant="primary"

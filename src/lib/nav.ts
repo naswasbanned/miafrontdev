@@ -1,36 +1,15 @@
-// Data navigasi. Nilai `current` memakai path route, misal "/anak-saya".
+// Data navigasi. Tahap orang tua ada di lib/accounts.ts (STAGES) karena juga dipakai proxy.
 export type NavItem = readonly [href: string, label: string];
 export type DashItem = readonly [href: string, label: string, icon: string];
 
-export const NAV = {
-  public: {
-    home: "/",
-    items: [
-      ["/", "Beranda"],
-      ["/panduan", "Panduan PPDB"],
-      ["/tanya-jawab", "Tanya Jawab"],
-    ] as NavItem[],
-    cta: { variant: "primary", label: "Mulai Cek Peluang", href: "/masuk" },
-  },
-  parent: {
-    home: "/anak-saya",
-    items: [
-      ["/anak-saya", "Anak Saya"],
-      ["/peta-sekolah", "Peta Sekolah"],
-      ["/strategi", "Strategi"],
-      ["/unduhan", "Unduhan"],
-      ["/tanya-jawab", "Bantuan"],
-    ] as NavItem[],
-    cta: { variant: "secondary", label: "Keluar", href: "/" },
-  },
-} as const;
-
-export const BOTTOM: DashItem[] = [
-  ["/", "Beranda", "home"],
-  ["/anak-saya", "Anak Saya", "users"],
-  ["/peta-sekolah", "Peta", "map-pin"],
-  ["/strategi", "Strategi", "clipboard"],
+/** Menu halaman publik (tamu dan pengguna yang sudah login). */
+export const PUBLIC_NAV: NavItem[] = [
+  ["/", "Beranda"],
+  ["/panduan", "Panduan Jalur"],
+  ["/tanya-jawab", "Tanya Jawab"],
 ];
+
+export const HELP_URL = "https://wa.me/";
 
 export const POLICY = {
   role: "Pembuat Kebijakan",
@@ -48,31 +27,11 @@ export const ADMIN = {
   role: "Admin",
   home: "/admin-aturan",
   items: [
-    ["/admin-aturan", "Aturan PPDB", "clipboard"],
+    ["/admin-aturan", "Aturan SPMB", "clipboard"],
     ["/admin-sekolah", "Data Sekolah", "school"],
     ["/admin-impor", "Impor Data Seleksi", "upload"],
     ["/admin-model", "Model Peluang", "settings"],
     ["/admin-pengguna", "Pengguna", "users"],
+    ["/kebijakan-ringkasan", "Dashboard Kebijakan", "bar-chart"],
   ] as DashItem[],
 };
-
-// Halaman turunan menandai menu induknya (misal /isi-data/3 menandai "Anak Saya").
-const PARENT_OF: readonly (readonly [prefix: string, menu: string])[] = [
-  ["/isi-data", "/anak-saya"],
-  ["/detail-sekolah", "/peta-sekolah"],
-  ["/cadangan", "/strategi"],
-];
-
-const under = (pathname: string, prefix: string) =>
-  pathname === prefix || pathname.startsWith(`${prefix}/`);
-
-/** Menu navbar yang aktif untuk sebuah path. */
-export function activeHref(pathname: string): string {
-  return PARENT_OF.find(([prefix]) => under(pathname, prefix))?.[1] ?? pathname;
-}
-
-/** Bottom nav tidak punya "Unduhan"; halaman itu menandai "Strategi". */
-export function activeBottom(pathname: string): string {
-  const href = activeHref(pathname);
-  return href === "/unduhan" ? "/strategi" : href;
-}

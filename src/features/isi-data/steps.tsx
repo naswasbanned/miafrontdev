@@ -56,7 +56,7 @@ export const STEPS: Step[] = [
 export const TOTAL = STEPS.length;
 export const stepHref = (n: number) => `/isi-data/${n}`;
 /** Tujuan setelah langkah terakhir dan sebelum langkah pertama. */
-export const AFTER_LAST = "/peta-sekolah";
+export const AFTER_LAST = "/peta-sekolah?selesai=1";
 export const BEFORE_FIRST = "/anak-saya";
 
 /** Ubah parameter URL menjadi langkah, atau null bila bukan angka 1..TOTAL. */

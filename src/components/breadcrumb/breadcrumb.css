@@ -41,3 +41,15 @@
   color: var(--color-text);
   font-weight: var(--weight-semibold);
 }
+
+/* HP: breadcrumb diringkas menjadi satu tautan kembali ke tahap induk */
+@media (max-width: 599px) {
+  .breadcrumb__item:not(:first-child),
+  .breadcrumb__separator {
+    display: none;
+  }
+
+  .breadcrumb__link::before {
+    content: "← Kembali ke ";
+  }
+}

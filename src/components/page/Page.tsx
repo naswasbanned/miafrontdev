@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Button } from "../button/Button";
 
 // Pembungkus layout tingkat halaman (kelas dari styles/pages.css).
 
@@ -90,6 +91,36 @@ export function CtaBand({
       </div>
       {children}
     </div>
+  );
+}
+
+/** Blok penutup tiap tahap: satu tombol ke tahap berikutnya agar orang tua tidak perlu kembali ke navbar. */
+export function NextStep({
+  step,
+  title,
+  text,
+  href,
+  label,
+}: {
+  step: string;
+  title: string;
+  text: string;
+  href: string;
+  label: string;
+}) {
+  return (
+    <section className="page-section next-step" aria-label="Langkah berikutnya">
+      <div className="cta-band">
+        <div>
+          <p className="next-step__eyebrow">{step}</p>
+          <h2 className="text-heading-md">{title}</h2>
+          <p>{text}</p>
+        </div>
+        <Button variant="inverse" lg href={href} icon="arrow-right">
+          {label}
+        </Button>
+      </div>
+    </section>
   );
 }
 

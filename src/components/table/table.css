@@ -2,34 +2,34 @@
 
 .table-wrap {
   overflow-x: auto;
-  border: 1px solid var(--color-border-subtle, #f0eeea);
-  border-radius: var(--radius-card, 24px);
-  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
   box-shadow: 0 4px 16px rgba(4, 6, 19, 0.03);
 }
 
 .table {
   width: 100%;
-  min-width: var(--table-min, 480px);
+  min-width: var(--table-min);
   border-collapse: collapse;
-  font-size: var(--text-body-md, 15px);
-  color: var(--color-ink, #040613);
+  font-size: var(--text-body-md);
+  color: var(--color-ink);
 }
 
 .table th,
 .table td {
   padding: 16px 20px;
-  border-bottom: 1px solid var(--color-border-subtle, #f0eeea);
+  border-bottom: 1px solid var(--color-border-subtle);
   text-align: left;
   vertical-align: middle;
 }
 
 .table thead th {
-  background: var(--color-canvas, #f8f7f3);
-  font-family: var(--font-heading, "Outfit", sans-serif);
+  background: var(--color-canvas);
+  font-family: var(--font-heading);
   font-size: 13px;
   font-weight: 600;
-  color: var(--color-ink-muted, #8f9192);
+  color: var(--color-ink-muted);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   white-space: nowrap;
@@ -37,7 +37,7 @@
 
 .table tbody th {
   font-weight: 600;
-  color: var(--color-ink, #040613);
+  color: var(--color-ink);
 }
 
 .table tbody tr:last-child > * {
@@ -51,7 +51,7 @@
 .table__num {
   text-align: right;
   font-variant-numeric: tabular-nums;
-  font-family: var(--font-heading, "Outfit", sans-serif);
+  font-family: var(--font-heading);
   font-weight: 600;
 }
 
@@ -65,7 +65,7 @@
 }
 
 .table__muted {
-  color: var(--color-ink-soft, #3e4042);
+  color: var(--color-ink-soft);
   font-size: 13px;
 }
 

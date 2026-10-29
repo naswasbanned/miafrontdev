@@ -1,5 +1,4 @@
-/* Bottom nav — navigasi tetap di bawah, hanya < 600px. Ikon selalu berlabel teks. */
-
+/* Bottom nav — 4 tahap orang tua, hanya < 600px. Ikon selalu berlabel teks. */
 .bottom-nav {
   position: fixed;
   inset-inline: 0;
@@ -18,7 +17,7 @@
   list-style: none;
 }
 
-.bottom-nav__link {
+.stage--bottom {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,27 +25,27 @@
   gap: var(--space-1);
   min-height: var(--bottom-nav-height);
   padding: var(--space-2) var(--space-1);
-  color: var(--color-text-secondary);
+  color: var(--color-ink-soft);
   font-size: var(--text-caption);
   font-weight: var(--weight-semibold);
-  line-height: var(--leading);
+  line-height: 1.2;
   text-align: center;
   text-decoration: none;
 }
 
-.bottom-nav__link:hover {
-  color: var(--color-primary);
-}
-
-.bottom-nav__link:focus-visible {
+.stage--bottom:focus-visible {
   outline-offset: calc(-1 * var(--focus-ring-width) - var(--focus-ring-offset));
 }
 
-.bottom-nav__link[aria-current="page"] {
+.stage--bottom[aria-current="page"] {
   color: var(--color-primary);
 }
 
-.bottom-nav__icon-wrap {
+.stage--bottom.stage--locked {
+  color: var(--color-ink-muted);
+}
+
+.stage__icon-wrap {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -55,8 +54,13 @@
   border-radius: var(--radius-full);
 }
 
-.bottom-nav__link[aria-current="page"] .bottom-nav__icon-wrap {
-  background: var(--color-primary-subtle);
+.stage__icon-wrap .icon {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+}
+
+.stage--bottom[aria-current="page"] .stage__icon-wrap {
+  background: var(--color-primary-tint);
 }
 
 @media (min-width: 600px) {

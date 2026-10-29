@@ -1,135 +1,107 @@
-/* Footer — Bersih, harmonis, hangat dari FigCraft moodboard */
-
+/* Footer — brand + tiga kolom tautan + baris hak cipta (board FigCraft: Footer) */
 .footer {
-  background: var(--color-surface, #ffffff);
-  border-top: 1px solid var(--color-border-subtle, #f0eeea);
-  color: var(--color-ink, #040613);
-  padding: 56px 20px 40px;
-  margin-top: 64px;
+  margin-top: var(--space-16);
+  padding: 0 var(--page-margin) var(--space-12);
 }
 
-.footer .container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer__top {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-  max-width: 480px;
-}
-
-.footer__brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-heading, "Outfit", sans-serif);
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--color-ink, #040613);
-}
-
-.footer__logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 10px;
-  background: var(--color-primary, #ed5a1c);
-  color: #ffffff;
-}
-
-.footer__logo svg {
-  width: 18px;
-  height: 18px;
-}
-
-.footer__about {
-  color: var(--color-ink-soft, #3e4042);
-  font-size: 14px;
-  line-height: 1.6;
+.footer__inner {
+  max-width: 70rem;
+  margin-inline: auto;
+  padding-top: 33px;
+  border-top: var(--border-thin) solid var(--color-border-subtle);
 }
 
 .footer__grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 36px;
-  margin-top: 48px;
-  padding-top: 36px;
-  border-top: 1px solid var(--color-border-subtle, #f0eeea);
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-8);
 }
 
-@media (min-width: 640px) {
-  .footer__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.footer__about {
+  max-width: 22.5rem;
+  margin-top: var(--space-4);
+  color: var(--color-ink-soft);
+  font-size: 0.875rem;
+  line-height: 1.5714;
 }
 
-@media (min-width: 1024px) {
-  .footer__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
 }
 
 .footer__heading {
-  font-family: var(--font-heading, "Outfit", sans-serif);
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--color-ink, #040613);
-  margin-bottom: 16px;
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: var(--text-body-md);
+  font-weight: var(--weight-bold);
+  line-height: 1.25;
+  letter-spacing: 0;
 }
 
 .footer__list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--space-3);
   padding: 0;
-  margin: 0;
   list-style: none;
 }
 
 .footer__link {
-  color: var(--color-ink-soft, #3e4042);
-  font-size: 14px;
+  color: var(--color-ink-soft);
+  font-size: 0.875rem;
+  line-height: 1.2143;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 .footer__link:hover {
-  color: var(--color-primary, #ed5a1c);
-}
-
-.footer__notice {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  margin-top: 40px;
-  padding: 16px 20px;
-  border-radius: 14px;
-  background: var(--color-surface-muted, #efede9);
-  color: var(--color-ink-soft, #3e4042);
-  font-size: 13px;
-  line-height: 1.5;
+  color: var(--color-primary);
 }
 
 .footer__bottom {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 1px solid var(--color-border-subtle, #f0eeea);
-  color: var(--color-ink-muted, #8f9192);
-  font-size: 13px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-6);
+  margin-top: var(--space-12);
+  padding-top: var(--space-5);
+  border-top: var(--border-thin) solid var(--color-border-subtle);
+  color: var(--color-ink-muted);
+  font-size: var(--text-caption);
+  line-height: 1.2308;
 }
 
 @media (min-width: 640px) {
-  .footer__bottom {
-    flex-direction: row;
-    justify-content: space-between;
+  .footer {
+    padding-inline: var(--page-margin-tablet);
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer__brand-col {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    padding-inline: var(--page-margin-desktop);
+  }
+
+  .footer__grid {
+    grid-template-columns: 20rem repeat(3, minmax(0, 1fr));
+    gap: var(--space-10);
+  }
+
+  .footer__brand-col {
+    grid-column: auto;
+  }
+
+  .footer__link {
+    white-space: nowrap;
   }
 }

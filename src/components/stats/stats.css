@@ -13,9 +13,9 @@
   flex-direction: column;
   gap: 6px;
   padding: 24px;
-  border: 1px solid var(--color-border-subtle, #f0eeea);
-  border-radius: var(--radius-card, 24px);
-  background: var(--color-surface, #ffffff);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
   box-shadow: 0 4px 16px rgba(4, 6, 19, 0.03);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -27,8 +27,8 @@
 
 .stats__value {
   order: -1;
-  color: var(--color-primary, #ed5a1c);
-  font-family: var(--font-heading, "Outfit", sans-serif);
+  color: var(--color-primary);
+  font-family: var(--font-heading);
   font-size: 32px;
   font-weight: 700;
   line-height: 1.15;
@@ -38,11 +38,11 @@
 .stats__label {
   font-size: 15px;
   font-weight: 600;
-  color: var(--color-ink, #040613);
+  color: var(--color-ink);
 }
 
 .stats__source {
-  color: var(--color-ink-muted, #8f9192);
+  color: var(--color-ink-muted);
   font-size: 13px;
 }
 

@@ -11,9 +11,11 @@ import {
   Form,
   MoreLink,
 } from "@/components";
+import { ACCOUNTS } from "@/lib/accounts";
+import { signIn } from "@/lib/session-actions";
 
 /** Dua langkah masuk: nomor HP, lalu kode OTP. Kartu tidak aktif disembunyikan (atribut hidden). */
-export function MasukFlow() {
+export function MasukFlow({ next }: { next?: string }) {
   const [step, setStep] = useState<"hp" | "kode">("hp");
   const first = useRef(true);
 
@@ -96,7 +98,12 @@ export function MasukFlow() {
           Kode 6 angka sudah dikirim. Salin kode itu, lalu tempel di kolom di
           bawah.
         </Alert>
-        <Form next="/anak-saya">
+        <Form
+          onValid={() => {
+            const picked = document.querySelector<HTMLInputElement>('input[name="akun"]:checked');
+            void signIn(picked?.value ?? "orang-tua", next);
+          }}
+        >
           <Field
             id="kode"
             label="Kode 6 angka"
@@ -109,6 +116,20 @@ export function MasukFlow() {
             errorRequired="Kode belum diisi. Lihat pesan WhatsApp atau SMS dari kami."
             errorPattern="Kode terdiri dari 6 angka. Periksa lagi pesan yang masuk."
           />
+          {/* shortcut: pilihan akun hanya untuk demo; hapus saat autentikasi asli terpasang. */}
+          <ChoiceGroup legend="Masuk sebagai (mode demo)">
+            {Object.entries(ACCOUNTS).map(([key, a], i) => (
+              <Choice
+                key={key}
+                type="radio"
+                name="akun"
+                value={key}
+                title={a.label}
+                desc={`${a.name}`}
+                checked={i === 0}
+              />
+            ))}
+          </ChoiceGroup>
           <ButtonGroup>
             <Button variant="primary" block type="submit">
               Masuk

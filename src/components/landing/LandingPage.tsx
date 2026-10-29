@@ -1,5 +1,6 @@
-import Link from "next/link";
-import { Icon } from "../icon/Icon";
+import { Accordion } from "../accordion/Accordion";
+import { Button } from "../button/Button";
+import { SectionHeading } from "../section-heading/SectionHeading";
 
 const VALUES = [
   {
@@ -67,43 +68,15 @@ const PATHS = [
   },
 ];
 
-const FAQS = [
-  {
-    question: "Apakah hasil prediksi ini menjamin anak pasti diterima?",
-    answer:
-      "Tidak. Hasil SIPESEK adalah estimasi ilmiah berbasis statistik dari kuota resmi, persebaran jarak, dan nilai seleksi tahun lalu. Hasil ini dirancang sebagai panduan strategi orang tua. Pendaftaran resmi tetap dilakukan melalui portal SPMB Dinas Pendidikan.",
-  },
-  { question: "Apakah data nilai rapor dan alamat keluarga kami aman?" },
-  { question: "Bagaimana jika jarak domisili sama persis dengan siswa pendaftar lainnya?" },
-  { question: "Apakah ada biaya untuk menggunakan aplikasi SIPESEK?" },
+const FAQS: readonly (readonly [q: string, a?: string])[] = [
+  [
+    "Apakah hasil prediksi ini menjamin anak pasti diterima?",
+    "Tidak. Hasil SIPESEK adalah estimasi ilmiah berbasis statistik dari kuota resmi, persebaran jarak, dan nilai seleksi tahun lalu. Hasil ini dirancang sebagai panduan strategi orang tua. Pendaftaran resmi tetap dilakukan melalui portal SPMB Dinas Pendidikan.",
+  ],
+  ["Apakah data nilai rapor dan alamat keluarga kami aman?"],
+  ["Bagaimana jika jarak domisili sama persis dengan siswa pendaftar lainnya?"],
+  ["Apakah ada biaya untuk menggunakan aplikasi SIPESEK?"],
 ];
-
-function LandingLogo({ small = false }: { small?: boolean }) {
-  return (
-    <Link className={`landing-logo${small ? " landing-logo--small" : ""}`} href="/">
-      <span className="landing-logo__mark" aria-hidden="true">
-        <Icon name="logo" />
-      </span>
-      <span>Sipesek</span>
-    </Link>
-  );
-}
-
-function LandingButton({
-  children,
-  href,
-  variant = "primary",
-}: {
-  children: React.ReactNode;
-  href: string;
-  variant?: "primary" | "outline" | "white" | "white-outline";
-}) {
-  return (
-    <Link className={`landing-button landing-button--${variant}`} href={href}>
-      {children}
-    </Link>
-  );
-}
 
 function CloudEdge({ flip = false }: { flip?: boolean }) {
   return (
@@ -146,8 +119,11 @@ function HeroVisual() {
 function ValueSection() {
   return (
     <section className="landing-section landing-values">
-      <h2>Dibuat untuk orang tua.<br />Jujur soal peluang.</h2>
-      <p className="landing-section-intro">Semua dirancang agar memilih sekolah terasa tenang dan masuk akal — dengan angka yang jelas dan penjelasan yang mudah dipahami.</p>
+      <SectionHeading
+        center
+        title={<>Dibuat untuk orang tua.<br />Jujur soal peluang.</>}
+        desc="Semua dirancang agar memilih sekolah terasa tenang dan masuk akal — dengan angka yang jelas dan penjelasan yang mudah dipahami."
+      />
       <div className="landing-value-grid">
         {VALUES.map((item) => (
           <article className={`landing-value-card ${item.className}`} key={item.title}>
@@ -166,13 +142,15 @@ function ValueSection() {
 function PathsSection() {
   return (
     <section className="landing-section landing-paths">
-      <div className="landing-section-heading landing-section-heading--split">
-        <div>
-          <h2>Jalur mana yang paling<br />cocok untuk anak?</h2>
-          <p>Empat jalur SPMB, masing-masing dengan kuota dan syarat sendiri. Sipesek mencocokkan kondisi anak dengan jalur yang paling realistis.</p>
-        </div>
-        <Link className="landing-inline-link" href="/panduan#jalur">Panduan Lengkap ↗</Link>
-      </div>
+      <SectionHeading
+        title={<>Jalur mana yang paling<br />cocok untuk anak?</>}
+        desc="Empat jalur SPMB, masing-masing dengan kuota dan syarat sendiri. Sipesek mencocokkan kondisi anak dengan jalur yang paling realistis."
+        action={
+          <Button variant="secondary" href="/panduan#jalur">
+            Panduan Lengkap ↗
+          </Button>
+        }
+      />
       <div className="landing-path-grid">
         {PATHS.map((path) => (
           <article className="landing-path-card" key={path.title}>
@@ -199,11 +177,11 @@ const STRATEGY_STEPS = [
 
 function StrategySection() {
   return (
-    <section className="landing-section landing-strategy">
+    <section className="landing-section landing-strategy" id="cara-kerja">
       <div className="landing-strategy-copy">
         <h2>Strategi yang tepat untuk setiap anak.</h2>
         <p>Setiap anak punya kondisi berbeda. Sipesek membaca nilai rapor, alamat, dan status keluarga, lalu menunjukkan jalur dengan peluang paling besar.</p>
-        <LandingButton href="/masuk">Temukan Jalur Terbaik Anak</LandingButton>
+        <Button variant="primary" lg href="/masuk">Temukan Jalur Terbaik Anak</Button>
       </div>
       <div className="landing-timeline">
         <div className="landing-timeline-line" aria-hidden="true" />
@@ -250,10 +228,11 @@ function DataSection() {
 function TestimonialsSection() {
   return (
     <section className="landing-section landing-testimonials">
-      <div className="landing-centered-heading">
-        <h2>Cerita nyata dari orang tua.</h2>
-        <p>Bagaimana Sipesek membantu keluarga menentukan strategi pendaftaran dengan tenang dan terencana.</p>
-      </div>
+      <SectionHeading
+        center
+        title="Cerita nyata dari orang tua."
+        desc="Bagaimana Sipesek membantu keluarga menentukan strategi pendaftaran dengan tenang dan terencana."
+      />
       <div className="landing-testimonial-grid">
         <article className="landing-testimonial landing-testimonial--orange">
           <div><span className="landing-testimonial-dots">••</span><blockquote>“Awalnya kami bingung antara zonasi atau prestasi. Setelah cek di Sipesek, jarak rumah ternyata sangat aman di SMAN 5. Anak kami jadi bisa fokus belajar dengan tenang tanpa cemas.”</blockquote></div>
@@ -271,23 +250,17 @@ function TestimonialsSection() {
 function FaqSection() {
   return (
     <section className="landing-section landing-faq">
-      <div className="landing-centered-heading">
-        <h2>Pertanyaan yang sering<br />diajukan.</h2>
-        <p>Segala hal tentang cara kerja prediksi, keamanan data, dan metodologi seleksi.</p>
-      </div>
-      <div className="landing-faq-list">
-        {FAQS.map((faq, index) => (
-          <details key={faq.question} open={index === 0}>
-            <summary>{faq.question}<span aria-hidden="true">{index === 0 ? "−" : "+"}</span></summary>
-            {faq.answer && <p>{faq.answer}</p>}
-          </details>
-        ))}
-      </div>
+      <SectionHeading
+        center
+        title={<>Pertanyaan yang sering<br />diajukan.</>}
+        desc="Segala hal tentang cara kerja prediksi, keamanan data, dan metodologi seleksi."
+      />
+      <Accordion items={FAQS} openFirst noHint />
     </section>
   );
 }
 
-function CtaSection() {
+function CtaSection({ cta }: { cta: LandingCta }) {
   return (
     <section className="landing-cta-wrap">
       <div className="landing-cta">
@@ -297,8 +270,8 @@ function CtaSection() {
           <h2>Beri masa depan anak<br />ruang untuk bertumbuh.</h2>
           <p>Hanya butuh 8 menit. Dapatkan gambaran peluang yang jelas dan tenang menyambut masa SPMB 2027/2028.</p>
           <div>
-            <LandingButton href="/masuk" variant="white">Mulai Cek Peluang Gratis</LandingButton>
-            <LandingButton href="/panduan" variant="white-outline">Pelajari Panduan Jalur</LandingButton>
+            <Button variant="inverse" lg href={cta.href}>{cta.ctaLabel}</Button>
+            <Button variant="inverse-outline" lg href="/panduan">Pelajari Panduan Jalur</Button>
           </div>
         </div>
         <div className="landing-cta-cloud" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
@@ -307,80 +280,34 @@ function CtaSection() {
   );
 }
 
-function LandingFooter() {
-  const columns = [
-    ["Jalur SPMB", "Jalur Domisili (50%)", "Jalur Afirmasi (15%)", "Jalur Prestasi (30%)", "Jalur Mutasi Tugas (5%)"],
-    ["Panduan Orang Tua", "Cara Menghitung Zonasi Jarak", "Syarat Berkas KK & Rapor", "Simulasi Peluang Kelulusan", "Daftar Sekolah Cadangan Swasta"],
-    ["Layanan & Privasi", "Tanya Jawab (FAQ)", "Kebijakan Privasi Data Siswa", "Metodologi & Sumber Data", "Hubungi Tim Bantuan"],
-  ];
-  return (
-    <footer className="landing-footer">
-      <div className="landing-footer-columns">
-        <div className="landing-footer-brand">
-          <LandingLogo small />
-          <p>Platform cerdas pendamping strategi SPMB mandiri. Membantu orang tua memilih sekolah dan jalur paling realistis dengan tenang.</p>
-        </div>
-        {columns.map(([heading, ...links]) => (
-          <nav key={heading} aria-label={heading}>
-            <h2>{heading}</h2>
-            {links.map((link) => <Link href="/panduan" key={link}>{link}</Link>)}
-          </nav>
-        ))}
-      </div>
-      <div className="landing-footer-bottom">
-        <span>© 2027 SIPESEK — Sistem Informasi Peluang Seleksi Sekolah. Dibuat untuk masa depan anak Indonesia.</span>
-        <span>Bukan situs resmi pemerintah. Data berbasis statistik publik.</span>
-      </div>
-    </footer>
-  );
-}
+export type LandingCta = { href: string; label: string; ctaLabel: string };
 
-export function LandingPage() {
+/** cta: tamu ke /masuk; orang tua yang sudah login langsung ke tahap berikutnya anaknya. */
+export function LandingPage({ cta }: { cta: LandingCta }) {
   return (
-    <div className="landing-page">
-      <div className="landing-sheet">
-        <header className="landing-navbar-wrap">
-          <div className="landing-navbar">
-            <LandingLogo />
-            <nav aria-label="Utama">
-              <Link className="is-active" href="/">Beranda</Link>
-              <Link href="/panduan">Panduan Jalur</Link>
-              <Link href="/peta-sekolah">Peta Sekolah</Link>
-              <Link href="/tanya-jawab">Tanya Jawab</Link>
-            </nav>
-            <div className="landing-navbar-actions">
-              <Link className="landing-search" href="/peta-sekolah" aria-label="Cari sekolah"><Icon name="search" /></Link>
-              <LandingButton href="/masuk" variant="outline">Mulai Cek Peluang</LandingButton>
-            </div>
+    <>
+      <section className="landing-hero">
+        <div className="landing-hero-copy">
+          <span className="landing-eyebrow"><i />SPMB SMA/SMK Negeri 2027/2028</span>
+          <h1><em>Peluang lolos</em><span>dimulai dari pilihan yang tepat.</span></h1>
+          <p>Hitung peluang anak diterima di SMA/SMK Negeri untuk setiap jalur SPMB — domisili, afirmasi, prestasi, dan mutasi — lalu dapatkan urutan pilihan sekolah yang realistis.</p>
+          <div className="landing-hero-actions">
+            <Button variant="primary" lg href={cta.href}>{cta.label}</Button>
+            <Button variant="secondary" lg href="#cara-kerja">Lihat Cara Kerja</Button>
           </div>
-        </header>
-
-        <main>
-          <section className="landing-hero">
-            <div className="landing-hero-copy">
-              <span className="landing-eyebrow"><i />SPMB SMA/SMK Negeri 2027/2028</span>
-              <h1><em>Peluang lolos</em><span>dimulai dari pilihan yang tepat.</span></h1>
-              <p>Hitung peluang anak diterima di SMA/SMK Negeri untuk setiap jalur SPMB — domisili, afirmasi, prestasi, dan mutasi — lalu dapatkan urutan pilihan sekolah yang realistis.</p>
-              <div className="landing-hero-actions">
-                <LandingButton href="/masuk">Mulai Cek Peluang</LandingButton>
-                <LandingButton href="#cara-kerja" variant="outline">Lihat Cara Kerja</LandingButton>
-              </div>
-              <small className="landing-trust">Gratis&nbsp; • &nbsp;Berdasarkan data seleksi resmi tahun lalu&nbsp; • &nbsp;Isian tersimpan otomatis</small>
-            </div>
-            <HeroVisual />
-          </section>
-          <ValueSection />
-          <CloudEdge />
-          <PathsSection />
-          <CloudEdge flip />
-          <section id="cara-kerja"><StrategySection /></section>
-          <DataSection />
-          <TestimonialsSection />
-          <FaqSection />
-          <CtaSection />
-          <LandingFooter />
-        </main>
-      </div>
-    </div>
+          <small className="landing-trust">Gratis&nbsp; • &nbsp;Berdasarkan data seleksi resmi tahun lalu&nbsp; • &nbsp;Isian tersimpan otomatis</small>
+        </div>
+        <HeroVisual />
+      </section>
+      <ValueSection />
+      <CloudEdge />
+      <PathsSection />
+      <CloudEdge flip />
+      <StrategySection />
+      <DataSection />
+      <TestimonialsSection />
+      <FaqSection />
+      <CtaSection cta={cta} />
+    </>
   );
 }

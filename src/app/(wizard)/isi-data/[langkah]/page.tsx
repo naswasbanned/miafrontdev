@@ -1,14 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import {
-  Breadcrumb,
-  Button,
-  ButtonGroup,
-  Container,
-  Form,
-  PageHeader,
-  Stepper,
-} from "@/components";
+import { Alert, Button, ButtonGroup, PageHeader } from "@/components";
+import { WizardForm } from "@/features/isi-data/WizardForm";
 import {
   AFTER_LAST,
   BEFORE_FIRST,
@@ -18,7 +11,16 @@ import {
   TOTAL,
 } from "@/features/isi-data/steps";
 
-type Props = { params: Promise<{ langkah: string }> };
+type Props = {
+  params: Promise<{ langkah: string }>;
+  searchParams: Promise<{ terkunci?: string }>;
+};
+
+const LOCKED_LABEL: Record<string, string> = {
+  hasil: "Hasil Sekolah",
+  strategi: "Strategi",
+  dokumen: "Dokumen",
+};
 
 export function generateStaticParams() {
   return STEPS.map((_, i) => ({ langkah: String(i + 1) }));
@@ -31,37 +33,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return { title, description: found.step.desc };
 }
 
-export default async function IsiDataPage({ params }: Props) {
+export default async function IsiDataPage({ params, searchParams }: Props) {
   const found = getStep((await params).langkah);
   if (!found) notFound();
   const { n, step } = found;
   const isLast = n === TOTAL;
   const next = isLast ? AFTER_LAST : stepHref(n + 1);
   const prev = n === 1 ? BEFORE_FIRST : stepHref(n - 1);
+  const locked = LOCKED_LABEL[(await searchParams).terkunci ?? ""];
 
   return (
-    <Container reading>
-      <Breadcrumb items={[["Anak Saya", "/anak-saya"], [`Langkah ${n}: ${step.title}`]]} />
-
-      <div style={{ marginBlock: "20px 28px" }}>
-        <Stepper step={n} total={TOTAL} saved />
-      </div>
-
+    <>
+      {locked && (
+        <Alert kind="info" title={`${locked} belum bisa dibuka`}>
+          Lengkapi data anak sampai langkah terakhir dulu. Setelah itu {locked} langsung terbuka.
+        </Alert>
+      )}
       <PageHeader title={step.title} desc={step.desc} />
 
-      <div
-        className="card"
-        style={{
-          padding: "32px 28px",
-          marginTop: "20px",
-          border: "1px solid var(--color-border-subtle, #f0eeea)",
-          borderRadius: "var(--radius-card, 24px)",
-          boxShadow: "0 8px 24px rgba(4, 6, 19, 0.04)",
-        }}
-      >
-        <Form next={next}>
+      <div className="card wizard__card">
+        <WizardForm step={n} next={next}>
           <step.Body />
-          <div style={{ marginTop: "32px", paddingTop: "24px", borderTop: "1px solid var(--color-border-subtle, #f0eeea)" }}>
+          <div className="wizard__actions">
             <ButtonGroup>
               <Button
                 variant="primary"
@@ -81,11 +74,11 @@ export default async function IsiDataPage({ params }: Props) {
               </Button>
             </ButtonGroup>
           </div>
-        </Form>
+        </WizardForm>
       </div>
 
       {step.Dialogs && <step.Dialogs />}
-    </Container>
+    </>
   );
 }
 

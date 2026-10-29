@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const school = getSchool((await params).id);
   return school
     ? {
-        title: `${school.name} · Detail & Peluang PPDB`,
-        description: `Analisis peluang masuk ${school.name} melalui berbagai jalur PPDB.`,
+        title: `${school.name} · Detail & Peluang SPMB`,
+        description: `Analisis peluang masuk ${school.name} melalui berbagai jalur SPMB.`,
       }
     : {};
 }
@@ -40,17 +40,17 @@ export default async function DetailSekolahPage({ params }: Props) {
 
   return (
     <Container>
-      <Breadcrumb items={[["Peta Sekolah", "/peta-sekolah"], [school.name]]} />
+      <Breadcrumb items={[["Hasil Sekolah", "/peta-sekolah"], [school.name]]} />
 
       {/* School Visual Hero Header */}
       <div
         style={{
           position: "relative",
-          borderRadius: "var(--radius-card, 24px)",
+          borderRadius: "var(--radius-card)",
           overflow: "hidden",
           marginBlock: "24px 32px",
           background: "linear-gradient(135deg, #2b1f1d 0%, #171112 100%)",
-          color: "#ffffff",
+          color: "var(--color-on-primary)",
           boxShadow: "0 12px 36px rgba(4, 6, 19, 0.12)",
         }}
       >
@@ -92,7 +92,7 @@ export default async function DetailSekolahPage({ params }: Props) {
                 backdropFilter: "blur(8px)",
                 fontSize: "12px",
                 fontWeight: 600,
-                color: "#ffffff",
+                color: "var(--color-on-primary)",
               }}
             >
               SMA Negeri
@@ -107,7 +107,7 @@ export default async function DetailSekolahPage({ params }: Props) {
                 backdropFilter: "blur(8px)",
                 fontSize: "12px",
                 fontWeight: 600,
-                color: "#ffffff",
+                color: "var(--color-on-primary)",
               }}
             >
               {school.kec}
@@ -121,7 +121,7 @@ export default async function DetailSekolahPage({ params }: Props) {
                 background: "rgba(237, 90, 28, 0.9)",
                 fontSize: "12px",
                 fontWeight: 600,
-                color: "#ffffff",
+                color: "var(--color-on-primary)",
               }}
             >
               {detail.distance} dari rumah
@@ -129,10 +129,10 @@ export default async function DetailSekolahPage({ params }: Props) {
           </div>
           <h1
             style={{
-              fontFamily: 'var(--font-display, "Josefin Sans", sans-serif)',
+              fontFamily: 'var(--font-display)',
               fontSize: "clamp(26px, 3.5vw, 38px)",
               fontWeight: 700,
-              color: "#ffffff",
+              color: "var(--color-on-primary)",
               margin: 0,
               letterSpacing: "-0.01em",
             }}
@@ -163,20 +163,20 @@ export default async function DetailSekolahPage({ params }: Props) {
             caption={`Peluang tiap jalur di ${shortName(school)}`}
             head={["Jalur Pendaftaran", "Status Syarat", "Estimasi Peluang", "Label Kategori"]}
             rows={detail.routes.map((r) => [
-              <strong key="j" style={{ color: "var(--color-ink, #040613)" }}>
+              <strong key="j" style={{ color: "var(--color-ink)" }}>
                 {r.jalur}
               </strong>,
               r.eligible ? (
-                <span key="e" style={{ color: "var(--color-success-text, #059669)", fontWeight: 600 }}>
+                <span key="e" style={{ color: "var(--color-success-text)", fontWeight: 600 }}>
                   Terpenuhi
                 </span>
               ) : (
-                <span key="e" style={{ color: "var(--color-ink-muted, #8f9192)" }}>
+                <span key="e" style={{ color: "var(--color-ink-muted)" }}>
                   Tidak terpenuhi
                 </span>
               ),
               r.eligible ? (
-                <strong key="p" style={{ fontFamily: 'var(--font-heading, "Outfit", sans-serif)', fontSize: "16px" }}>
+                <strong key="p" style={{ fontFamily: 'var(--font-heading)', fontSize: "16px" }}>
                   {r.peluang}
                 </strong>
               ) : (
@@ -204,7 +204,7 @@ export default async function DetailSekolahPage({ params }: Props) {
 
         <Alert
           kind="info"
-          title={`Keandalan Data: Berdasarkan ${detail.reliability.years} Tahun Riwayat PPDB`}
+          title={`Keandalan Data: Berdasarkan ${detail.reliability.years} Tahun Riwayat SPMB`}
         >
           {`Semakin konsisten riwayat data tahun-tahun sebelumnya, semakin akurat perkiraannya. ${detail.reliability.note}`}
         </Alert>

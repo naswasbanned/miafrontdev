@@ -1,4 +1,5 @@
-import { Button, Container, PageHeader, SiteChrome } from "@/components";
+import { Button, Container, PageHeader } from "@/components";
+import { SiteChrome } from "@/components/shell/Shell";
 
 export default function NotFound() {
   return (

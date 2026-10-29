@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
-import { Container, PageHeader, Badge, Icon } from "@/components";
+import { Alert, Badge, Container, PageHeader } from "@/components";
 import { MasukFlow } from "./MasukFlow";
 
 export const metadata: Metadata = {
   title: "Masuk atau Daftar",
-  description: "Masuk atau mulai simulasi peluang PPDB dengan nomor HP tanpa ribet mengingat kata sandi.",
+  description: "Masuk atau mulai simulasi peluang SPMB dengan nomor HP tanpa ribet mengingat kata sandi.",
 };
 
-export default function MasukPage() {
+export default async function MasukPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ next?: string }>;
+}) {
+  const { next } = await searchParams;
   return (
     <Container reading>
       <div style={{ textAlign: "center", marginBottom: "8px" }}>
@@ -35,7 +40,12 @@ export default function MasukPage() {
         </div>
       </div>
 
-      <MasukFlow />
+      {next && (
+        <Alert kind="info" title="Masuk dulu untuk melanjutkan">
+          Halaman yang Bapak/Ibu buka berisi data pribadi anak. Setelah masuk, kami langsung membukanya.
+        </Alert>
+      )}
+      <MasukFlow next={next} />
     </Container>
   );
 }

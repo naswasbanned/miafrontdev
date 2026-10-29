@@ -84,22 +84,22 @@
     "semantic_hash": "be9089068cde0a4799d883693a95bb98"
   },
   "src/app/(parent)/anak-saya/page.tsx": {
-    "mtime": 1792403691.571574,
-    "seen": 1793273426.9843752,
-    "ast_hash": "3531f7deddac7bac88f609ae6df5d05b",
+    "mtime": 1793276677.5619643,
+    "seen": 1793279765.0484755,
+    "ast_hash": "4a83a4c4250a17c430cca7c06ebd0b84",
     "semantic_hash": ""
   },
   "src/app/(parent)/cadangan/page.tsx": {
-    "mtime": 1792383726.120149,
-    "seen": 1792403275.2772453,
-    "ast_hash": "9af5b0e1bcab5ff1c63140bb2a73324b",
-    "semantic_hash": "9af5b0e1bcab5ff1c63140bb2a73324b"
+    "mtime": 1793277072.4741635,
+    "seen": 1793279765.0484767,
+    "ast_hash": "353abd119adfba525948b3b829e95f06",
+    "semantic_hash": ""
   },
   "src/app/(parent)/detail-sekolah/[id]/page.tsx": {
-    "mtime": 1792383726.1537433,
-    "seen": 1792403275.2772462,
-    "ast_hash": "481777d710bb9fa74a98b4291de90fb2",
-    "semantic_hash": "481777d710bb9fa74a98b4291de90fb2"
+    "mtime": 1793277053.0759573,
+    "seen": 1793279765.0484784,
+    "ast_hash": "ccec98883488837fb8cd9bd5adf79417",
+    "semantic_hash": ""
   },
   "src/app/(parent)/isi-data/[langkah]/layout.tsx": {
     "mtime": 1792383726.1727433,
@@ -108,10 +108,10 @@
     "semantic_hash": "ac7092521d9a6fab3b3ceef5a9cd0d7f"
   },
   "src/app/(parent)/isi-data/[langkah]/page.tsx": {
-    "mtime": 1792383726.1927435,
-    "seen": 1792403275.2772477,
-    "ast_hash": "4444426d257e04ceecc7982c096cca52",
-    "semantic_hash": "4444426d257e04ceecc7982c096cca52"
+    "mtime": 1793277127.7587514,
+    "seen": 1793279765.0484812,
+    "ast_hash": "708c6ea998fc0794d93e932c816cc497",
+    "semantic_hash": ""
   },
   "src/app/(parent)/layout.tsx": {
     "mtime": 1792383361.4535477,
@@ -120,21 +120,21 @@
     "semantic_hash": "1ced97b05344fc0b412325f6c5a252d5"
   },
   "src/app/(parent)/peta-sekolah/page.tsx": {
-    "mtime": 1792403691.571433,
-    "seen": 1793273426.9843833,
-    "ast_hash": "56f1e40feea15e542c5f2152869ca33e",
+    "mtime": 1793276993.9463286,
+    "seen": 1793279765.048484,
+    "ast_hash": "7b06cb89903f0a2b7c6001050c26fb9d",
     "semantic_hash": ""
   },
   "src/app/(parent)/strategi/page.tsx": {
-    "mtime": 1792403691.5717428,
-    "seen": 1793273426.9843843,
-    "ast_hash": "bb348bd3f3eb21e4f7033cb906d64898",
+    "mtime": 1793276963.2920027,
+    "seen": 1793279765.0484855,
+    "ast_hash": "631df1af8dff44f9fa680e096617dfd4",
     "semantic_hash": ""
   },
   "src/app/(parent)/unduhan/page.tsx": {
-    "mtime": 1792407870.04535,
-    "seen": 1793273426.9843855,
-    "ast_hash": "7d9b39f94114c3f62102efdb7887338d",
+    "mtime": 1793277104.5615048,
+    "seen": 1793279765.048487,
+    "ast_hash": "b6b166d564a2c0340f783b29291c391c",
     "semantic_hash": ""
   },
   "src/app/(public)/layout.tsx": {
@@ -150,10 +150,10 @@
     "semantic_hash": ""
   },
   "src/app/(public)/masuk/page.tsx": {
-    "mtime": 1792383265.7679718,
-    "seen": 1792403275.2772536,
-    "ast_hash": "9742ac974b2edb9647c527b7cf0c9f0b",
-    "semantic_hash": "9742ac974b2edb9647c527b7cf0c9f0b"
+    "mtime": 1793276641.728583,
+    "seen": 1793279765.0484924,
+    "ast_hash": "2f05c7087bed4686b160a105a59e4147",
+    "semantic_hash": ""
   },
   "src/app/(public)/page.tsx": {
     "mtime": 1793273385.5396645,
@@ -162,16 +162,16 @@
     "semantic_hash": ""
   },
   "src/app/(public)/panduan/page.tsx": {
-    "mtime": 1792407870.0449195,
-    "seen": 1793273426.9843907,
-    "ast_hash": "504bf86c18ba9313531e53530fff63cc",
+    "mtime": 1793277173.4002368,
+    "seen": 1793279765.0484958,
+    "ast_hash": "69646b2f2254b2861402e436c35b2d95",
     "semantic_hash": ""
   },
   "src/app/(public)/tanya-jawab/page.tsx": {
-    "mtime": 1792383726.3897448,
-    "seen": 1792403275.2772563,
-    "ast_hash": "3fa461a118bce63130a2e0c23f40c083",
-    "semantic_hash": "3fa461a118bce63130a2e0c23f40c083"
+    "mtime": 1793276612.0222673,
+    "seen": 1793279765.0484974,
+    "ast_hash": "c4168b44ca670efd1b10e19f695a07c5",
+    "semantic_hash": ""
   },
   "src/app/layout.tsx": {
     "mtime": 1793273400.9642098,
@@ -228,10 +228,10 @@
     "semantic_hash": "3108933e81a24e418fe9680a4708db0b"
   },
   "src/components/card/Card.tsx": {
-    "mtime": 1792378674.4342866,
-    "seen": 1792403275.277264,
-    "ast_hash": "6f8034db67d94305f21da3ee937e2a84",
-    "semantic_hash": "6f8034db67d94305f21da3ee937e2a84"
+    "mtime": 1793276520.9072986,
+    "seen": 1793279765.0485156,
+    "ast_hash": "7b044455025014524136c9c20269a69f",
+    "semantic_hash": ""
   },
   "src/components/choice/Checklist.tsx": {
     "mtime": 1792379168.805429,
@@ -504,9 +504,9 @@
     "semantic_hash": ""
   },
   "src/components/landing/LandingPage.tsx": {
-    "mtime": 1793273306.6851537,
-    "seen": 1793273426.9844148,
-    "ast_hash": "cb6c3203508ee7a379b2ac0732dda5b6",
+    "mtime": 1793279595.9530888,
+    "seen": 1793279765.0485463,
+    "ast_hash": "1cc8a547d3a815b0e494c34542df32a1",
     "semantic_hash": ""
   },
   ".kiro/skills/figcraft/SKILL.md": {
@@ -675,6 +675,120 @@
     "mtime": 1793274508.1093936,
     "seen": 1793274562.134718,
     "ast_hash": "35a99b6210b5f0db4c4478c194ea87d7",
+    "semantic_hash": ""
+  },
+  ".kiro/skills/image-generation/scripts/image_gen.py": {
+    "mtime": 1793279169.8262513,
+    "seen": 1793279765.0484436,
+    "ast_hash": "068d5cc82ecd233091aa76b478b79887",
+    "semantic_hash": ""
+  },
+  ".kiro/skills/image-generation/SKILL.md": {
+    "mtime": 1793279210.9773672,
+    "seen": 1793279765.0486362,
+    "ast_hash": "845799bcb1d33e09e04a1157cc7a4aae",
+    "semantic_hash": ""
+  },
+  ".kiro/skills/image-generation/references/models.md": {
+    "mtime": 1793279235.424938,
+    "seen": 1793279765.0486379,
+    "ast_hash": "1f0b602fec8f898f32f9c924d67d58ec",
+    "semantic_hash": ""
+  },
+  ".kiro/skills/image-generation/references/prompt-guide.md": {
+    "mtime": 1793279225.1918309,
+    "seen": 1793279765.0486398,
+    "ast_hash": "b303f79a6f9f7d88e3500135e71bed37",
+    "semantic_hash": ""
+  },
+  ".kiro/steering/image-generation.md": {
+    "mtime": 1793279266.4802632,
+    "seen": 1793279765.0486438,
+    "ast_hash": "29c77e06f9659fc5cc98a54977054419",
+    "semantic_hash": ""
+  },
+  "public/assets/landing-flower.svg": {
+    "mtime": 1793279263.4352314,
+    "seen": 1793279765.0486674,
+    "ast_hash": "e0c15ac10c75ee319a98c6a700e3be46",
+    "semantic_hash": ""
+  },
+  "public/assets/landing-glyph-lavender.svg": {
+    "mtime": 1793279265.4552524,
+    "seen": 1793279765.0486703,
+    "ast_hash": "459940cc9efd9b307baeae60a43d00c3",
+    "semantic_hash": ""
+  },
+  "public/assets/landing-glyph-lime.svg": {
+    "mtime": 1793279266.17826,
+    "seen": 1793279765.0486717,
+    "ast_hash": "236d49724fd2ac7b3815cd6fa6c64cb7",
+    "semantic_hash": ""
+  },
+  "public/assets/landing-glyph-sky.svg": {
+    "mtime": 1793279265.9262574,
+    "seen": 1793279765.048673,
+    "ast_hash": "6450e9a841fe45d7f473fbc3cd3fcd24",
+    "semantic_hash": ""
+  },
+  "public/assets/landing-glyph-sun.svg": {
+    "mtime": 1793279265.701255,
+    "seen": 1793279765.0486743,
+    "ast_hash": "68b3a3788ce4936b813cf946875160be",
+    "semantic_hash": ""
+  },
+  "public/assets/landing-icon-heart.svg": {
+    "mtime": 1793279267.3752725,
+    "seen": 1793279765.048676,
+    "ast_hash": "497d51f2289c4cc1e32f6c039b9ae399",
+    "semantic_hash": ""
+  },
+  "public/assets/landing-icon-home.svg": {
+    "mtime": 1793279267.1582704,
+    "seen": 1793279765.0486774,
+    "ast_hash": "bec8f018af585cd2cdb6e4f9ab854380",
+    "semantic_hash": ""
+  },
+  "public/assets/landing-icon-trophy.svg": {
+    "mtime": 1793279267.5592744,
+    "seen": 1793279765.0486786,
+    "ast_hash": "23310670628f520931ff789d4c72cd69",
+    "semantic_hash": ""
+  },
+  "public/assets/landing-squiggle-afirmasi.svg": {
+    "mtime": 1793279266.5922644,
+    "seen": 1793279765.0486832,
+    "ast_hash": "a38c22fefbff02ae12f896db5cc55df1",
+    "semantic_hash": ""
+  },
+  "public/assets/landing-squiggle-domisili.svg": {
+    "mtime": 1793279266.3992624,
+    "seen": 1793279765.0486846,
+    "ast_hash": "1fcfd88565270167793e8909de7cd895",
+    "semantic_hash": ""
+  },
+  "public/assets/landing-squiggle-mutasi.svg": {
+    "mtime": 1793279266.9782684,
+    "seen": 1793279765.0486856,
+    "ast_hash": "3c75b2191c437ab812df5f473fbf733f",
+    "semantic_hash": ""
+  },
+  "public/assets/landing-squiggle-prestasi.svg": {
+    "mtime": 1793279266.8052666,
+    "seen": 1793279765.0486867,
+    "ast_hash": "53f8362f0f034674351af055fa4bac2b",
+    "semantic_hash": ""
+  },
+  "public/assets/landing-squiggle-purple.svg": {
+    "mtime": 1793279264.4402418,
+    "seen": 1793279765.0486884,
+    "ast_hash": "8af3bf8003992402e83bb081945bee82",
+    "semantic_hash": ""
+  },
+  "public/assets/landing-squiggle-yellow.svg": {
+    "mtime": 1793279264.9832475,
+    "seen": 1793279765.0486896,
+    "ast_hash": "58ab2b4d6b01c3f6ca799cbc92078840",
     "semantic_hash": ""
   }
 }

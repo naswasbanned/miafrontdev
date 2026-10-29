@@ -1,4 +1,5 @@
 // Barrel: semua komponen yang dipakai halaman.
+// Cangkang (SiteChrome, DashChrome, ...) membaca cookie di server: impor langsung dari "@/components/shell/Shell".
 export { Icon } from "./icon/Icon";
 export { Badge } from "./badge/Badge";
 export { Button, ButtonGroup } from "./button/Button";
@@ -30,7 +31,7 @@ export {
   Section,
   DashSection,
   CtaBand,
+  NextStep,
   Toolbar,
 } from "./page/Page";
 export { RankList } from "./page/RankList";
-export { SiteChrome, DashChrome } from "./shell/Shell";

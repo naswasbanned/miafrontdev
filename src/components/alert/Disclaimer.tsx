@@ -5,7 +5,7 @@ export function Disclaimer() {
   return (
     <Alert kind="info" title="Perkiraan, bukan jaminan">
       Hasil ini adalah perkiraan berdasarkan data tahun-tahun sebelumnya dan
-      bukan jaminan diterima. Keputusan akhir ada pada panitia PPDB.
+      bukan jaminan diterima. Keputusan akhir ada pada panitia SPMB.
     </Alert>
   );
 }

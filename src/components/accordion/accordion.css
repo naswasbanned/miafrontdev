@@ -8,25 +8,21 @@
 }
 
 .accordion__item {
-  border-bottom: 1px solid var(--color-border-subtle, #f0eeea);
+  border-bottom: 1px solid var(--color-border-subtle);
   transition: all 0.2s ease;
 }
 
-.accordion__item:first-child {
-  border-top: 1px solid var(--color-border-subtle, #f0eeea);
-}
 
 .accordion__summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
-  min-height: 64px;
-  padding: 20px 0;
-  color: var(--color-ink, #040613);
-  font-family: var(--font-heading, "Outfit", sans-serif);
-  font-size: 19px;
-  font-weight: 600;
+  padding: 24px 0;
+  color: var(--color-ink);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: var(--weight-medium);
   list-style: none;
   cursor: pointer;
   transition: color 0.2s ease;
@@ -37,11 +33,11 @@
 }
 
 .accordion__summary:hover {
-  color: var(--color-primary, #ed5a1c);
+  color: var(--color-primary);
 }
 
 .accordion__summary:focus-visible {
-  outline: 2px solid var(--color-primary, #ed5a1c);
+  outline: 2px solid var(--color-primary);
   outline-offset: 4px;
   border-radius: 8px;
 }
@@ -50,32 +46,48 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   width: 36px;
   height: 36px;
   border-radius: 999px;
-  background: var(--color-surface-muted, #efede9);
-  color: var(--color-ink, #040613);
-  flex-shrink: 0;
-  transition: all 0.25s ease;
+  background: var(--color-surface-muted);
+  color: var(--color-ink);
+  transition: background var(--duration-base) var(--ease-out), color var(--duration-base) var(--ease-out);
+}
+
+.accordion__minus,
+.accordion__item[open] .accordion__plus {
+  display: none;
+}
+
+.accordion__item[open] .accordion__minus {
+  display: block;
+}
+
+.accordion__summary--static {
+  cursor: default;
+}
+
+.accordion__summary--static:hover {
+  color: inherit;
 }
 
 .accordion__summary:hover .accordion__icon {
-  background: var(--color-primary-tint, #fdece4);
-  color: var(--color-primary, #ed5a1c);
+  background: var(--color-primary-tint);
+  color: var(--color-primary);
 }
 
 .accordion__item[open] .accordion__icon {
-  background: var(--color-primary-tint, #fdece4);
-  color: var(--color-primary, #ed5a1c);
-  transform: rotate(180deg);
+  background: var(--color-primary-tint);
+  color: var(--color-primary);
 }
 
 .accordion__panel {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  padding: 0 0 24px 0;
-  color: var(--color-ink-soft, #3e4042);
+  padding: 0 0 28px 0;
+  color: var(--color-ink-soft);
   font-size: 15px;
   line-height: 1.6;
 }

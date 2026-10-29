@@ -6,7 +6,6 @@ import {
   Card,
   SectionHeading,
   Tabs,
-  Breadcrumb,
   Container,
   PageHeader,
   Section,
@@ -16,9 +15,9 @@ import {
 import { JALUR } from "@/data/jalur";
 
 export const metadata: Metadata = {
-  title: "Panduan PPDB",
+  title: "Panduan Jalur",
   description:
-    "Penjelasan 4 jalur seleksi PPDB, berkas dokumen yang dibutuhkan, cara kalkulasi peluang, dan perlindungan privasi data.",
+    "Penjelasan 4 jalur seleksi SPMB, berkas dokumen yang dibutuhkan, cara kalkulasi peluang, dan perlindungan privasi data.",
 };
 
 const TOY_COLOR_MAP: Record<string, { colorClass: string; kuota: string; tag: string }> = {
@@ -31,10 +30,9 @@ const TOY_COLOR_MAP: Record<string, { colorClass: string; kuota: string; tag: st
 export default function PanduanPage() {
   return (
     <Container>
-      <Breadcrumb items={[["Beranda", "/"], ["Panduan PPDB"]]} />
       
       <PageHeader
-        title="Panduan Lengkap PPDB"
+        title="Panduan Jalur SPMB"
         desc="Pahami setiap jalur pendaftaran, persyaratan berkas resmi, dan cara SIPESEK mengalkulasi peluang kelulusan anak Anda dengan tenang."
       />
 
@@ -84,7 +82,7 @@ export default function PanduanPage() {
                 <ul className="list">
                   {j.docs.map((d) => (
                     <li key={d} style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                      <span style={{ color: "var(--color-primary, #ed5a1c)", marginTop: "2px", fontWeight: "700" }}>✓</span>
+                      <span style={{ color: "var(--color-primary)", marginTop: "2px", fontWeight: "700" }}>✓</span>
                       <span>{d}</span>
                     </li>
                   ))}
@@ -103,7 +101,7 @@ export default function PanduanPage() {
         />
         <div className="stack stack--lg">
           <div className="card-grid card-grid--3">
-            <div className="card" style={{ background: "#ffffff" }}>
+            <div className="card" style={{ background: "var(--color-surface)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                 <span style={{ width: "36px", height: "36px", borderRadius: "999px", background: "var(--color-primary-tint)", color: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700" }}>1</span>
                 <h4 style={{ margin: 0, fontFamily: "var(--font-heading)" }}>Verifikasi Kelayakan</h4>
@@ -113,7 +111,7 @@ export default function PanduanPage() {
               </p>
             </div>
 
-            <div className="card" style={{ background: "#ffffff" }}>
+            <div className="card" style={{ background: "var(--color-surface)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                 <span style={{ width: "36px", height: "36px", borderRadius: "999px", background: "var(--color-primary-tint)", color: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700" }}>2</span>
                 <h4 style={{ margin: 0, fontFamily: "var(--font-heading)" }}>Simulasi Peringkat</h4>
@@ -123,7 +121,7 @@ export default function PanduanPage() {
               </p>
             </div>
 
-            <div className="card" style={{ background: "#ffffff" }}>
+            <div className="card" style={{ background: "var(--color-surface)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                 <span style={{ width: "36px", height: "36px", borderRadius: "999px", background: "var(--color-primary-tint)", color: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700" }}>3</span>
                 <h4 style={{ margin: 0, fontFamily: "var(--font-heading)" }}>Kompilasi Rekomendasi</h4>
@@ -167,7 +165,7 @@ export default function PanduanPage() {
           title="Keamanan & Privasi Data Keluarga"
           desc="Kami memprioritaskan privasi Anda dengan komitmen zero-selling dan enkripsi menyeluruh."
         />
-        <div className="card" style={{ background: "#ffffff" }}>
+        <div className="card" style={{ background: "var(--color-surface)" }}>
           <div className="card-grid" style={{ gap: "24px" }}>
             <div style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
               <span style={{ width: "40px", height: "40px", borderRadius: "12px", background: "var(--color-primary-tint)", color: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>

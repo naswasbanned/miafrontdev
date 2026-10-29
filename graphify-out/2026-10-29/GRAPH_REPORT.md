@@ -1,12 +1,12 @@
 # Graph Report - app  (2026-10-29)
 
 ## Corpus Check
-- 99 files · ~98,992 words
+- 104 files · ~106,178 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 32 file(s) not represented in the graph (top: .css 29, (none) 2, .figcraft 1)
 
 ## Summary
-- 555 nodes · 1110 edges · 32 communities (26 shown, 6 thin omitted)
+- 625 nodes · 1202 edges · 42 communities (33 shown, 9 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 9 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
@@ -16,26 +16,32 @@
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- next
+- components/index.ts
 - state.md
 - steps.tsx
 - Shell.tsx
-- styles/index.ts
+- Toast.tsx
 - package.json
+- 2. CLI Command Reference
 - [id]/page.tsx
 - compilerOptions
 - 6. Components
 - App Icon (favicon)
 - What You Must Do When Invoked
 - LandingPage.tsx
-- figcraft_helper.py
+- image_gen.py
 - 1. Quick Reference & Commands
-- components/index.ts
+- react
 - Form.tsx
 - Design Document: Aplikasi Strategi SPMB SMA/SMK Negeri
+- styles/index.ts
+- Button.tsx
 - 6. Spesifikasi Layar
+- 2. Best Practices by Asset Category
+- Map.tsx
 - graphify reference: extra exports and benchmark
 - 9. Sistem Desain Visual
+- 1. Supported Models
 - graphify reference: query, path, explain
 - 1. Ringkasan Produk
 - 3. Persona
@@ -46,18 +52,21 @@
 - 5. Alur Pengguna
 - graphify reference: GitHub clone and cross-repo merge
 - graphify reference: transcribe video and audio
+- SiteChrome
 - extraction-spec.md
+- faq.ts
+- Footer.tsx
 
 ## God Nodes (most connected - your core abstractions)
 1. `next` - 35 edges
 2. `react` - 31 edges
 3. `Button()` - 30 edges
-4. `Icon()` - 25 edges
+4. `Icon()` - 29 edges
 5. `PageHeader()` - 23 edges
 6. `Design Document: Aplikasi Strategi SPMB SMA/SMK Negeri` - 19 edges
 7. `Alert()` - 18 edges
-8. `Select()` - 17 edges
-9. `Badge()` - 16 edges
+8. `Badge()` - 18 edges
+9. `Select()` - 17 edges
 10. `compilerOptions` - 16 edges
 
 ## Surprising Connections (you probably didn't know these)
@@ -75,31 +84,35 @@
 ## Import Cycles
 - None detected.
 
-## Communities (32 total, 6 thin omitted)
+## Communities (42 total, 9 thin omitted)
 
-### Community 0 - "next"
-Cohesion: 0.09
-Nodes (33): config, next, metadata, metadata, metadata, metadata, metadata, metadata (+25 more)
+### Community 0 - "components/index.ts"
+Cohesion: 0.05
+Nodes (62): config, next, metadata, metadata, metadata, metadata, metadata, metadata (+54 more)
 
 ### Community 2 - "steps.tsx"
-Cohesion: 0.08
-Nodes (33): WizardLayout(), generateMetadata(), IsiDataPage(), Props, MasukFlow(), metadata, Item, Choice() (+25 more)
+Cohesion: 0.09
+Nodes (29): WizardLayout(), generateMetadata(), IsiDataPage(), Props, Item, Choice(), ChoiceGroup(), ExternalLink() (+21 more)
 
 ### Community 3 - "Shell.tsx"
-Cohesion: 0.11
-Nodes (18): BottomNav(), COLUMNS, Footer(), DashBar(), Navbar(), DashChrome(), DashMenu, Sidebar() (+10 more)
+Cohesion: 0.13
+Nodes (16): BottomNav(), DashBar(), Navbar(), DashChrome(), DashMenu, Sidebar(), activeBottom(), activeHref() (+8 more)
 
-### Community 4 - "styles/index.ts"
-Cohesion: 0.08
-Nodes (26): metadata, src_components_bottom_nav_bottom_nav, handleClick(), Props, Dialog(), src_components_hero_hero, Sprite(), src_components_landing_landing (+18 more)
+### Community 4 - "Toast.tsx"
+Cohesion: 0.19
+Nodes (9): metadata, Sprite(), Ctx, ICONS, ToastContext, ToastData, ToastProvider(), ToastRegion() (+1 more)
 
 ### Community 5 - "package.json"
 Cohesion: 0.08
 Nodes (25): dependencies, next, react, react-dom, devDependencies, prettier, @types/node, @types/react (+17 more)
 
-### Community 7 - "[id]/page.tsx"
+### Community 6 - "2. CLI Command Reference"
 Cohesion: 0.10
-Nodes (21): DetailSekolahPage(), generateMetadata(), Props, metadata, StrategiPage(), metadata, UnduhanPage(), Checklist() (+13 more)
+Nodes (20): 1.1 Set Your Gemini API Token, 1.2 Verify Your Token, 1.3 Generate an Image, 1.4 Generate Instant SVG Placeholder (No API Key Required), 1. Quick Start, 2.1 `generate`, 2.2 `placeholder`, 2.3 `test-key` (+12 more)
+
+### Community 7 - "[id]/page.tsx"
+Cohesion: 0.13
+Nodes (17): DetailSekolahPage(), generateMetadata(), Props, metadata, Disclaimer(), SchoolCard(), getSchool(), Kind (+9 more)
 
 ### Community 8 - "compilerOptions"
 Cohesion: 0.11
@@ -117,29 +130,45 @@ Nodes (24): For /graphify add and --watch, For /graphify query, For the commit h
 Cohesion: 0.10
 Nodes (6): metadata, FAQS, LandingPage(), PATHS, STRATEGY_STEPS, VALUES
 
-### Community 13 - "figcraft_helper.py"
-Cohesion: 0.19
-Nodes (17): argparse, json, cmd_css_tokens(), cmd_export(), cmd_info(), cmd_node(), cmd_run(), cmd_search() (+9 more)
+### Community 13 - "image_gen.py"
+Cohesion: 0.07
+Nodes (45): argparse, base64, json, cmd_css_tokens(), cmd_export(), cmd_info(), cmd_node(), cmd_run() (+37 more)
 
 ### Community 14 - "1. Quick Reference & Commands"
 Cohesion: 0.12
 Nodes (16): 1.1 Inspect Document Structure, 1.2 Inspect a Specific Node or Component, 1.3 Export Visual Renders / Screenshots, 1.4 Extract Design Tokens to CSS, 1.5 Convert Document to / from JSON, 1. Quick Reference & Commands, 2. Design-to-Code Implementation Workflow, 3. Modifying FigCraft Files via Headless Batch (+8 more)
 
-### Community 15 - "components/index.ts"
-Cohesion: 0.05
-Nodes (46): react, metadata, metadata, metadata, metadata, Accordion(), ICON, Disclaimer() (+38 more)
+### Community 15 - "react"
+Cohesion: 0.17
+Nodes (10): react, ICON, STATUS, Props, ChoiceProps, GroupProps, Icon(), Item (+2 more)
 
 ### Community 16 - "Form.tsx"
-Cohesion: 0.19
-Nodes (15): ariaInvalid(), FieldError(), FieldProps, Control, ErrorContext, Errors, Form(), onBlur() (+7 more)
+Cohesion: 0.18
+Nodes (16): ariaInvalid(), Field(), FieldError(), FieldProps, Control, ErrorContext, Errors, onBlur() (+8 more)
 
 ### Community 17 - "Design Document: Aplikasi Strategi SPMB SMA/SMK Negeri"
 Cohesion: 0.14
 Nodes (13): 10. Aksesibilitas dan Inklusivitas, 11. Panduan Penulisan (Microcopy), 12. Privasi, Keamanan, dan Etika, 13. Kebutuhan Non-Fungsional, 14. Kasus Khusus (Edge Cases), 15. Metrik Keberhasilan, 16. Rencana Rilis, 17. Pertanyaan Terbuka (Perlu Keputusan) (+5 more)
 
+### Community 18 - "styles/index.ts"
+Cohesion: 0.14
+Nodes (11): src_components_bottom_nav_bottom_nav, src_components_hero_hero, src_components_landing_landing, src_components_link_link, src_components_school_card_school_card, src_components_section_heading_section_heading, Props, Tab (+3 more)
+
+### Community 19 - "Button.tsx"
+Cohesion: 0.26
+Nodes (8): handleClick(), Props, HelpLink(), dialogs, openDialog(), registerDialog(), triggerOf(), triggers
+
 ### Community 20 - "6. Spesifikasi Layar"
 Cohesion: 0.18
 Nodes (11): 6.10 Panel Admin, 6.1 Beranda (publik), 6.2 Wizard Isi Data, 6.3 Penjelasan Jalur (komponen berulang), 6.4 Peta Titik Rumah, 6.5 Hasil: Peta dan Daftar Sekolah, 6.6 Strategi dan Kombinasi Pilihan, 6.7 Sekolah Swasta Cadangan (+3 more)
+
+### Community 21 - "2. Best Practices by Asset Category"
+Cohesion: 0.20
+Nodes (9): 1. Core Anatomy of a Web Asset Prompt, 2. Best Practices by Asset Category, 3. Negative Prompts and Constraints, A. Landing Page Hero Banners (Aspect Ratio: `16:9`), B. User Avatars & Team Photos (Aspect Ratio: `1:1`), C. Feature Card Graphics & 3D Icons (Aspect Ratio: `1:1` or `4:3`), D. Empty States & Error Pages (Aspect Ratio: `4:3` or `1:1`), Example Breakdown: (+1 more)
+
+### Community 22 - "Map.tsx"
+Cohesion: 0.27
+Nodes (9): LABEL, MapLegend(), MapSchools(), MapZones(), Pin, PIN_ICON, pos(), Roads (+1 more)
 
 ### Community 23 - "graphify reference: extra exports and benchmark"
 Cohesion: 0.22
@@ -148,6 +177,10 @@ Nodes (8): graphify reference: extra exports and benchmark, Step 6b - Wiki (only
 ### Community 24 - "9. Sistem Desain Visual"
 Cohesion: 0.29
 Nodes (7): 9.1 Nada dan kepribadian, 9.2 Warna, 9.3 Tipografi, 9.4 Jarak, bentuk, dan komponen, 9.5 Ikonografi dan ilustrasi, 9.6 Responsif, 9. Sistem Desain Visual
+
+### Community 25 - "1. Supported Models"
+Cohesion: 0.25
+Nodes (7): 1. Supported Models, 2. Technical Parameter Specifications, 3. Resolving API Keys & Common Error Codes, Gemini & Imagen Models Reference, `imagen-3.0-fast-generate-001`, `imagen-3.0-generate-002` *(Default)*, Multimodal Gemini (`gemini-2.0-flash-exp`, `gemini-3.1-flash-image`)
 
 ### Community 26 - "graphify reference: query, path, explain"
 Cohesion: 0.33
@@ -181,25 +214,29 @@ Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphif
 Cohesion: 0.50
 Nodes (4): 5.1 Orang tua (alur inti), 5.2 Pembuat kebijakan, 5.3 Admin, 5. Alur Pengguna
 
+### Community 39 - "faq.ts"
+Cohesion: 0.50
+Nodes (3): Faq, FAQ_GROUPS, FaqGroup
+
 ## Knowledge Gaps
-- **237 isolated node(s):** `config`, `name`, `version`, `private`, `dev` (+232 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 311 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **265 isolated node(s):** `config`, `name`, `version`, `private`, `dev` (+260 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 352 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `next` connect `next` to `steps.tsx`, `Shell.tsx`, `styles/index.ts`, `package.json`, `[id]/page.tsx`, `LandingPage.tsx`, `components/index.ts`, `Form.tsx`?**
-  _High betweenness centrality (0.091) - this node is a cross-community bridge._
-- **Why does `react` connect `components/index.ts` to `steps.tsx`, `Shell.tsx`, `styles/index.ts`, `package.json`, `Form.tsx`?**
-  _High betweenness centrality (0.042) - this node is a cross-community bridge._
-- **Why does `Button()` connect `next` to `steps.tsx`, `Shell.tsx`, `styles/index.ts`, `[id]/page.tsx`, `components/index.ts`?**
+- **Why does `next` connect `components/index.ts` to `steps.tsx`, `Shell.tsx`, `Toast.tsx`, `package.json`, `[id]/page.tsx`, `Footer.tsx`, `LandingPage.tsx`, `react`, `Form.tsx`, `Button.tsx`?**
+  _High betweenness centrality (0.069) - this node is a cross-community bridge._
+- **Why does `react` connect `react` to `components/index.ts`, `steps.tsx`, `Shell.tsx`, `Toast.tsx`, `package.json`, `SiteChrome`, `Form.tsx`, `styles/index.ts`, `Button.tsx`, `Map.tsx`?**
+  _High betweenness centrality (0.033) - this node is a cross-community bridge._
+- **Why does `Icon()` connect `react` to `components/index.ts`, `steps.tsx`, `Shell.tsx`, `Toast.tsx`, `Footer.tsx`, `LandingPage.tsx`, `Form.tsx`, `Button.tsx`, `Map.tsx`?**
   _High betweenness centrality (0.017) - this node is a cross-community bridge._
 - **What connects `config`, `name`, `version` to the rest of the system?**
-  _237 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `next` be split into smaller, more focused modules?**
-  _Cohesion score 0.09025974025974026 - nodes in this community are weakly interconnected._
+  _265 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `components/index.ts` be split into smaller, more focused modules?**
+  _Cohesion score 0.05413507317933345 - nodes in this community are weakly interconnected._
 - **Should `steps.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.07955596669750231 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09041835357624832 - nodes in this community are weakly interconnected._
 - **Should `Shell.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.11494252873563218 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.13105413105413105 - nodes in this community are weakly interconnected._

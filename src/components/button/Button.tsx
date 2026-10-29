@@ -7,8 +7,9 @@ import { Icon } from "../icon/Icon";
 import { useToast } from "../toast/Toast";
 
 type Props = {
-  variant: "primary" | "secondary" | "ghost";
+  variant: "primary" | "secondary" | "ghost" | "inverse" | "inverse-outline";
   sm?: boolean;
+  lg?: boolean;
   block?: boolean;
   iconOnly?: boolean;
   className?: string;
@@ -32,6 +33,7 @@ type Props = {
 export function Button({
   variant,
   sm,
+  lg,
   block,
   iconOnly,
   className,
@@ -50,7 +52,7 @@ export function Button({
   ...rest
 }: Props) {
   const { show } = useToast();
-  const cls = `button button--${variant}${sm ? " button--sm" : ""}${block ? " button--block" : ""}${iconOnly ? " button--icon" : ""}${className ? ` ${className}` : ""}`;
+  const cls = `button button--${variant}${sm ? " button--sm" : ""}${lg ? " button--lg" : ""}${block ? " button--block" : ""}${iconOnly ? " button--icon" : ""}${className ? ` ${className}` : ""}`;
   const inner = (
     <>
       {iconLeft && <Icon name={iconLeft} className="icon button__icon" />}

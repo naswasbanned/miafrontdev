@@ -1,28 +1,18 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { activeBottom, BOTTOM } from "@/lib/nav";
-import { Icon } from "../icon/Icon";
+import { stageOf } from "@/lib/accounts";
+import { StageLink, type StageItem } from "../navbar/StageLink";
 
-/** Navigasi tetap di bawah layar, hanya tampil < 600px (diatur CSS). */
-export function BottomNav() {
-  const current = activeBottom(usePathname());
+/** Navigasi bawah HP (< 600px): 4 tahap yang sama dengan navbar atas. */
+export function BottomNav({ stages, lockedHref }: { stages: StageItem[]; lockedHref: string }) {
+  const current = stageOf(usePathname());
   return (
-    <nav className="bottom-nav" aria-label="Navigasi bawah">
+    <nav className="bottom-nav" aria-label="Tahap">
       <ul className="bottom-nav__list">
-        {BOTTOM.map(([href, label, icon]) => (
-          <li key={href}>
-            <Link
-              className="bottom-nav__link"
-              href={href}
-              aria-current={href === current ? "page" : undefined}
-            >
-              <span className="bottom-nav__icon-wrap">
-                <Icon name={icon} />
-              </span>
-              {label}
-            </Link>
+        {stages.map((s) => (
+          <li key={s.key}>
+            <StageLink stage={s} active={s.key === current} lockedHref={lockedHref} variant="bottom" />
           </li>
         ))}
       </ul>

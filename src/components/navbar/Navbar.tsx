@@ -3,129 +3,308 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { activeHref, NAV } from "@/lib/nav";
+import { stageOf } from "@/lib/accounts";
+import { HELP_URL, PUBLIC_NAV } from "@/lib/nav";
+import { addChild, selectChild, signOut } from "@/lib/session-actions";
+import { Brand } from "../brand/Brand";
 import { Button } from "../button/Button";
 import { Icon } from "../icon/Icon";
+import { Menu } from "./Menu";
+import { StageLink, type StageItem } from "./StageLink";
 
-export function Brand({ href }: { href: string }) {
+export type NavChild = { id: string; name: string; status: string };
+
+export type NavbarProps =
+  | { variant: "guest" }
+  | { variant: "parent-public"; user: string; cont: { label: string; href: string } }
+  | { variant: "staff-public"; user: string; role: string; home: string }
+  | {
+      variant: "parent";
+      user: string;
+      kids: NavChild[];
+      activeId: string | null;
+      stages: StageItem[];
+      lockedHref: string;
+    };
+
+const firstName = (name: string) => name.split(" ")[0];
+
+function SignOutButton() {
   return (
-    <Link className="navbar__brand" href={href}>
-      <span className="navbar__logo" aria-hidden="true">
-        <Icon name="logo" />
-      </span>
-      <span>SIPESEK</span>
-    </Link>
+    <form action={signOut}>
+      <button type="submit" className="menu__item">
+        <Icon name="log-out" className="icon icon--sm" />
+        Keluar
+      </button>
+    </form>
   );
 }
 
-/** Bar atas halaman dashboard: hanya merek dan tombol Keluar. */
-export function DashBar({ home }: { home: string }) {
+function AccountMenu({ user, role, links }: { user: string; role: string; links: [string, string][] }) {
+  return (
+    <Menu
+      id="menu-akun"
+      label={`Menu akun ${user}`}
+      trigger={
+        <span className="navbar__avatar" aria-hidden="true">
+          {user.replace(/^(Ibu|Pak|Bapak)\s+/, "").charAt(0)}
+        </span>
+      }
+    >
+      <p className="menu__head">
+        <strong>{user}</strong>
+        <span>{role}</span>
+      </p>
+      {links.map(([href, label]) => {
+        const external = href.startsWith("http");
+        return external ? (
+          <a key={href} className="menu__item" href={href} target="_blank" rel="noopener">
+            {label}
+          </a>
+        ) : (
+          <Link key={href} className="menu__item" href={href}>
+            {label}
+          </Link>
+        );
+      })}
+      <hr className="menu__sep" />
+      <SignOutButton />
+    </Menu>
+  );
+}
+
+function ChildMenu({ kids, activeId }: { kids: NavChild[]; activeId: string | null }) {
+  const pathname = usePathname();
+  const active = kids.find((k) => k.id === activeId);
+  return (
+    <Menu
+      id="menu-anak"
+      label={active ? `Anak yang dilihat: ${active.name}. Ganti anak` : "Pilih anak"}
+      trigger={
+        <span className="navbar__child">
+          <span className="navbar__child-hint">Anak</span>
+          <span className="navbar__child-name">{active ? firstName(active.name) : "Belum ada"}</span>
+        </span>
+      }
+    >
+      <p className="menu__head">
+        <strong>Lihat data anak</strong>
+        <span>Hasil tiap anak tersimpan terpisah.</span>
+      </p>
+      {kids.map((k) => (
+        <form key={k.id} action={selectChild}>
+          <input type="hidden" name="anak" value={k.id} />
+          <input type="hidden" name="kembali" value={pathname} />
+          <button
+            type="submit"
+            className="menu__item menu__item--child"
+            aria-current={k.id === activeId ? "true" : undefined}
+          >
+            <span>
+              <strong>{k.name}</strong>
+              <small>{k.status}</small>
+            </span>
+            {k.id === activeId && <Icon name="check" className="icon icon--sm" />}
+          </button>
+        </form>
+      ))}
+      <hr className="menu__sep" />
+      <form action={addChild}>
+        <button type="submit" className="menu__item">
+          <Icon name="plus" className="icon icon--sm" />
+          Tambah anak
+        </button>
+      </form>
+    </Menu>
+  );
+}
+
+/** Menu publik (Beranda, Panduan, Tanya Jawab) dengan panel lipat di bawah 1024px. */
+function PublicLinks({ extra }: { extra?: React.ReactNode }) {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const toggle = useRef<HTMLButtonElement>(null);
+  useEffect(() => setOpen(false), [pathname]);
+  return (
+    <>
+      <nav
+        className="navbar__nav"
+        id="navbar-menu"
+        aria-label="Utama"
+        data-open={open}
+        onKeyDown={(e) => {
+          if (e.key === "Escape" && open) {
+            setOpen(false);
+            toggle.current?.focus();
+          }
+        }}
+      >
+        <ul className="navbar__list">
+          {PUBLIC_NAV.map(([href, label]) => (
+            <li key={href}>
+              <Link
+                className="navbar__link"
+                href={href}
+                aria-current={href === pathname ? "page" : undefined}
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        {extra && <div className="navbar__nav-extra">{extra}</div>}
+      </nav>
+      <button
+        ref={toggle}
+        className="navbar__toggle"
+        type="button"
+        aria-expanded={open}
+        aria-controls="navbar-menu"
+        aria-label={open ? "Tutup menu" : "Buka menu"}
+        onClick={() => setOpen(!open)}
+      >
+        <Icon name={open ? "x" : "menu"} className="icon icon--sm" />
+      </button>
+    </>
+  );
+}
+
+/** Navbar sesuai keadaan sesi (docs/navigation-plan.md bagian 4). */
+export function Navbar(props: NavbarProps) {
+  const pathname = usePathname();
+
+  if (props.variant === "parent") {
+    const current = stageOf(pathname);
+    return (
+      <header className="navbar">
+        <div className="navbar__inner">
+          <Brand href="/anak-saya" />
+          <nav className="navbar__stages" aria-label="Tahap">
+            <ol className="navbar__stage-list">
+              {props.stages.map((s) => (
+                <li key={s.key}>
+                  <StageLink stage={s} active={s.key === current} lockedHref={props.lockedHref} variant="top" />
+                </li>
+              ))}
+            </ol>
+          </nav>
+          <div className="navbar__actions">
+            <ChildMenu kids={props.kids} activeId={props.activeId} />
+            <AccountMenu
+              user={props.user}
+              role="Orang tua"
+              links={[
+                ["/panduan", "Panduan Jalur"],
+                ["/tanya-jawab", "Tanya Jawab"],
+                [HELP_URL, "Butuh bantuan? (WhatsApp)"],
+              ]}
+            />
+          </div>
+        </div>
+      </header>
+    );
+  }
+
+  let actions: React.ReactNode;
+  let extra: React.ReactNode = null;
+  if (props.variant === "guest") {
+    const next = pathname === "/masuk" ? undefined : pathname;
+    const masuk = next && next !== "/" ? `/masuk?next=${encodeURIComponent(next)}` : "/masuk";
+    actions = (
+      <>
+        <Button variant="ghost" sm href={masuk} className="navbar__signin">
+          Masuk
+        </Button>
+        <Button variant="primary" sm href="/masuk">
+          Mulai Cek Peluang
+        </Button>
+      </>
+    );
+    extra = (
+      <Button variant="secondary" block href={masuk}>
+        Masuk
+      </Button>
+    );
+  } else if (props.variant === "parent-public") {
+    actions = (
+      <>
+        <Button variant="primary" sm href={props.cont.href} className="navbar__continue">
+          {props.cont.label}
+        </Button>
+        <AccountMenu user={props.user} role="Orang tua" links={[["/anak-saya", "Anak Saya"]]} />
+      </>
+    );
+  } else {
+    actions = (
+      <>
+        <Button variant="primary" sm href={props.home} className="navbar__continue">
+          Buka Dashboard
+        </Button>
+        <AccountMenu user={props.user} role={props.role} links={[[props.home, "Dashboard"]]} />
+      </>
+    );
+  }
+
   return (
     <header className="navbar">
-      <div className="navbar__inner container">
-        <Brand href={home} />
-        <Button variant="secondary" sm href="/">
-          Keluar
-        </Button>
+      <div className="navbar__inner">
+        <Brand href="/" />
+        <PublicLinks extra={extra} />
+        <div className="navbar__actions">{actions}</div>
       </div>
     </header>
   );
 }
 
-/** Menu penuh >= 1024px. Di bawahnya tombol "Menu"; Esc menutup dan mengembalikan fokus. */
-export function Navbar({ area }: { area: "public" | "parent" }) {
-  const cfg = NAV[area];
-  const current = activeHref(usePathname());
-  const [open, setOpen] = useState(false);
-  const toggle = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    const desktop = window.matchMedia("(min-width: 1024px)");
-    const onChange = (e: MediaQueryListEvent) => e.matches && setOpen(false);
-    desktop.addEventListener("change", onChange);
-    return () => desktop.removeEventListener("change", onChange);
-  }, []);
-
-  const cur = (href: string) =>
-    href === current ? ("page" as const) : undefined;
+/** Bar atas dashboard: merek, label peran + nama, dan menu akun berisi Keluar. */
+export function DashBar({ home, user, role }: { home: string; user: string; role: string }) {
   return (
-    <header
-      className="navbar"
-      data-navbar=""
-      onKeyDown={(e) => {
-        if (e.key === "Escape" && open) {
-          setOpen(false);
-          toggle.current?.focus();
-        }
-      }}
-    >
-      <div className="navbar__inner container">
-        <Brand href={cfg.home} />
-        <nav className="navbar__nav" aria-label="Utama">
-          <ul className="navbar__list">
-            {cfg.items.map(([href, label]) => (
-              <li key={href}>
-                <Link
-                  className="navbar__link"
-                  href={href}
-                  aria-current={cur(href)}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <Button
-          variant={cfg.cta.variant}
-          sm
-          href={cfg.cta.href}
-          className="navbar__cta"
-        >
-          {cfg.cta.label}
-        </Button>
-        <button
-          ref={toggle}
-          className="navbar__toggle"
-          type="button"
-          aria-expanded={open}
-          aria-controls="navbar-menu"
-          data-navbar-toggle=""
-          onClick={() => setOpen(!open)}
-        >
-          <Icon name="menu" className="icon navbar__toggle-open" />
-          <Icon name="x" className="icon navbar__toggle-close" />
-          <span data-navbar-label="">{open ? "Tutup" : "Menu"}</span>
-        </button>
+    <header className="navbar">
+      <div className="navbar__inner">
+        <Brand href={home} />
+        <div className="navbar__actions">
+          <span className="navbar__role">
+            <strong>{user}</strong>
+            <span>{role}</span>
+          </span>
+          <AccountMenu user={user} role={role} links={[["/", "Lihat situs publik"]]} />
+        </div>
       </div>
-      <div
-        className="navbar__menu"
-        id="navbar-menu"
-        data-navbar-menu=""
-        hidden={!open}
-      >
-        <div className="container">
-          <ul className="navbar__menu-list">
-            {cfg.items.map(([href, label]) => (
-              <li key={href}>
-                <Link
-                  className="navbar__menu-link"
-                  href={href}
-                  aria-current={cur(href)}
-                >
-                  {label}
-                  <Icon name="chevron-right" />
-                </Link>
-              </li>
+    </header>
+  );
+}
+
+/** Header mode fokus untuk wizard: tanpa menu utama agar orang tua tidak keluar tanpa sengaja. */
+export function FocusBar({ title, step, total }: { title: string; step: number; total: number }) {
+  return (
+    <header className="navbar navbar--focus">
+      <div className="navbar__inner">
+        <span className="brand" aria-label="Sipesek">
+          <span className="brand__logo" aria-hidden="true">
+            S
+          </span>
+          <span className="navbar__focus-brand">Sipesek</span>
+        </span>
+        <div className="navbar__focus">
+          <p className="navbar__focus-title">
+            <strong>{title}</strong>
+            <span>{`Langkah ${step} dari ${total}`}</span>
+          </p>
+          <ol className="stepper__bar" aria-hidden="true">
+            {Array.from({ length: total }, (_, i) => (
+              <li
+                key={i}
+                className={`stepper__segment${i < step ? " stepper__segment--done" : ""}`}
+              />
             ))}
-          </ul>
-          <Button
-            variant={cfg.cta.variant}
-            block
-            href={cfg.cta.href}
-            className="navbar__menu-cta"
-          >
-            {cfg.cta.label}
+          </ol>
+        </div>
+        <div className="navbar__actions">
+          <Button variant="ghost" sm href={HELP_URL} newTab iconLeft="message" className="navbar__help">
+            Bantuan
+          </Button>
+          <Button variant="secondary" sm href="/anak-saya">
+            Simpan &amp; keluar
           </Button>
         </div>
       </div>

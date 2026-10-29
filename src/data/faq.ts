@@ -7,7 +7,7 @@ export const FAQ_GROUPS: FaqGroup[] = [
     items: [
       [
         "Apakah hasil di sini resmi?",
-        "Tidak. Hasilnya perkiraan berdasarkan data tahun-tahun sebelumnya. Keputusan resmi hanya dari panitia PPDB. Pendaftaran tetap lewat situs PPDB resmi.",
+        "Tidak. Hasilnya perkiraan berdasarkan data tahun-tahun sebelumnya. Keputusan resmi hanya dari panitia SPMB. Pendaftaran tetap lewat situs SPMB resmi.",
       ],
       [
         "Apakah Bapak/Ibu perlu membayar?",

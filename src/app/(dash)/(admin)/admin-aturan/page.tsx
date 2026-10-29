@@ -15,15 +15,15 @@ import {
 } from "@/components";
 
 export const metadata: Metadata = {
-  title: "Aturan PPDB per Tahun",
-  description: "Aturan PPDB per Tahun",
+  title: "Aturan SPMB per Tahun",
+  description: "Aturan SPMB per Tahun",
 };
 
 export default function AdminAturanPage() {
   return (
     <>
       <PageHeader
-        title="Aturan PPDB per tahun"
+        title="Aturan SPMB per tahun"
         desc="Draf versi 3 · berdasarkan aturan 2026/2027."
         actions={
           <>
