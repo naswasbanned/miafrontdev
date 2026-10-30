@@ -57,7 +57,7 @@
 /* Brand Orange */
 .badge--brand {
   background: var(--color-primary-tint);
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   border: 1px solid rgba(237, 90, 28, 0.2);
 }
 

@@ -31,7 +31,7 @@ export default async function UnduhanPage() {
       <div className="stack stack--lg">
         {/* Document Preview Section */}
         <section className="stack">
-          <div>
+          <div className="block-head">
             <h2 className="text-heading-md">
               Ringkasan Strategi Siap Cetak (Format PDF A4)
             </h2>
@@ -128,7 +128,7 @@ export default async function UnduhanPage() {
               caption="Urutan Pilihan Sekolah Rekomendasi"
               head={["Prioritas", "Sekolah & Jalur", "Status Peluang"]}
               rows={strategySchools().map(({ school }, i) => [
-                <strong key="i" style={{ fontFamily: 'var(--font-heading)', color: "var(--color-primary)" }}>
+                <strong key="i" style={{ fontFamily: 'var(--font-heading)', color: "var(--color-primary-text)" }}>
                   Pilihan {i + 1}
                 </strong>,
                 <div key="n">
@@ -197,7 +197,7 @@ export default async function UnduhanPage() {
 
         {/* Document Checklist Section */}
         <section className="stack">
-          <div>
+          <div className="block-head">
             <h2 className="text-heading-md">Checklist Berkas Fisik</h2>
             <p className="text-secondary">
               Daftar dokumen fisik yang wajib dibawa saat verifikasi di sekolah tujuan. Centang berkas yang sudah siap di rumah.

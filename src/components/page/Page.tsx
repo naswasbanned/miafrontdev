@@ -84,7 +84,7 @@ export function DashSection({
 }) {
   return (
     <section className="stack" id={id}>
-      <div>
+      <div className="block-head">
         <h2 className="text-heading-md">{title}</h2>
         {desc && <p className="text-secondary">{desc}</p>}
       </div>

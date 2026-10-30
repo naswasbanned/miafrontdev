@@ -20,7 +20,7 @@
   border: var(--border-thin) solid var(--color-border-control);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   font-size: var(--text-body-md);
   font-weight: var(--weight-semibold);
   text-decoration: none;

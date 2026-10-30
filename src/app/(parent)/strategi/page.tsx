@@ -40,7 +40,7 @@ export default async function StrategiPage() {
                 style={{
                   fontSize: "13px",
                   fontWeight: 600,
-                  color: "var(--color-primary)",
+                  color: "var(--color-primary-text)",
                   textTransform: "uppercase",
                   letterSpacing: "0.05em",
                 }}
@@ -88,7 +88,7 @@ export default async function StrategiPage() {
 
         {/* Pilihan Sekolah */}
         <section className="stack">
-          <div>
+          <div className="block-head">
             <h2 className="text-heading-md">Pilihan Sekolah</h2>
             <p className="text-secondary">
               Aturan resmi: boleh memilih hingga 3 sekolah. Gunakan tombol panah untuk menukar urutan prioritas.
@@ -121,7 +121,7 @@ export default async function StrategiPage() {
 
         {/* Tabel Perbandingan Jalur */}
         <section className="stack">
-          <div>
+          <div className="block-head">
             <h2 className="text-heading-md">Jalur Mana yang Paling Menguntungkan?</h2>
             <p className="text-secondary">Berdasarkan berkas {first}, ada 2 jalur yang memenuhi kriteria pendaftaran.</p>
           </div>

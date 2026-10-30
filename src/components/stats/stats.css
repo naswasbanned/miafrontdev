@@ -27,7 +27,7 @@
 
 .stats__value {
   order: -1;
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   font-family: var(--font-heading);
   font-size: 32px;
   font-weight: 700;

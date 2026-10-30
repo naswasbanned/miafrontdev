@@ -9,7 +9,7 @@
 
 .section-heading__eyebrow {
   margin-bottom: var(--space-2);
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   font-size: var(--text-caption);
   font-weight: var(--weight-semibold);
 }

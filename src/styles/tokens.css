@@ -10,6 +10,8 @@
   --color-primary-active: #bd3f0d;
   --color-primary-deep: #040613;
   --color-primary-tint: #fdece4;
+  /* Oranye untuk TEKS kecil di latar terang (5.6:1 di putih, 4.8:1 di tint). #ed5a1c hanya untuk isian, ikon, dan judul besar. */
+  --color-primary-text: #b8400f;
   --color-primary-subtle: #f8d4c3;
   --color-on-primary: #ffffff;
   --color-brand-orange: #ed5a1c;
@@ -20,7 +22,7 @@
   --color-highlight-tint: #fff8f2;
   --color-ink: #040613;
   --color-ink-soft: #3e4042;
-  --color-ink-muted: #6e7072;
+  --color-ink-muted: #5d5f61;
   --color-lavender: #d9bfff;
   --color-sun: #ffee70;
   --color-sky: #70ecff;
@@ -47,9 +49,9 @@
   --color-border-strong: #64748b;
 
   /* ---------- Semantic ---------- */
-  --color-success-text: #059669;
+  --color-success-text: #047857;
   --color-success-bg: #ecfdf5;
-  --color-warning-text: #d97706;
+  --color-warning-text: #b45309;
   --color-warning-bg: #fffbeb;
   --color-danger-text: #dc2626;
   --color-danger-bg: #fef2f2;

@@ -11,7 +11,7 @@
   border: 1.5px solid transparent;
   border-radius: var(--radius-pill);
   background: transparent;
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   font-family: var(--font-sans);
   font-size: var(--text-body-md);
   font-weight: var(--weight-semibold);
@@ -55,7 +55,7 @@
 .button--secondary {
   background: var(--color-surface);
   border-color: var(--color-primary);
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 .button--secondary:hover {
@@ -71,7 +71,7 @@
 /* Ghost */
 .button--ghost {
   background: transparent;
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 .button--ghost:hover {
@@ -86,7 +86,7 @@
 .button--inverse {
   background: var(--color-surface);
   border-color: var(--color-surface);
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 .button--inverse:hover {

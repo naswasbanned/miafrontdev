@@ -88,9 +88,9 @@ export default async function PetaSekolahPage({
 
           {/* School Results Column */}
           <div className="stack">
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <div className="block-head block-head--row">
               <h2 className="text-heading-md">{`${SCHOOLS.length} Sekolah Ditemukan`}</h2>
-              <span style={{ fontSize: "13px", color: "var(--color-ink-muted)" }}>
+              <span className="block-head__aside">
                 Radius hingga 5 km
               </span>
             </div>

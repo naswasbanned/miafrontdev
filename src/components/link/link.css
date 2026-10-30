@@ -1,7 +1,7 @@
 /* Link — selalu bergaris bawah (mudah dikenali), varian standalone, eksternal, bantuan */
 
 .link {
-  color: var(--color-primary);
+  color: var(--color-primary-text);
   font-weight: var(--weight-semibold);
   text-decoration: underline;
   text-decoration-thickness: var(--border-thin);

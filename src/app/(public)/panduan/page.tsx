@@ -83,7 +83,7 @@ export default function PanduanPage() {
                 <ul className="list">
                   {j.docs.map((d) => (
                     <li key={d} style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
-                      <span style={{ color: "var(--color-primary)", marginTop: "2px", fontWeight: "700" }}>✓</span>
+                      <span style={{ color: "var(--color-primary-text)", marginTop: "2px", fontWeight: "700" }}>✓</span>
                       <span>{d}</span>
                     </li>
                   ))}
@@ -104,7 +104,7 @@ export default function PanduanPage() {
           <div className="card-grid card-grid--3">
             <div className="card" style={{ background: "var(--color-surface)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <span style={{ width: "36px", height: "36px", borderRadius: "999px", background: "var(--color-primary-tint)", color: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700" }}>1</span>
+                <span style={{ width: "36px", height: "36px", borderRadius: "999px", background: "var(--color-primary-tint)", color: "var(--color-primary-text)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700" }}>1</span>
                 <h4 style={{ margin: 0, fontFamily: "var(--font-heading)" }}>Verifikasi Kelayakan</h4>
               </div>
               <p className="card__text">
@@ -114,7 +114,7 @@ export default function PanduanPage() {
 
             <div className="card" style={{ background: "var(--color-surface)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <span style={{ width: "36px", height: "36px", borderRadius: "999px", background: "var(--color-primary-tint)", color: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700" }}>2</span>
+                <span style={{ width: "36px", height: "36px", borderRadius: "999px", background: "var(--color-primary-tint)", color: "var(--color-primary-text)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700" }}>2</span>
                 <h4 style={{ margin: 0, fontFamily: "var(--font-heading)" }}>Simulasi Peringkat</h4>
               </div>
               <p className="card__text">
@@ -124,7 +124,7 @@ export default function PanduanPage() {
 
             <div className="card" style={{ background: "var(--color-surface)" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <span style={{ width: "36px", height: "36px", borderRadius: "999px", background: "var(--color-primary-tint)", color: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700" }}>3</span>
+                <span style={{ width: "36px", height: "36px", borderRadius: "999px", background: "var(--color-primary-tint)", color: "var(--color-primary-text)", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "700" }}>3</span>
                 <h4 style={{ margin: 0, fontFamily: "var(--font-heading)" }}>Kompilasi Rekomendasi</h4>
               </div>
               <p className="card__text">
@@ -169,7 +169,7 @@ export default function PanduanPage() {
         <div className="card" style={{ background: "var(--color-surface)" }}>
           <div className="card-grid" style={{ gap: "24px" }}>
             <div style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
-              <span style={{ width: "40px", height: "40px", borderRadius: "12px", background: "var(--color-primary-tint)", color: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <span style={{ width: "40px", height: "40px", borderRadius: "12px", background: "var(--color-primary-tint)", color: "var(--color-primary-text)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                 <Icon name="shield" />
               </span>
               <div>
@@ -179,7 +179,7 @@ export default function PanduanPage() {
             </div>
 
             <div style={{ display: "flex", gap: "14px", alignItems: "flex-start" }}>
-              <span style={{ width: "40px", height: "40px", borderRadius: "12px", background: "var(--color-primary-tint)", color: "var(--color-primary)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <span style={{ width: "40px", height: "40px", borderRadius: "12px", background: "var(--color-primary-tint)", color: "var(--color-primary-text)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                 <Icon name="check" />
               </span>
               <div>

@@ -25,11 +25,12 @@
 }
 
 .table thead th {
-  background: var(--color-canvas);
+  background: var(--color-primary-tint);
+  border-bottom: 2px solid var(--color-primary);
   font-family: var(--font-heading);
   font-size: 13px;
-  font-weight: 600;
-  color: var(--color-ink-muted);
+  font-weight: 700;
+  color: var(--color-ink);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   white-space: nowrap;
@@ -45,7 +46,7 @@
 }
 
 .table tbody tr:hover {
-  background: rgba(237, 90, 28, 0.03);
+  background: var(--color-canvas);
 }
 
 .table__num {

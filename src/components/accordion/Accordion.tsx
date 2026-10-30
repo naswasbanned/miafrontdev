@@ -23,7 +23,7 @@ export function Accordion({
     <>
       {/* Petunjuk cukup sekali per halaman: hanya di daftar yang membuka pertanyaan pertama. */}
       {openFirst && !noHint && items.length > 1 && (
-        <p>Ketuk pertanyaan untuk melihat jawabannya.</p>
+        <p className="accordion__hint">Ketuk pertanyaan untuk melihat jawabannya.</p>
       )}
       <div className="accordion">
         {items.map(([q, a], i) =>

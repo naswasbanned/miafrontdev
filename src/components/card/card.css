@@ -25,7 +25,7 @@
   height: 48px;
   border-radius: 16px;
   background: var(--color-primary-tint);
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 .card__title {
@@ -148,7 +148,7 @@
 }
 
 .card__link:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 .card__link:focus-visible {

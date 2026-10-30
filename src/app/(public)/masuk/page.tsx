@@ -28,15 +28,15 @@ export default async function MasukPage({
       {/* Trust points */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px", marginBottom: "32px" }}>
         <div style={{ padding: "12px", borderRadius: "16px", background: "var(--color-surface)", border: "1px solid var(--color-border-subtle)", textAlign: "center" }}>
-          <div style={{ color: "var(--color-primary)", fontWeight: "700", fontSize: "18px", marginBottom: "2px" }}>✓ Gratis</div>
+          <div style={{ color: "var(--color-primary-text)", fontWeight: "700", fontSize: "18px", marginBottom: "2px" }}>✓ Gratis</div>
           <div style={{ fontSize: "12px", color: "var(--color-ink-muted)" }}>Tanpa biaya apapun</div>
         </div>
         <div style={{ padding: "12px", borderRadius: "16px", background: "var(--color-surface)", border: "1px solid var(--color-border-subtle)", textAlign: "center" }}>
-          <div style={{ color: "var(--color-primary)", fontWeight: "700", fontSize: "18px", marginBottom: "2px" }}>⚡ Otomatis</div>
+          <div style={{ color: "var(--color-primary-text)", fontWeight: "700", fontSize: "18px", marginBottom: "2px" }}>⚡ Otomatis</div>
           <div style={{ fontSize: "12px", color: "var(--color-ink-muted)" }}>Progres tersimpan</div>
         </div>
         <div style={{ padding: "12px", borderRadius: "16px", background: "var(--color-surface)", border: "1px solid var(--color-border-subtle)", textAlign: "center" }}>
-          <div style={{ color: "var(--color-primary)", fontWeight: "700", fontSize: "18px", marginBottom: "2px" }}>🔒 Rahasia</div>
+          <div style={{ color: "var(--color-primary-text)", fontWeight: "700", fontSize: "18px", marginBottom: "2px" }}>🔒 Rahasia</div>
           <div style={{ fontSize: "12px", color: "var(--color-ink-muted)" }}>Data terenkripsi</div>
         </div>
       </div>

@@ -33,7 +33,7 @@
 }
 
 .accordion__summary:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 .accordion__summary:focus-visible {
@@ -74,12 +74,12 @@
 
 .accordion__summary:hover .accordion__icon {
   background: var(--color-primary-tint);
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 .accordion__item[open] .accordion__icon {
   background: var(--color-primary-tint);
-  color: var(--color-primary);
+  color: var(--color-primary-text);
 }
 
 .accordion__panel {
@@ -94,4 +94,33 @@
 
 .accordion__panel p {
   max-width: none;
+}
+
+.accordion__hint {
+  display: inline-block;
+  align-self: flex-start;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-tint);
+  color: var(--color-ink);
+  font-size: var(--text-body-sm);
+}
+
+/* Di halaman dalam, daftar tanya jawab berada di kartu putih (kecuali sudah di dalam kartu) */
+.page .accordion {
+  padding-inline: var(--space-6);
+  border: var(--border-thin) solid var(--color-border-subtle);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+}
+
+.page .card .accordion {
+  padding-inline: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+
+.page .accordion .accordion__item:last-child {
+  border-bottom: 0;
 }
