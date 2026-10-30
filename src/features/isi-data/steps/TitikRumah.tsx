@@ -15,9 +15,9 @@ const pos = (vars: Record<string, string>) =>
   Object.fromEntries(
     Object.entries(vars).map(([k, v]) => [`--${k}`, v]),
   ) as CSSProperties;
-const KEC_WIZARD = KEC_NAMES.slice(0, 4);
+const KEC_WIZARD = KEC_NAMES;
 
-export function TitikRumah() {
+export function TitikRumah({ data }: { data?: Record<string, string> }) {
   return (
     <>
       <div className="stack">
@@ -64,6 +64,7 @@ export function TitikRumah() {
               label="Kecamatan"
               options={KEC_WIZARD}
               placeholder="Pilih kecamatan"
+              selected={data?.kec}
             />
             <Select
               id="kel"

@@ -73,9 +73,18 @@ const FAQS: readonly (readonly [q: string, a?: string])[] = [
     "Apakah hasil prediksi ini menjamin anak pasti diterima?",
     "Tidak. Hasil SIPESEK adalah estimasi ilmiah berbasis statistik dari kuota resmi, persebaran jarak, dan nilai seleksi tahun lalu. Hasil ini dirancang sebagai panduan strategi orang tua. Pendaftaran resmi tetap dilakukan melalui portal SPMB Dinas Pendidikan.",
   ],
-  ["Apakah data nilai rapor dan alamat keluarga kami aman?"],
-  ["Bagaimana jika jarak domisili sama persis dengan siswa pendaftar lainnya?"],
-  ["Apakah ada biaya untuk menggunakan aplikasi SIPESEK?"],
+  [
+    "Apakah data nilai rapor dan alamat keluarga kami aman?",
+    "Data yang Bapak/Ibu isi di akun disimpan terenkripsi dan hanya dipakai untuk menghitung peluang. Pihak dinas hanya melihat data gabungan per kecamatan, tidak pernah data per keluarga. Bila memakai Cek Cepat, tidak ada data yang disimpan: NISN dan titik rumah hanya diproses di browser dan hilang saat tab ditutup.",
+  ],
+  [
+    "Bagaimana jika jarak domisili sama persis dengan siswa pendaftar lainnya?",
+    "Dalam seleksi sebenarnya, panitia memakai aturan penentu berikutnya yang ditetapkan daerah, misalnya usia atau nilai. SIPESEK memperkirakan peluang dengan memperhitungkan persaingan di sekitar jarak yang sama, lalu menandai hasilnya sebagai Memungkinkan, bukan Peluang Besar. Aturan penentu resmi tetap mengikuti petunjuk teknis SPMB daerah.",
+  ],
+  [
+    "Apakah ada biaya untuk menggunakan aplikasi SIPESEK?",
+    "Tidak ada. SIPESEK gratis untuk orang tua, tanpa iklan, dan data tidak dijual. Cek Cepat bisa dipakai tanpa akun, dan akun hanya diperlukan bila ingin menyimpan progres serta melihat detail sekolah.",
+  ],
 ];
 
 function CloudEdge({ flip = false }: { flip?: boolean }) {
@@ -271,7 +280,7 @@ function CtaSection({ cta }: { cta: LandingCta }) {
           <p>Hanya butuh 8 menit. Dapatkan gambaran peluang yang jelas dan tenang menyambut masa SPMB 2027/2028.</p>
           <div>
             <Button variant="inverse" lg href={cta.href}>{cta.ctaLabel}</Button>
-            <Button variant="inverse-outline" lg href="/panduan">Pelajari Panduan Jalur</Button>
+            <Button variant="inverse-outline" lg href={cta.secondary?.href ?? "/panduan"}>{cta.secondary?.label ?? "Pelajari Panduan Jalur"}</Button>
           </div>
         </div>
         <div className="landing-cta-cloud" aria-hidden="true"><i /><i /><i /><i /><i /><i /></div>
@@ -280,7 +289,14 @@ function CtaSection({ cta }: { cta: LandingCta }) {
   );
 }
 
-export type LandingCta = { href: string; label: string; ctaLabel: string };
+export type LandingCta = {
+  href: string;
+  label: string;
+  ctaLabel: string;
+  /** Tombol kedua (tamu: masuk dan simpan progres). */
+  secondary?: { href: string; label: string };
+  trust?: string;
+};
 
 /** cta: tamu ke /masuk; orang tua yang sudah login langsung ke tahap berikutnya anaknya. */
 export function LandingPage({ cta }: { cta: LandingCta }) {
@@ -293,9 +309,13 @@ export function LandingPage({ cta }: { cta: LandingCta }) {
           <p>Hitung peluang anak diterima di SMA/SMK Negeri untuk setiap jalur SPMB — domisili, afirmasi, prestasi, dan mutasi — lalu dapatkan urutan pilihan sekolah yang realistis.</p>
           <div className="landing-hero-actions">
             <Button variant="primary" lg href={cta.href}>{cta.label}</Button>
-            <Button variant="secondary" lg href="#cara-kerja">Lihat Cara Kerja</Button>
+            {cta.secondary ? (
+              <Button variant="secondary" lg href={cta.secondary.href}>{cta.secondary.label}</Button>
+            ) : (
+              <Button variant="secondary" lg href="#cara-kerja">Lihat Cara Kerja</Button>
+            )}
           </div>
-          <small className="landing-trust">Gratis&nbsp; • &nbsp;Berdasarkan data seleksi resmi tahun lalu&nbsp; • &nbsp;Isian tersimpan otomatis</small>
+          <small className="landing-trust">{cta.trust ?? "Gratis  •  Berdasarkan data seleksi resmi tahun lalu  •  Isian tersimpan otomatis"}</small>
         </div>
         <HeroVisual />
       </section>

@@ -87,11 +87,16 @@ type Zone = {
   value: string;
 };
 
+const ZONE_ICON: Record<Zone["kind"], string> = {
+  cukup: "check",
+  terbatas: "scale",
+  kurang: "alert",
+  blank: "alert",
+};
 /** Peta zona wilayah (koroplet): nama dan nilai selalu tertulis. */
 export function MapZones({ zones, label }: { zones: Zone[]; label: string }) {
   return (
-    <div className="map map--square" role="img" aria-label={label}>
-      <Roads />
+    <div className="map map--square map--zones" role="img" aria-label={label}>
       {zones.map((z) => (
         <div
           key={z.name}
@@ -99,7 +104,10 @@ export function MapZones({ zones, label }: { zones: Zone[]; label: string }) {
           style={pos({ x: z.x, y: z.y, w: z.w, h: z.h })}
         >
           <strong>{z.name}</strong>
-          <span>{z.value}</span>
+          <span className="map__zone-value">
+            <Icon name={ZONE_ICON[z.kind]} className="icon icon--sm" />
+            {z.value}
+          </span>
         </div>
       ))}
     </div>

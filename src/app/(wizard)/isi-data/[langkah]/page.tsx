@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Alert, Button, ButtonGroup, PageHeader } from "@/components";
+import { getSession } from "@/lib/session";
 import { WizardForm } from "@/features/isi-data/WizardForm";
 import {
   AFTER_LAST,
@@ -13,7 +14,7 @@ import {
 
 type Props = {
   params: Promise<{ langkah: string }>;
-  searchParams: Promise<{ terkunci?: string }>;
+  searchParams: Promise<{ terkunci?: string; dari?: string }>;
 };
 
 const LOCKED_LABEL: Record<string, string> = {
@@ -40,7 +41,10 @@ export default async function IsiDataPage({ params, searchParams }: Props) {
   const isLast = n === TOTAL;
   const next = isLast ? AFTER_LAST : stepHref(n + 1);
   const prev = n === 1 ? BEFORE_FIRST : stepHref(n - 1);
-  const locked = LOCKED_LABEL[(await searchParams).terkunci ?? ""];
+  const query = await searchParams;
+  const locked = LOCKED_LABEL[query.terkunci ?? ""];
+  const fromQuick = query.dari === "cek-cepat";
+  const data = (await getSession())?.child?.data;
 
   return (
     <>
@@ -49,12 +53,17 @@ export default async function IsiDataPage({ params, searchParams }: Props) {
           Lengkapi data anak sampai langkah terakhir dulu. Setelah itu {locked} langsung terbuka.
         </Alert>
       )}
+      {fromQuick && (
+        <Alert kind="success" title="Hasil Cek Cepat sudah masuk akun">
+          Data dari Cek Cepat sudah terisi di langkah 1 sampai 4. Periksa langkah terakhir, lalu lanjutkan.
+        </Alert>
+      )}
       <PageHeader
         art="profile" title={step.title} desc={step.desc} />
 
       <div className="card wizard__card">
         <WizardForm step={n} next={next}>
-          <step.Body />
+          <step.Body data={data} />
           <div className="wizard__actions">
             <ButtonGroup>
               <Button

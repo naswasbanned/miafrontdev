@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {
   Badge,
   Button,
+  ButtonGroup,
   Alert,
   Card,
   SectionHeading,
@@ -197,9 +198,14 @@ export default function PanduanPage() {
           title="Sudah Memahami Jalur yang Tepat?"
           text="Mulai kalkulasi peluang anak Anda di SMA/SMK Negeri impian sekarang juga. Hanya butuh waktu 8 menit."
         >
-          <Button variant="primary" href="/masuk" icon="arrow-right">
-            Mulai Cek Peluang Gratis
-          </Button>
+          <ButtonGroup>
+            <Button variant="primary" href="/cek-cepat" icon="arrow-right">
+              Cek Cepat dengan NISN
+            </Button>
+            <Button variant="secondary" href="/masuk">
+              Masuk & Simpan Progres
+            </Button>
+          </ButtonGroup>
         </CtaBand>
       </Section>
     </Container>

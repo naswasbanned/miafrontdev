@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import {
   Button,
+  ButtonGroup,
   Accordion,
   Container,
   PageHeader,
@@ -58,6 +59,7 @@ export default function TanyaJawabPage() {
           title="Masih Ada Pertanyaan yang Belum Terjawab?"
           text="Tim pendamping orang tua kami siap membantu menjawab kebingungan seputar SPMB dengan ramah dan sabar."
         >
+          <ButtonGroup>
           <Button
             variant="primary"
             href="https://wa.me/"
@@ -67,6 +69,10 @@ export default function TanyaJawabPage() {
             Chat Tim Bantuan (WhatsApp)
             <span className="visually-hidden"> (membuka tab baru)</span>
           </Button>
+          <Button variant="secondary" href="/cek-cepat">
+            Coba Cek Cepat
+          </Button>
+          </ButtonGroup>
         </CtaBand>
       </div>
     </Container>

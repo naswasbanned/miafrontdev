@@ -1,6 +1,6 @@
 import { Field, Select } from "@/components";
 
-export function Prestasi() {
+export function Prestasi({ data }: { data?: Record<string, string> }) {
   return (
     <>
       <Field
@@ -14,6 +14,7 @@ export function Prestasi() {
         label="Tingkat"
         options={["Kecamatan", "Kota/Kabupaten", "Provinsi", "Nasional"]}
         placeholder="Pilih tingkat"
+        selected={data?.tingkat}
         optional
       />
       <Select

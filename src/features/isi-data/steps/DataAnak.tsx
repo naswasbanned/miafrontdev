@@ -1,6 +1,6 @@
 import { Choice, ChoiceGroup, Field } from "@/components";
 
-export function DataAnak() {
+export function DataAnak({ data }: { data?: Record<string, string> }) {
   return (
     <>
       <Field
@@ -9,6 +9,7 @@ export function DataAnak() {
         required
         errorRequired="Nama belum diisi. Tulis nama lengkap seperti di akta kelahiran."
         autoComplete="off"
+        defaultValue={data?.nama}
       />
       <Field id="lahir" label="Tanggal lahir" type="date" optional />
       <Field
@@ -24,7 +25,7 @@ export function DataAnak() {
           value="sma"
           title="SMA"
           desc="Sekolah umum, lanjut ke perguruan tinggi."
-          checked
+          checked={!data?.jenjang || data.jenjang === "sma"}
         />
         <Choice
           type="radio"
@@ -32,6 +33,7 @@ export function DataAnak() {
           value="smk"
           title="SMK"
           desc="Sekolah kejuruan, siap kerja."
+          checked={data?.jenjang === "smk"}
         />
         <Choice
           type="radio"
@@ -39,6 +41,7 @@ export function DataAnak() {
           value="belum"
           title="Belum tahu"
           desc="Kami tampilkan SMA dan SMK."
+          checked={data?.jenjang === "belum"}
         />
       </ChoiceGroup>
     </>

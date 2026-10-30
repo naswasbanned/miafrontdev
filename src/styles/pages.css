@@ -524,3 +524,58 @@
   background: var(--color-surface);
   box-shadow: var(--shadow-sm);
 }
+
+/* ---------- Dashboard admin dan kebijakan: header, filter ---------- */
+.dash__main .page-header h1 {
+  font-size: clamp(1.625rem, 2.4vw, 2.125rem);
+}
+.dash__main .page-header--split {
+  align-items: stretch;
+}
+.page-header__actions .button {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+@media (min-width: 600px) {
+  .dash__main .page-header--split {
+    align-items: center;
+  }
+  .dash__main .page-header--split .page-header__actions {
+    margin-top: 0;
+  }
+}
+.toolbar {
+  align-items: end;
+}
+.toolbar .field__hint {
+  color: var(--color-ink-muted);
+  font-size: var(--text-caption);
+}
+@media (max-width: 599px) {
+  .toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Dashboard: legenda isian berada di panel berlatar, bukan teks lepas di atas ilustrasi */
+.dash__main .choice-group {
+  padding: var(--space-5) var(--space-6);
+  border: var(--border-thin) solid var(--color-border-subtle);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+/* float membuat legenda ikut mengalir di dalam panel, tidak menumpang di garis tepi fieldset */
+.dash__main .choice-group__legend {
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin-bottom: var(--space-3);
+}
+.dash__main .choice-group__legend + * {
+  clear: both;
+}
+/* Dashboard banyak berisi tabel dan formulir: latar dekoratif dibuat lebih redup agar tidak mengganggu */
+body:has(.dash)::before {
+  opacity: 0.5;
+}

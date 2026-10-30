@@ -9,6 +9,8 @@ export type Child = {
   name: string;
   /** Jumlah langkah wizard yang sudah disimpan (0..WIZARD_TOTAL). */
   steps: number;
+  /** Isian wizard yang sudah ada (misal dari Cek Cepat), dipakai sebagai nilai awal. */
+  data?: Record<string, string>;
 };
 
 export type Session = {
@@ -57,7 +59,7 @@ export const ROLE_LABEL: Record<Role, string> = {
 };
 
 /** Progres tersimpan: { [childId]: { steps, name } }. */
-export type Progress = Record<string, { steps: number; name?: string }>;
+export type Progress = Record<string, { steps: number; name?: string; data?: Record<string, string> }>;
 
 export function parseProgress(raw: string | undefined): Progress {
   if (!raw) return {};
@@ -85,11 +87,12 @@ export function buildSession(
     ...c,
     steps: Math.max(c.steps, progress[c.id]?.steps ?? 0),
     name: progress[c.id]?.name || c.name,
+    data: progress[c.id]?.data,
   }));
   // Anak yang ditambah lewat wizard (belum ada di data contoh).
   for (const [id, p] of Object.entries(progress)) {
     if (seed.role === "orang-tua" && !children.some((c) => c.id === id)) {
-      children.push({ id, name: p.name || "Anak baru", steps: p.steps });
+      children.push({ id, name: p.name || "Anak baru", steps: p.steps, data: p.data });
     }
   }
   const child = children.find((c) => c.id === childId) ?? children[0] ?? null;
@@ -152,7 +155,7 @@ export function stageOf(pathname: string): StageKey | null {
 
 // ---------- Akses dan routing ----------
 
-export const PUBLIC_PATHS = ["/", "/panduan", "/tanya-jawab", "/masuk", "/akses-ditolak"];
+export const PUBLIC_PATHS = ["/", "/panduan", "/tanya-jawab", "/masuk", "/akses-ditolak", "/cek-cepat"];
 const PARENT_PREFIXES = ["/anak-saya", "/isi-data", "/peta-sekolah", "/detail-sekolah", "/strategi", "/cadangan", "/unduhan"];
 
 const underAny = (pathname: string, prefixes: string[]) =>
@@ -160,6 +163,7 @@ const underAny = (pathname: string, prefixes: string[]) =>
 
 /** Peran yang boleh membuka path. Null = publik. */
 export function rolesFor(pathname: string): Role[] | null {
+  if (pathname === "/cek-cepat/simpan") return ["orang-tua"];
   if (underAny(pathname, PARENT_PREFIXES)) return ["orang-tua"];
   if (pathname.startsWith("/kebijakan-")) return ["kebijakan", "admin"];
   if (pathname.startsWith("/admin-")) return ["admin"];

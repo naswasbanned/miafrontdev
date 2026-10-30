@@ -13,17 +13,10 @@
 }
 
 .brand__logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   width: 34px;
   height: 34px;
-  border-radius: var(--radius-md);
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  font-size: 1.25rem;
-  letter-spacing: 0;
-  line-height: 1;
+  flex: none;
 }
 
 .brand--sm {
@@ -33,6 +26,4 @@
 .brand--sm .brand__logo {
   width: 32px;
   height: 32px;
-  border-radius: 10px;
-  font-size: 1.1875rem;
 }

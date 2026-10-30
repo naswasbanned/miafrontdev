@@ -97,11 +97,11 @@
   top: var(--y);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--space-1);
   width: var(--w);
   height: var(--h);
-  padding: var(--space-2);
+  padding: var(--space-3);
   overflow: hidden;
   border: var(--border-thick) solid currentColor;
   border-radius: var(--radius-md);
@@ -110,6 +110,15 @@
 }
 
 .map__zone strong {
+  font-size: var(--text-body-md);
+  font-weight: var(--weight-bold);
+  line-height: 1.2;
+}
+.map__zone-value {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-body-md);
   font-weight: var(--weight-semibold);
 }
 
@@ -146,5 +155,8 @@
 @media (min-width: 1024px) {
   .map--square {
     aspect-ratio: 16 / 10;
+  }
+  .map--zones {
+    aspect-ratio: 5 / 2;
   }
 }

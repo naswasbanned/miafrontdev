@@ -7,7 +7,7 @@ const BANTUAN = [
   ["lain", "Bantuan lainnya"],
 ];
 
-export function KondisiKeluarga() {
+export function KondisiKeluarga({ data }: { data?: Record<string, string> }) {
   return (
     <>
       <ChoiceGroup
@@ -21,6 +21,7 @@ export function KondisiKeluarga() {
           value="ya"
           title="Ya"
           desc="Kami menerima bantuan sosial."
+          checked={data?.ketm === "ya"}
           required
           errorRequired="Pilih salah satu jawaban dulu. Bila belum yakin, pilih Belum yakin."
         />
@@ -30,6 +31,7 @@ export function KondisiKeluarga() {
           value="tidak"
           title="Tidak"
           desc="Kami cek jalur lain yang cocok."
+          checked={data?.ketm === "tidak"}
           required
         />
         <Choice
@@ -38,6 +40,7 @@ export function KondisiKeluarga() {
           value="ragu"
           title="Belum yakin"
           desc="Kami bantu jelaskan cara mengeceknya."
+          checked={data?.ketm === "ragu"}
           required
         />
       </ChoiceGroup>

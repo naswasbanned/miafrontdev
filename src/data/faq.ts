@@ -23,8 +23,16 @@ export const FAQ_GROUPS: FaqGroup[] = [
     title: "Data dan privasi",
     items: [
       [
+        "Apa beda Cek Cepat dan masuk dengan akun?",
+        "Cek Cepat tanpa akun: cukup NISN dan beberapa isian, hasilnya tampil sekali dan tidak disimpan. Dengan akun: isian tersimpan, Bapak/Ibu bisa melihat detail sekolah, cadangan, dan mengunduh dokumen.",
+      ],
+      [
+        "Apakah NISN anak disimpan?",
+        "Tidak. NISN hanya diperiksa di browser Bapak/Ibu (harus 10 angka) lalu dibuang. NISN tidak dikirim ke server, tidak masuk cookie, dan tidak dicatat.",
+      ],
+      [
         "Data apa saja yang diminta?",
-        "Nama dan tanggal lahir anak, nilai rapor, status keluarga bila ada, prestasi, dan titik rumah. Kami tidak meminta NIK atau NISN.",
+        "Nama dan tanggal lahir anak, nilai rapor, status keluarga bila ada, prestasi, dan titik rumah. Kami tidak meminta NIK. NISN hanya diminta di Cek Cepat dan tidak disimpan.",
       ],
       [
         "Apakah lokasi rumah kami terlihat orang lain?",

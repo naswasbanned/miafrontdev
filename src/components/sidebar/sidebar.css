@@ -71,9 +71,15 @@
     align-items: start;
   }
 
+  /* aside setinggi baris grid supaya sidebar punya ruang untuk menempel saat konten di-scroll */
+  .dash > aside {
+    align-self: stretch;
+  }
   .sidebar {
     position: sticky;
-    top: calc(var(--navbar-height) + var(--space-6));
+    top: calc(var(--navbar-height) + var(--space-2));
+    max-height: calc(100vh - var(--navbar-height) - var(--space-6));
+    overflow-y: auto;
   }
 
   .sidebar__list {
@@ -84,21 +90,5 @@
   .sidebar__link {
     border-color: transparent;
     background: transparent;
-  }
-}
-
-.sidebar__art {
-  display: none;
-  width: 100%;
-  max-width: 12rem;
-  height: auto;
-  margin: var(--space-8) auto 0;
-  opacity: 0.9;
-  pointer-events: none;
-}
-
-@media (min-width: 1024px) {
-  .sidebar__art {
-    display: block;
   }
 }

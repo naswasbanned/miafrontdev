@@ -9,7 +9,7 @@ import {
 
 const SEMESTER = [1, 2, 3, 4, 5];
 
-export function NilaiRapor() {
+export function NilaiRapor({ data }: { data?: Record<string, string> }) {
   return (
     <>
       <p>
@@ -25,6 +25,7 @@ export function NilaiRapor() {
           errorPattern="Nilai ditulis dengan angka, misalnya 85,5. Bapak/Ibu bisa melihatnya di rapor halaman terakhir."
           inputMode="decimal"
           pattern="[0-9]{2,3}([,.][0-9]{1,2})?"
+          defaultValue={data?.[`nilai-${s}`]}
         />
       ))}
       <ChoiceGroup legend="Rapor semester berjalan">

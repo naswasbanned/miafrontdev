@@ -18,11 +18,20 @@ export function proxy(request: NextRequest) {
     request.cookies.get(COOKIE.progress)?.value,
   );
   const go = (path: string) => NextResponse.redirect(new URL(path, request.url));
+  // Cek Cepat tidak boleh di-cache atau diindeks: isiannya pribadi dan tidak disimpan.
+  const next = () => {
+    const response = NextResponse.next();
+    if (pathname.startsWith("/cek-cepat")) {
+      response.headers.set("Cache-Control", "no-store");
+      response.headers.set("X-Robots-Tag", "noindex");
+    }
+    return response;
+  };
 
-  if (pathname === "/masuk") return session ? go(homeFor(session)) : NextResponse.next();
+  if (pathname === "/masuk") return session ? go(homeFor(session)) : next();
 
   const roles = rolesFor(pathname);
-  if (!roles) return NextResponse.next();
+  if (!roles) return next();
   if (!session) return go(`/masuk?next=${encodeURIComponent(pathname + search)}`);
   if (!roles.includes(session.role)) return go(`/akses-ditolak?dari=${encodeURIComponent(pathname)}`);
 
@@ -33,7 +42,7 @@ export function proxy(request: NextRequest) {
       return go(`${nextWizardHref(session.child)}?terkunci=${stage}`);
     }
   }
-  return NextResponse.next();
+  return next();
 }
 
 export const config = {

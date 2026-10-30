@@ -215,8 +215,8 @@ export function Navbar(props: NavbarProps) {
         <Button variant="ghost" sm href={masuk} className="navbar__signin">
           Masuk
         </Button>
-        <Button variant="primary" sm href="/masuk">
-          Mulai Cek Peluang
+        <Button variant="primary" sm href="/cek-cepat">
+          Cek Cepat
         </Button>
       </>
     );
@@ -274,37 +274,55 @@ export function DashBar({ home, user, role }: { home: string; user: string; role
   );
 }
 
-/** Header mode fokus untuk wizard: tanpa menu utama agar orang tua tidak keluar tanpa sengaja. */
-export function FocusBar({ title, step, total }: { title: string; step: number; total: number }) {
+/** Header mode fokus (wizard dan Cek Cepat): tanpa menu utama agar orang tua tidak keluar tanpa sengaja. */
+export function FocusBar({
+  title,
+  subtitle,
+  progress,
+  brandHref,
+  exit,
+}: {
+  title: string;
+  subtitle: string;
+  progress?: { step: number; total: number };
+  /** Bila diisi, logo menjadi tautan. Di wizard dibiarkan kosong agar tidak keluar tanpa sengaja. */
+  brandHref?: string;
+  exit: { href: string; label: string };
+}) {
   return (
     <header className="navbar navbar--focus">
       <div className="navbar__inner">
-        <span className="brand" aria-label="Sipesek">
-          <span className="brand__logo" aria-hidden="true">
-            S
+        {brandHref ? (
+          <Brand href={brandHref} />
+        ) : (
+          <span className="brand" aria-label="Sipesek">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="brand__logo" src="/logo/logo-hifi.svg" alt="" aria-hidden="true" width={34} height={34} />
+            <span className="navbar__focus-brand">Sipesek</span>
           </span>
-          <span className="navbar__focus-brand">Sipesek</span>
-        </span>
+        )}
         <div className="navbar__focus">
           <p className="navbar__focus-title">
             <strong>{title}</strong>
-            <span>{`Langkah ${step} dari ${total}`}</span>
+            <span>{subtitle}</span>
           </p>
-          <ol className="stepper__bar" aria-hidden="true">
-            {Array.from({ length: total }, (_, i) => (
-              <li
-                key={i}
-                className={`stepper__segment${i < step ? " stepper__segment--done" : ""}`}
-              />
-            ))}
-          </ol>
+          {progress && (
+            <ol className="stepper__bar" aria-hidden="true">
+              {Array.from({ length: progress.total }, (_, i) => (
+                <li
+                  key={i}
+                  className={`stepper__segment${i < progress.step ? " stepper__segment--done" : ""}`}
+                />
+              ))}
+            </ol>
+          )}
         </div>
         <div className="navbar__actions">
           <Button variant="ghost" sm href={HELP_URL} newTab iconLeft="message" className="navbar__help">
             Bantuan
           </Button>
-          <Button variant="secondary" sm href="/anak-saya">
-            Simpan &amp; keluar
+          <Button variant="secondary" sm href={exit.href}>
+            {exit.label}
           </Button>
         </div>
       </div>

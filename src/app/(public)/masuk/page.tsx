@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Alert, Badge, Container, PageHeader } from "@/components";
+import { Alert, Badge, Container, MoreLink, PageHeader } from "@/components";
 import { MasukFlow } from "./MasukFlow";
 
 export const metadata: Metadata = {
@@ -41,12 +41,23 @@ export default async function MasukPage({
         </div>
       </div>
 
-      {next && (
-        <Alert kind="info" title="Masuk dulu untuk melanjutkan">
-          Halaman yang Bapak/Ibu buka berisi data pribadi anak. Setelah masuk, kami langsung membukanya.
+      {next === "/cek-cepat/simpan" ? (
+        <Alert kind="info" title="Masuk untuk menyimpan hasil Cek Cepat">
+          Setelah masuk, Bapak/Ibu bisa memindahkan isian tadi ke akun. Jangan tutup atau muat ulang tab ini, karena hasil Cek Cepat belum tersimpan di mana pun.
         </Alert>
+      ) : (
+        next && (
+          <Alert kind="info" title="Masuk dulu untuk melanjutkan">
+            Halaman yang Bapak/Ibu buka berisi data pribadi anak. Setelah masuk, kami langsung membukanya.
+          </Alert>
+        )
       )}
       <MasukFlow next={next} />
+      <div className="card" style={{ marginTop: "24px" }}>
+        <h2 className="card__title">Belum ingin membuat akun?</h2>
+        <p className="card__text">Cek Cepat hanya butuh NISN anak. Hasilnya tidak disimpan.</p>
+        <MoreLink href="/cek-cepat">Cek Cepat dengan NISN</MoreLink>
+      </div>
     </Container>
   );
 }

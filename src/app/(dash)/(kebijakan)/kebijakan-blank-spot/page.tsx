@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {
   Button,
   Alert,
+  Badge,
   Table,
   MapZones,
   Select,
@@ -104,6 +105,14 @@ export default function KebijakanBlankSpotPage() {
           ]}
           label="Peta blank spot. Rincian ada di tabel di bawah."
         />
+        <ul className="map-legend" aria-label="Arti warna">
+          <li>
+            <Badge kind="aman">Terlayani</Badge>
+          </li>
+          <li>
+            <Badge kind="berisiko">Blank spot (garis putus-putus)</Badge>
+          </li>
+        </ul>
       </DashSection>
       <DashSection title="Daftar wilayah">
         <Table

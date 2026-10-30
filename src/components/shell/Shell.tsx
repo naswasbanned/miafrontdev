@@ -103,7 +103,28 @@ export async function FocusChrome({ step, children }: { step: number; children: 
   return (
     <>
       <SkipLink />
-      <FocusBar title={name ? `Data ${name}` : "Data anak baru"} step={step} total={WIZARD_TOTAL} />
+      <FocusBar
+        title={name ? `Data ${name}` : "Data anak baru"}
+        subtitle={`Langkah ${step} dari ${WIZARD_TOTAL}`}
+        progress={{ step, total: WIZARD_TOTAL }}
+        exit={{ href: "/anak-saya", label: "Simpan & keluar" }}
+      />
+      <main id="konten">{children}</main>
+    </>
+  );
+}
+
+/** Cangkang Cek Cepat (tamu): header fokus, tanpa menu akun, footer, atau navigasi bawah. */
+export function QuickChrome({ children }: { children: ReactNode }) {
+  return (
+    <>
+      <SkipLink />
+      <FocusBar
+        title="Cek Cepat"
+        subtitle="Tidak disimpan"
+        brandHref="/"
+        exit={{ href: "/", label: "Selesai" }}
+      />
       <main id="konten">{children}</main>
     </>
   );

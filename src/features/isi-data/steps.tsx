@@ -8,6 +8,9 @@ import { NilaiRapor, NilaiRaporDialogs } from "./steps/NilaiRapor";
 import { Prestasi } from "./steps/Prestasi";
 import { TitikRumah, TitikRumahDialogs } from "./steps/TitikRumah";
 
+/** Nilai awal per id field (misal dari Cek Cepat). */
+export type StepProps = { data?: Record<string, string> };
+
 export type Step = {
   title: string;
   desc: string;
@@ -15,7 +18,7 @@ export type Step = {
   nextText?: string;
   /** Tampilkan tombol "Lewati Langkah Ini". */
   skippable?: boolean;
-  Body: ComponentType;
+  Body: ComponentType<StepProps>;
   Dialogs?: ComponentType;
 };
 

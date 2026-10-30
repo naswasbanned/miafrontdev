@@ -252,3 +252,23 @@ export const PRIVATE_SCHOOLS: PrivateSchool[] = [
     beasiswa: "Belum ada program beasiswa.",
   },
 ];
+
+/**
+ * Aturan sederhana untuk Cek Cepat (perkiraan tiruan). Kecamatan sekolah, kecamatan bertetangga,
+ * perkiraan radius zona Domisili tahun lalu (km), perkiraan batas rata-rata nilai jalur Prestasi, dan apakah sekolah punya kuota Afirmasi.
+ */
+export type SchoolRules = {
+  kec: string;
+  /** Perkiraan radius zona Domisili tahun lalu, km. */
+  radiusKm: number;
+  prestasiMin: number;
+  afirmasi: boolean;
+};
+
+export const SCHOOL_RULES: Record<string, SchoolRules> = {
+  "sma-negeri-5": { kec: "Harapan Jaya", radiusKm: 2.5, prestasiMin: 84, afirmasi: true },
+  "sma-negeri-9": { kec: "Mekar Sari", radiusKm: 2.0, prestasiMin: 82, afirmasi: true },
+  "sma-negeri-2": { kec: "Sukamaju Utara", radiusKm: 3.0, prestasiMin: 86, afirmasi: true },
+  "sma-negeri-1": { kec: "Sukamaju Utara", radiusKm: 2.0, prestasiMin: 91, afirmasi: false },
+  "sma-negeri-7": { kec: "Tirta Indah", radiusKm: 3.0, prestasiMin: 88, afirmasi: true },
+};

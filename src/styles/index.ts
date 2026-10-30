@@ -30,3 +30,4 @@ import "../components/table/table.css";
 import "../components/sidebar/sidebar.css";
 import "../components/upload/upload.css";
 import "./pages.css";
+import "./quick.css";

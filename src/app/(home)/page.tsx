@@ -12,7 +12,13 @@ export const metadata: Metadata = {
 
 export default async function IndexPage() {
   const session = await getSession();
-  let cta: LandingCta = { href: "/masuk", label: "Mulai Cek Peluang", ctaLabel: "Mulai Cek Peluang Gratis" };
+  let cta: LandingCta = {
+    href: "/cek-cepat",
+    label: "Cek Cepat dengan NISN",
+    ctaLabel: "Cek Cepat dengan NISN",
+    secondary: { href: "/masuk", label: "Masuk & Simpan Progres" },
+    trust: "Gratis\u00a0 • \u00a0Cek Cepat tanpa akun, tidak disimpan\u00a0 • \u00a0Masuk untuk menyimpan progres",
+  };
   if (session?.role === "orang-tua") {
     const c = continueFor(session);
     cta = { href: c.href, label: c.label, ctaLabel: c.label };

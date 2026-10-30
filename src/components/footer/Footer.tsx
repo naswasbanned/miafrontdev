@@ -27,7 +27,7 @@ const panduan = (parent: boolean): Column => ({
   links: [
     ["/panduan#cara-hitung", "Cara Menghitung Peluang"],
     ["/panduan#dokumen", "Syarat Berkas KK & Rapor"],
-    parent ? ["/anak-saya", "Data Anak"] : ["/masuk", "Mulai Cek Peluang"],
+    parent ? ["/anak-saya", "Data Anak"] : ["/cek-cepat", "Cek Cepat dengan NISN"],
   ],
 });
 

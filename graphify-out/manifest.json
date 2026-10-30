@@ -138,21 +138,21 @@
     "semantic_hash": ""
   },
   "src/app/(public)/masuk/page.tsx": {
-    "mtime": 1793332921.171296,
-    "seen": 1793333808.8180404,
-    "ast_hash": "291aa855fc14b0fc229042b3dfac307c",
+    "mtime": 1793342874.5895166,
+    "seen": 1793342983.0143368,
+    "ast_hash": "d52468062578cd977b09e6825b316594",
     "semantic_hash": ""
   },
   "src/app/(public)/panduan/page.tsx": {
-    "mtime": 1793332921.1710536,
-    "seen": 1793333808.8180418,
-    "ast_hash": "f89a3c5ca69265b040933d5d5c0117a4",
+    "mtime": 1793342874.5889986,
+    "seen": 1793342983.0143383,
+    "ast_hash": "7cd26be85309c5d65d07e1e185fa4545",
     "semantic_hash": ""
   },
   "src/app/(public)/tanya-jawab/page.tsx": {
-    "mtime": 1793297924.739631,
-    "seen": 1793298352.3642335,
-    "ast_hash": "ad289fe19f3ada10e810db662e0ca102",
+    "mtime": 1793342874.5893164,
+    "seen": 1793342983.01434,
+    "ast_hash": "694927d8f58750bc3dd1aee35f2da694",
     "semantic_hash": ""
   },
   "src/app/layout.tsx": {
@@ -252,9 +252,9 @@
     "semantic_hash": "23e968f4fbc5301adda858b695edc74e"
   },
   "src/components/footer/Footer.tsx": {
-    "mtime": 1793333242.4932818,
-    "seen": 1793333808.8180645,
-    "ast_hash": "697b14fe63285595cf03c0dbbf79e09a",
+    "mtime": 1793342855.9663253,
+    "seen": 1793342983.0143762,
+    "ast_hash": "ab249d3bbc89f12a85459cc60d2347a5",
     "semantic_hash": ""
   },
   "src/components/icon/Icon.tsx": {
@@ -288,9 +288,9 @@
     "semantic_hash": ""
   },
   "src/components/navbar/Navbar.tsx": {
-    "mtime": 1793287931.6144624,
-    "seen": 1793294405.994837,
-    "ast_hash": "6de246c07c3fa58f6ae2b39579a243ab",
+    "mtime": 1793342855.9565313,
+    "seen": 1793342983.0143886,
+    "ast_hash": "98981e9e1072c2f24cd866aa0e65b890",
     "semantic_hash": ""
   },
   "src/components/page/Page.tsx": {
@@ -324,9 +324,9 @@
     "semantic_hash": ""
   },
   "src/components/shell/Shell.tsx": {
-    "mtime": 1793288033.731202,
-    "seen": 1793294405.9948452,
-    "ast_hash": "d9d6f3a0c92390ce3a54a08fe7300161",
+    "mtime": 1793342589.1432898,
+    "seen": 1793342983.0143988,
+    "ast_hash": "72c7c1f055e125f782786161733f20e4",
     "semantic_hash": ""
   },
   "src/components/sidebar/Sidebar.tsx": {
@@ -378,9 +378,9 @@
     "semantic_hash": "12bef7eaa49e74e5ce50f7a7ac4ce79d"
   },
   "src/data/faq.ts": {
-    "mtime": 1793292200.592605,
-    "seen": 1793294405.9948552,
-    "ast_hash": "3d6d7469d07b8254ecfcd010ac7540e1",
+    "mtime": 1793342855.9668694,
+    "seen": 1793342983.0144126,
+    "ast_hash": "db45bcf21c8b60afc0c6d458c869ee87",
     "semantic_hash": ""
   },
   "src/data/jalur.ts": {
@@ -396,45 +396,45 @@
     "semantic_hash": "b9ec0caabbca5788b82bdda0f0eeb5de"
   },
   "src/data/schools.ts": {
-    "mtime": 1792403661.66745,
-    "seen": 1793273426.984438,
-    "ast_hash": "b95437ee8b805eadc0ccc725e3253ad1",
+    "mtime": 1793340313.1357868,
+    "seen": 1793342983.0144165,
+    "ast_hash": "c9bbc767b286c35a4781921ee275efda",
     "semantic_hash": ""
   },
   "src/features/isi-data/steps.tsx": {
-    "mtime": 1793289610.6026683,
-    "seen": 1793294405.9948602,
-    "ast_hash": "6857e6960cb4aec0d34755be5ba58b0c",
+    "mtime": 1793342589.143499,
+    "seen": 1793342983.014424,
+    "ast_hash": "fe8431f78624bee57c6bb13c9156b62f",
     "semantic_hash": ""
   },
   "src/features/isi-data/steps/DataAnak.tsx": {
-    "mtime": 1792383727.0297487,
-    "seen": 1792403275.2772892,
-    "ast_hash": "e987b36aa35da8eed73a3f715c9b462e",
-    "semantic_hash": "e987b36aa35da8eed73a3f715c9b462e"
+    "mtime": 1793342589.1436782,
+    "seen": 1793342983.014425,
+    "ast_hash": "79b87b458fc1abb83a0a9dfa72675ac5",
+    "semantic_hash": ""
   },
   "src/features/isi-data/steps/KondisiKeluarga.tsx": {
-    "mtime": 1792403691.5723956,
-    "seen": 1793273426.984441,
-    "ast_hash": "861b358d90ac847a6748bc3f413e455f",
+    "mtime": 1793342589.1439807,
+    "seen": 1793342983.014426,
+    "ast_hash": "c45ee667bcb30432b99a16d70bc0bdb1",
     "semantic_hash": ""
   },
   "src/features/isi-data/steps/NilaiRapor.tsx": {
-    "mtime": 1792383727.0527487,
-    "seen": 1792403275.277291,
-    "ast_hash": "2c245e2655eff3106b1f444bd2ee7929",
-    "semantic_hash": "2c245e2655eff3106b1f444bd2ee7929"
+    "mtime": 1793342589.1438277,
+    "seen": 1793342983.0144272,
+    "ast_hash": "531a28a933ff441030df1892a0dc5c72",
+    "semantic_hash": ""
   },
   "src/features/isi-data/steps/Prestasi.tsx": {
-    "mtime": 1792383727.0597486,
-    "seen": 1792403275.2772918,
-    "ast_hash": "9fdc57b99a43f7bc2e7de51415ed92d2",
-    "semantic_hash": "9fdc57b99a43f7bc2e7de51415ed92d2"
+    "mtime": 1793342589.1441238,
+    "seen": 1793342983.0144281,
+    "ast_hash": "ceae21c296719d49cbd83e68e88c8ee5",
+    "semantic_hash": ""
   },
   "src/features/isi-data/steps/TitikRumah.tsx": {
-    "mtime": 1792403833.5106187,
-    "seen": 1793273426.9844446,
-    "ast_hash": "1c2d63c3f0595583541b912f646f51d5",
+    "mtime": 1793342589.1442795,
+    "seen": 1793342983.0144298,
+    "ast_hash": "1f37bafc187f2663e009cad0a92ba373",
     "semantic_hash": ""
   },
   "src/features/kebijakan/Filters.tsx": {
@@ -468,9 +468,9 @@
     "semantic_hash": ""
   },
   "src/styles/index.ts": {
-    "mtime": 1793281128.4564464,
-    "seen": 1793282804.2747426,
-    "ast_hash": "ed35cf94ed0ed85d5c6061a6970e6111",
+    "mtime": 1793342809.8728814,
+    "seen": 1793342983.0144446,
+    "ast_hash": "2939e5bfc58eb008391d78c405995f22",
     "semantic_hash": ""
   },
   "tsconfig.json": {
@@ -480,9 +480,9 @@
     "semantic_hash": "510e3bbf03065efe75928789446dd41e"
   },
   "src/components/landing/LandingPage.tsx": {
-    "mtime": 1793292499.2586024,
-    "seen": 1793294405.994833,
-    "ast_hash": "d0ea0ce97a27ac2cc64603b8257c5c23",
+    "mtime": 1793342855.9659376,
+    "seen": 1793342983.0143824,
+    "ast_hash": "45444446cc206a9612f215fa22d53451",
     "semantic_hash": ""
   },
   ".kiro/skills/graphify/SKILL.md": {
@@ -678,9 +678,9 @@
     "semantic_hash": ""
   },
   "src/app/(home)/page.tsx": {
-    "mtime": 1793292499.2635539,
-    "seen": 1793294405.9947906,
-    "ast_hash": "c9ad2ee552553f4dbd9ccf144a5fc743",
+    "mtime": 1793342855.9661877,
+    "seen": 1793342983.0143194,
+    "ast_hash": "817e42b2757e8dabebc22d06f19404bb",
     "semantic_hash": ""
   },
   "src/components/brand/Brand.tsx": {
@@ -702,9 +702,9 @@
     "semantic_hash": ""
   },
   "src/app/(wizard)/isi-data/[langkah]/page.tsx": {
-    "mtime": 1793297924.740142,
-    "seen": 1793298352.3642364,
-    "ast_hash": "7e8699d0f275a0fa4a9cb7fc081fca56",
+    "mtime": 1793342824.553549,
+    "seen": 1793342983.0143487,
+    "ast_hash": "2e380330c316f19dd01a171312dbc2f3",
     "semantic_hash": ""
   },
   "src/components/navbar/Menu.tsx": {
@@ -726,9 +726,9 @@
     "semantic_hash": ""
   },
   "src/lib/accounts.ts": {
-    "mtime": 1793287480.1052964,
-    "seen": 1793294405.9948704,
-    "ast_hash": "f67ec12bf8d5bfc75898f081ff4a175e",
+    "mtime": 1793340313.1669018,
+    "seen": 1793342983.0144348,
+    "ast_hash": "d1dbc653603ba05765b7d8ae36b46588",
     "semantic_hash": ""
   },
   "src/lib/session-actions.ts": {
@@ -744,15 +744,9 @@
     "semantic_hash": ""
   },
   "src/proxy.ts": {
-    "mtime": 1793287731.4072552,
-    "seen": 1793294405.994876,
-    "ast_hash": "36e513cdf7d8d630e0008ee081f79de6",
-    "semantic_hash": ""
-  },
-  "docs/navigation-plan.md": {
-    "mtime": 1793294404.1810255,
-    "seen": 1793294405.994892,
-    "ast_hash": "6e3a9775dd209c628b68b62edb8b1224",
+    "mtime": 1793340313.1671407,
+    "seen": 1793342983.0144432,
+    "ast_hash": "a1fea6e76dcac6d8d0989cbf562c29c5",
     "semantic_hash": ""
   },
   "public/art/art-backup.svg": {
@@ -819,6 +813,60 @@
     "mtime": 1793298349.393647,
     "seen": 1793298352.3643446,
     "ast_hash": "b21d07a541a2b90cfc62af222be28d29",
+    "semantic_hash": ""
+  },
+  "src/app/(quick)/cek-cepat/page.tsx": {
+    "mtime": 1793342789.06925,
+    "seen": 1793342983.014342,
+    "ast_hash": "871885f01d956a44975d38a31c4e6c84",
+    "semantic_hash": ""
+  },
+  "src/app/(quick)/cek-cepat/simpan/page.tsx": {
+    "mtime": 1793342789.0705903,
+    "seen": 1793342983.0143437,
+    "ast_hash": "0ed979e1a90edd5a8c9c56c1705f3035",
+    "semantic_hash": ""
+  },
+  "src/app/(quick)/layout.tsx": {
+    "mtime": 1793342789.0655901,
+    "seen": 1793342983.0143447,
+    "ast_hash": "9354e6601ca4e793b8b96fbe3c8132ff",
+    "semantic_hash": ""
+  },
+  "src/features/cek-cepat/QuickCheck.tsx": {
+    "mtime": 1793342789.0574248,
+    "seen": 1793342983.0144181,
+    "ast_hash": "d1d79d88d43cff83362f88169299b6d8",
+    "semantic_hash": ""
+  },
+  "src/features/cek-cepat/SaveDraft.tsx": {
+    "mtime": 1793342789.0604262,
+    "seen": 1793342983.0144198,
+    "ast_hash": "44ddc02c94d34a8f3019a9d7b79d0e5b",
+    "semantic_hash": ""
+  },
+  "src/features/cek-cepat/draft-store.ts": {
+    "mtime": 1793342789.0525901,
+    "seen": 1793342983.014421,
+    "ast_hash": "6ae841633ccba290d0d7a6fdfe9349b7",
+    "semantic_hash": ""
+  },
+  "src/lib/quick-check-actions.ts": {
+    "mtime": 1793340313.1470158,
+    "seen": 1793342983.0144384,
+    "ast_hash": "77bcaac32207ad45a44f7739e8f257d0",
+    "semantic_hash": ""
+  },
+  "src/lib/quick-check.ts": {
+    "mtime": 1793342431.6980922,
+    "seen": 1793342983.014439,
+    "ast_hash": "0dd1d27d2fd75915d6e32463f1ae1ab8",
+    "semantic_hash": ""
+  },
+  "docs/guest-check-plan.md": {
+    "mtime": 1793342980.8982737,
+    "seen": 1793342983.0144598,
+    "ast_hash": "36427f2b9a60f227af8ac9b19668dbc7",
     "semantic_hash": ""
   }
 }
